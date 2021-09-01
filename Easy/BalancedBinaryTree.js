@@ -19,7 +19,6 @@
   if (Math.abs(leftHeight - rightHeight) <= 1 && isBalanced(root.left) && isBalanced(root.right)) return true;
   
   return false;
-  
 };
 
 let getHeight = function(node) {
@@ -28,6 +27,21 @@ let getHeight = function(node) {
   let leftHeight = getHeight(node.left);
   let rightHeight = getHeight(node.right);
   
-  return Math.max(leftHeight, rightHeight) + 1;
+  return Math.max(leftHeight, rightHeight) + 1;  
+};
+
+/* 
+
+  Explanation: 
   
-}
+  Standard Top-Down recursion
+
+  Starting from the root node, make recursive calls to get the heights of the left and right subtrees of every node.
+  If the difference in height between the two subtrees is less than or equal to 1 then continue down the tree until either a 
+  subtree is found that isn't height balanced or all sub-trees have been checked.
+
+  Time Complexity: O(n^2) where n is the number of nodes
+  Space Complexity: O(h) where h is the height of the tree
+
+*/
+
