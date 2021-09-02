@@ -13,12 +13,12 @@
  var preorderTraversal = function(root) {
   let result = [];
   
-  let traverse = function (root) {
-      if (root === null) return;
+  let traverse = function (node) {
+      if (node === null) return;
       
-      result.push(root.val);
-      traverse(root.left);
-      traverse(root.right);
+      result.push(node.val);
+      traverse(node.left);
+      traverse(node.right);
   }
   
   traverse(root);
