@@ -46,11 +46,11 @@ let buildGraph = function (edges) {
 
   Explanation:
 
-  Convert edge list to an adjacency list then do iterative DFS
+  Convert edge list to an adjacency list then do iterative DFS on undirected cyclic graph
 
   Time Complexity: O(n^2)
   Space Complexity: O(n)
-  
+
   where n is the number of nodes
 
 */
