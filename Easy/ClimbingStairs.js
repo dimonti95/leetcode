@@ -25,4 +25,6 @@
   Time Complexity: O(n)
   Space Complexity: O(n)
 
+  where n is the number of steps
+
 */
