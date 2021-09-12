@@ -20,7 +20,7 @@
 
   Explanation:
   
-  Recursive memoized DP solution
+  Recursive memoized DP
   
   Time Complexity: O(n)
   Space Complexity: O(n)
@@ -53,7 +53,7 @@
 /*
   Explanation:
   
-  Bottoms up DP solution.
+  Bottom up DP
   
   Time Complexity: O(n)
   Space Complexity: O(1)
