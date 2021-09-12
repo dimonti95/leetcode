@@ -20,6 +20,9 @@
 
   Iterative
 
+  Time Complexity: O(n)
+  Space Complexity: O(1)
+
 */
 
 
@@ -46,5 +49,8 @@
 /*
 
   Recursive
+
+  Time Complexity: O(n)
+  Space Complexity: O(n)
 
 */
