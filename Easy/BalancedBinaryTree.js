@@ -31,8 +31,6 @@ let getHeight = function(node) {
 };
 
 /* 
-
-  Explanation: 
   
   Standard Top-Down recursion
 
