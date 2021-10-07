@@ -32,3 +32,43 @@
   Space Complexity: O(logn)
 
 */
+
+
+
+/**
+ * @param {number} n
+ * @return {boolean}
+ */
+ var isHappy = function(n) {
+    
+  let seen = {};
+  
+  let recurse = function(num) {
+      
+      if (num === 1) return true;
+      if (seen[num]) return false;
+      
+      let sum = 0;
+      seen[num] = true;
+      
+      while (num !== 0) {
+          const rem = num % 10;
+          num -= rem;
+          num /= 10;
+          sum += Math.pow(rem, 2);
+      }
+      
+      return recurse(sum);
+  }
+  
+  return recurse(n);
+};
+
+/*
+
+  Recursive
+
+  Time Complexity: O(logn)
+  Space Complexity: O(logn)
+
+*/
