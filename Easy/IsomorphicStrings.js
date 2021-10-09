@@ -7,32 +7,27 @@
     
   let sMap = {};
   let tMap = {};
+  
   let charCount = s.length > t.length ? s.length : t.length;
   
-  let sUniqueCount = 1;
-  let tUniqueCount = 1;
-  let sMapped = ''
-  let tMapped = ''
   for (let i = 0; i < charCount; i++) {
-      if (!sMap[s.charAt(i)]) sMap[s.charAt(i)] = sUniqueCount++;
-      if (!tMap[t.charAt(i)]) tMap[t.charAt(i)] = tUniqueCount++;
-      sMapped += sMap[s.charAt(i)].toString()
-      tMapped += tMap[t.charAt(i)].toString()
+      if(!sMap[s.charAt(i)]) sMap[s.charAt(i)] = t.charAt(i);
+      if(!tMap[t.charAt(i)]) tMap[t.charAt(i)] = s.charAt(i);
+      if (sMap[s.charAt(i)] !== t.charAt(i) || tMap[t.charAt(i)] !== s.charAt(i)) {
+          return false;
+      }
   }
   
-  if (sMapped === tMapped) return true;
-  
-  return false
+  return true;
 };
 
 /*
 
-  Map every letter to a integer with the first unique character mapped to 1, the second mapped to 2..
+  Two-way map the characters of each string and return false if the mappings don't match
   
   Time Complexity: O(n)
-  Space Complexity: O(n)
+  Space Complexity: O(1) (s and t consist of any valid ascii character)
   
   Where n is the total number of characters
   
-
 */
