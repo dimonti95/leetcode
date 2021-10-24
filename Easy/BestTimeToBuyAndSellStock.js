@@ -2,25 +2,20 @@
  * @param {number[]} prices
  * @return {number}
  */
- var maxProfit = function(prices) {
-   
-  let max = 0;
-  let i = 0;
-  let j = 1;
-  
-  while (j < prices.length) {
-      const difference = prices[j] - prices[i];
-      if (difference < 0) {
-          i = j;
-          j += 1;
-      }
-      else {
-          max = Math.max(max, difference);
-          j++;
-      }
-  }
-  
-  return max;
+var maxProfit = function(prices) {
+ 
+	let max = 0;
+	let left = 0;
+
+	for (let right = 0; right < prices.length; right++) {
+		let difference = prices[right] - prices[left];
+		if (difference < 0) {
+			left = right;
+		}
+		max = Math.max(max, difference);
+	}
+
+	return max;
 };
 
 /*
