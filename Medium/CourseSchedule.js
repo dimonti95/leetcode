@@ -5,33 +5,30 @@
  */
  var canFinish = function(numCourses, prerequisites) {
     
-	let adjList = {};
-    let visited = new Set();
-    let visiting = new Set();
+    let adjList = {};
     for (let i = 0; i < numCourses; i++) adjList[i] = [];
-	for (let edge of prerequisites) {
-		let [node1, node2] = edge;
-		adjList[node1].push(node2);
-	}
-
-    let containsCycle = function(node) {
-        if (visited.has(node)) return false;
-        if (visiting.has(node)) return true;
-        
-        visiting.add(node);
-        
-        for (let neighbor of adjList[node]) {
-            if (containsCycle(neighbor)) return true;
-        }
-        
-        visiting.delete(node);
-        visited.add(node);
-        return false;
+    for (let pre of prerequisites) {
+        const crs1 = pre[0];
+        const crs2 = pre[1];
+        adjList[crs1].push(crs2);
     }
     
+    let visited = new Set();
+    let dfs = function (course) {
+        if (visited.has(course)) return false;
+        if (adjList[course] === []) return true;
+        
+        visited.add(course);
+        for (let neighbor of adjList[course]) {
+            if (dfs(neighbor) === false) return false;
+        }
+        visited.delete(course);
+        adjList[course] = [];
+        return true;
+    }
     
-	for (let node in adjList) {
-        if (containsCycle(node)) return false;
+    for (let i = 0; i < numCourses; i++) {
+        if (dfs(i) === false) return false;
     }
     
     return true;
@@ -40,9 +37,6 @@
 /*
 
     DFS - check for cycle
-
-    Traverse all the children of a node first.
-    Once done traversing all the children of a particular node, and there are no cycles, then mark the node as visited.
 
     Time Complexity: O(v + e)
     Space Complexity: O(v + e)
