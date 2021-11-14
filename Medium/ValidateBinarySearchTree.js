@@ -29,13 +29,14 @@
     
                 5   
             |       |
-            1       4
+            1       6
                  |     |
-                 3     6         
+                 3     7         
                  
     -MAX < 5 < MAX
     -MAX < 1 < 5
-       5 < 4 < MAX  --- false
+       5 < 6 < MAX  
+       5 < 3 < 6    --- false
     
     Time: O(n)
     Space: O(h)
