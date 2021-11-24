@@ -77,7 +77,7 @@ var kthSmallest = function(root, k) {
 
     Iterative in order traversal
 
-    Time: O(n)
+    Time: O(h + k)
     Space: O(h)
 
 */
