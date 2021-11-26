@@ -55,7 +55,9 @@ let mergeLists = function(l1, l2) {
 
     Non-heap solution - Divide and Conquer - loop the array of linked lists and merge them two at time
 
-    Time: O(nlogk)
+    Time: O(nlogk) (Since all n nodes are iterated over logk times)
     Space: O(1)
+
+    Where n is the total number of nodes and k is the number of linked lists.
 
 */
