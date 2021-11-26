@@ -109,4 +109,6 @@ class MaxHeap {
     Time: O(nlogk)
     Space: O(n + k)
 
+    Where n is the number of elements in the list and k is the number of most frequent elements beign returned
+
 */
