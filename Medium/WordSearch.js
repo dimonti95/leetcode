@@ -42,7 +42,7 @@
 
     Backtracking - DFS - mark current path and backtrack if it doesn't lead to the answer
     
-    Time: O(N * 3L) (theres only 3 directions we could go since we won't go to the previous cell in the path)
+    Time: O(N * 3L) (theres only 3 directions we could go after the first letter since we won't go to the previous cell in the path)
     Space: O(L)
     
     Where N is the number of cells and L is the length of the word
