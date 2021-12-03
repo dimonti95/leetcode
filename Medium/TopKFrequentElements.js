@@ -16,10 +16,8 @@
     
     let heap = new MinHeap(k);
     
-    let seen = {};
-    for (let num of nums) {
-        if (!seen[num]) heap.insert([num, count[num]]); // [key, frequency]
-        seen[num] = true;
+    for (let num in count) {
+        heap.insert([num, count[num]]); // [key, frequency]
 
         // only keep the k largest (most frequent) elements so that each insert runs in O(logk) rather than O(logn)
         if (heap.heap.length > k) heap.popMin();
