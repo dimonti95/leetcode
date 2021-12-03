@@ -87,9 +87,9 @@ class MinHeap {
 
     popMin() {
         this.swap(0, this.heap.length - 1);
-        let max = this.heap.pop();
+        let min = this.heap.pop();
         this.heapify(0);
-        return max;
+        return min;
     }
 
     parent(index) {
