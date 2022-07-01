@@ -38,7 +38,7 @@
     Iterative    
 
     Time: O(n)
-    Space: O(1) - assuming the result list doesn't count as extra space
+    Space: O(1)
 
 */
 
@@ -74,7 +74,7 @@ var mergeTwoLists = function(list1, list2) {
 
 /*
 
-    Recrusive
+    Recursive
 
     Time: O(n)
     Space: O(n)
