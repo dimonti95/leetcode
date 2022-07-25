@@ -77,3 +77,82 @@ WordDictionary.prototype.search = function(word) {
     Where w is the length of the word
 
 */
+
+
+
+class TrieNode {
+  constructor() {
+    this.children = {};
+    this.word = false;
+  }
+}
+
+var WordDictionary = function() {
+   this.root = new TrieNode(); 
+};
+
+/** 
+ * @param {string} word
+ * @return {void}
+ */
+WordDictionary.prototype.addWord = function(word) {
+  let current = this.root;
+  for (let i = 0; i < word.length; i++) {
+    let c = word.charAt(i);
+    if (!current.children[c])
+      current.children[c] = new TrieNode();
+    current = current.children[c];
+  }
+  current.word = true;
+};
+
+/** 
+ * @param {string} word
+ * @return {boolean}
+ */
+WordDictionary.prototype.search = function(word) {
+  
+  let dfs = function(current, index) {
+    if (index === word.length)
+      return current.word;
+    
+    let c = word.charAt(index);
+    
+    if (c === '.') {
+      for (let key in current.children) {
+        if (dfs(current.children[key], index + 1))
+          return true;
+      }
+      return false;
+    }
+    else {
+      if (!current.children[c])
+        return false;
+      return dfs(current.children[c], index + 1);
+    }
+  }
+  
+  return dfs(this.root, 0);
+};
+
+/** 
+ * Your WordDictionary object will be instantiated and called as such:
+ * var obj = new WordDictionary()
+ * obj.addWord(word)
+ * var param_2 = obj.search(word)
+ */
+
+/*
+    Another way to implement DFS without the inner loop.
+
+    Add Word
+    Time: O(w)
+    Space: O(w)
+
+    Search Word
+    Time: O(w * 26^w)
+    Space: O(w) to search words with dots to keep the recursion stack
+
+    Where w is the length of the word
+
+*/
