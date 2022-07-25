@@ -18,10 +18,9 @@ class TrieNode {
       
       for (let i = 0; i < word.length; i++) {
           let c = word.charAt(i);
-          if (current[c] === undefined) {
-              current[c] = new TrieNode();
-          }
-          current = current[c];
+          if (!current.children[c])
+              current.children[c] = new TrieNode();
+          current = current.children[c];
       }
       
       current.endOfWord = true;
@@ -36,10 +35,9 @@ class TrieNode {
       
       for (let i = 0; i < word.length; i++) {
           let c = word.charAt(i);
-          if (current[c] === undefined) {
+          if (!current.children[c])
               return false;
-          }
-          current = current[c];
+          current = current.children[c];
       }
       
       return current.endOfWord;
@@ -55,10 +53,9 @@ class TrieNode {
       
       for (let i = 0; i < prefix.length; i++) {
           let c = prefix.charAt(i);
-          if (current[c] === undefined) {
+          if (!current.children[c])
               return false;
-          }
-          current = current[c];
+          current = current.children[c];
       }
       
       return true;
