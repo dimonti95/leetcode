@@ -64,7 +64,6 @@ var cloneGraph = function(node) {
   
   let map = {};
   let stack = [ node ];
-  let visited = new Set([ node.val ]);
   map[node.val] = new Node(node.val);
   
   while (stack.length > 0) {
@@ -72,14 +71,12 @@ var cloneGraph = function(node) {
     let copy = map[current.val];
     
     for (let neighbor of current.neighbors) {
-      if (!map[neighbor.val])
+      if (!map[neighbor.val]) {
         map[neighbor.val] = new Node(neighbor.val);
+        stack.push(neighbor);
+      }
       let temp = map[neighbor.val];
       copy.neighbors.push(temp);
-      if (!visited.has(neighbor.val)) {
-        stack.push(neighbor);
-        visited.add(neighbor.val);
-      }
     }
   }
   
