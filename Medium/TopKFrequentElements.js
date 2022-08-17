@@ -5,31 +5,31 @@
  */
  var topKFrequent = function(nums, k) {
   
-    let counts = {};
-    for (let num of nums) {
-      if (counts[num] === undefined)
-        counts[num] = 0;
-      counts[num] += 1;
-    }
+  let counts = {};
+  for (let num of nums) {
+    if (counts[num] === undefined)
+      counts[num] = 0;
+    counts[num] += 1;
+  }
+  
+  // O(n) - worst case each element is unique
+  let heap = new MaxHeap();
+  for (let key in counts)
+    heap.insert([key, counts[key]]); // [key, frequency]
+  
+  // O(n) - worst case each element is unique
+  heap.buildHeap();
+  
+  // O(klogn)
+  let res = [];
+  while (k > 0) {
+    let nextMax = heap.popMax();
+    res.push(nextMax[0]);
+    k -= 1;
+  }
     
-    // O(n) - worst case each element is unique
-    let heap = new MaxHeap();
-    for (let key in counts)
-      heap.insert([key, counts[key]]); // [key, frequency]
-    
-    // O(n) - worst case each element is unique
-    heap.buildHeap();
-    
-    // O(klogn)
-    let res = [];
-    while (k > 0) {
-      let nextMax = heap.popMax();
-      res.push(nextMax[0]);
-      k -= 1;
-    }
-     
-    return res;
-  };
+  return res;
+};
   
 class MaxHeap {
     
