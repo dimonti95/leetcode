@@ -33,8 +33,7 @@
   
 class MaxHeap {
     
-  constructor(size) {
-    this.size = size || 0;
+  constructor() {
     this.heap = [];
   }
 
