@@ -13,7 +13,7 @@
     }
     
     // O(n) - worst case each element is unique
-    let heap = new MaxHeap(k);
+    let heap = new MaxHeap();
     for (let key in counts)
       heap.insert([key, counts[key]]); // [key, frequency]
     
