@@ -78,7 +78,8 @@ class MaxHeap {
   }
 
   buildHeap() {
-    for (let i = this.heap.length - 1; i >= 0; i--)
+    let startIndex = Math.floor(this.heap.length / 2 - 1);
+    for (let i = startIndex; i >= 0; i--)
       this.heapify(i);
   }
 
