@@ -3,6 +3,52 @@
  * @param {number} k
  * @return {number[]}
  */
+var topKFrequent = function(nums, k) {
+  
+  let count = {};
+  for (let num of nums) {
+    if (count[num] === undefined)
+      count[num] = 0;
+    count[num] += 1;
+  }
+
+  let bucket = [];
+  for (let key in count) {
+    if (bucket[count[key]] === undefined)
+      bucket[count[key]] = [];
+    bucket[count[key]].push(key);
+  }
+  
+  let res = [];
+  for (let i = bucket.length - 1; i >= 0; i--) {
+    if (bucket[i]) {
+      for (let num of bucket[i]) {
+        res.push(num);
+        k--;
+        if (k === 0)
+          return res;
+      }
+    }
+  }
+  
+};
+
+/* 
+
+  Bucket sort
+
+  Time: O(n)
+  Space: O(n)
+
+*/
+
+
+
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number[]}
+ */
  var topKFrequent = function(nums, k) {
   
   let counts = {};
