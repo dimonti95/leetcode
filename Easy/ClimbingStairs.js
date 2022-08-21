@@ -36,6 +36,32 @@
  * @return {number}
  */
  var climbStairs = function(n) {  
+  
+  const table = new Array(n + 1).fill(0);
+  table[0] = 1;
+  for (let i = 0; i < n; i++) {
+    table[i + 1] += table[i];
+    table[i + 2] += table[i];
+  }
+  
+  return table[n];
+};
+
+/*
+
+  Tabulation (bottom-up)
+  Time: O(n)
+  Space: O(n)
+  
+*/
+
+
+
+/**
+ * @param {number} n
+ * @return {number}
+ */
+ var climbStairs = function(n) {  
     
   let n1 = 0;
   let n2 = 1;
