@@ -23,7 +23,7 @@ var uniquePaths = function(m, n, mem = {}) {
   Space: O(n+m)
 
   Memoized
-  Time: O(n)
+  Time: O(n*m)
   Space: O(n+m)
   
 */
