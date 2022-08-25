@@ -74,3 +74,38 @@ var coinChange = function(coins, amount, mem = {}) {
   n = the target amount
 
 */
+
+
+
+/**
+ * @param {number[]} coins
+ * @param {number} amount
+ * @return {number}
+ */
+var coinChange = function(coins, amount) {
+  
+  let table = new Array(amount + 1).fill(amount + 1);
+  table[0] = 0;
+  
+  for (let i = 1; i < table.length; i++) {    
+    for (let coin of coins) {
+      if (i - coin >= 0)
+        table[i] = Math.min(table[i], table[i - coin] + 1);
+    }
+  }
+  
+  return table[amount] === amount + 1 ? -1 : table[amount];
+};
+ 
+/*
+
+  Tabulation DP (bottom-up)
+
+  Time: O(n*c)
+  Space: O(n)
+
+  Where 
+  c = the number of coins
+  n = the target amount
+
+*/
