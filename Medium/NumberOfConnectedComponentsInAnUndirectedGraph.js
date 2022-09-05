@@ -126,6 +126,8 @@ var countComponents = function(n, edges) {
   Time: O(e)
   Space: O(v)
   
+  Note: See Solution for LC 261: Graph Valid Tree for a breakdown on how Union Find works
+
   ---------------------------------------
   
   Example: n = 5, edges = [[0,1],[1,2],[3,4]]
