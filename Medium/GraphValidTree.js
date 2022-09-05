@@ -55,3 +55,59 @@ var validTree = function(n, edges) {
   Space: O(v + e)
 
 */
+
+
+
+/**
+ * @param {number} n
+ * @param {number[][]} edges
+ * @return {boolean}
+ */
+var validTree = function(n, edges) {
+    
+  if (edges.length !== n - 1)
+    return false;
+  
+  let adjList = {};
+  for (let i = 0; i < n; i++)
+    adjList[i] = [];
+  
+  for (let edge of edges) {
+    let a = edge[0];
+    let b = edge[1];
+    adjList[a].push(b);
+    adjList[b].push(a);
+  }
+  
+  let visited = new Set();
+  let dfs = function(n) {
+    if(visited.has(n))
+      return;
+    
+    visited.add(n);
+    for (let neighbor of adjList[n])
+      dfs(neighbor);
+  }
+  
+  dfs(0);
+  
+  if (visited.size !== n)
+    return false
+  
+  return true;
+};
+
+/*
+
+  Approach 2
+  
+  Another definition for whether a graph is a tree:
+  * Has exactly n-1 edges
+  * The graph is fully connected
+
+  Time: O(v)
+  Space: O(v)
+
+  v == e since the first check verifies the number of edges
+
+*/
