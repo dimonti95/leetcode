@@ -18,6 +18,8 @@ var canAttendMeetings = function(intervals) {
 
 /*
 
+  Approach 2:
+
   Sort based on start value and check if the end value exceeds the start of the next interval
 
   Time: O(nlogn)
