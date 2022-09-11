@@ -24,6 +24,17 @@
   return true;
 };
 
+let isAlphanumeric = function(c) {
+  if (c >= 'a' && c <= 'z')
+    return true;
+  else if (c >= 'A' && c <= 'Z')
+    return true;
+  else if (c >= '0' && c <= '9')
+    return true;
+  else
+    return false;
+}
+
 /*
 
   Two pointers on each end ignoring case and non-alphanumerics
