@@ -48,7 +48,6 @@ var countComponents = function(n, edges) {
 */
 
 
-
 /**
  * @param {number} n
  * @param {number[][]} edges
@@ -56,62 +55,65 @@ var countComponents = function(n, edges) {
  */
 var countComponents = function(n, edges) {
   
-  // track the parent of each node
-  let parent = new Array(n);
-  
-  // track the rank (number of connected child nodes) of each node
-  let rank = new Array(n).fill(1);
-  
-  // initialize parent array so that each node is a parent of itself
-  for (let i = 0; i < n; i++)
-    parent[i] = i;
-  
-  /**
-   * Finds the root parent of n
-   */
-  let find = function(n) {
-    let res = n;
-    
-    while (res !== parent[res]) {
-      parent[res] = parent[parent[res]]; // path compression optimization
-      res = parent[res];
-    }
-    
-    return res;
+  let unionFind = new UnionFind(n);
+  let res = n;
+  for (let edge of edges) {
+    let n1 = edge[0];
+    let n2 = edge[1];
+    res -= unionFind.union(n1, n2);
   }
   
-  /**
-   * ...
-   */
-  let union = function (n1, n2) {
-    let p1 = find(n1);
-    let p2 = find(n2);
+  return res;
+};
+
+class UnionFind {
+  
+  constructor(n) {
+    this.parent = new Array(n);
+    this.size = new Array(n);
+    for (let i = 0; i < n; i++) {
+      this.parent[i] = i;
+      this.size[i] = 1;
+    }
+  }
+  
+  find(n) {
+    let root = n;
+    while (root !== this.parent[root]) {
+      root = this.parent[root];
+    }
     
-    if (p1 == p2)
+    // path compression optimization
+    while (n !== root) {
+      let temp = n;
+      n = this.parent[n];
+      this.parent[temp] = root;
+    }
+    
+    return root;
+  }
+  
+  union(n1, n2) {
+    let p1 = this.find(n1);
+    let p2 = this.find(n2);
+    
+    if (p1 === p2)
       return 0;
     
-    // add to the larger root parent
-    if (rank[p2] > rank[p1]) {
-      parent[p1] = p2;
-      rank[p2] += rank[p1];
+    // ensure the larger set remains the root
+    if (this.size[p2] >  this.size[p1]) {
+      this.parent[p1] = p2;
+      this.size[p2] += this.size[p1];
     }
     else {
-      parent[p2] = p1;
-      rank[p1] += rank[p2]
+      this.parent[p2] = p1;
+      this.size[p1] += this.size[p2];
     }
     
     return 1;
   }
   
-  let res = n;
-  for (let edge of edges) {
-    let n1 = edge[0];
-    let n2 = edge[1];
-    res -= union(n1, n2);
-  }
-  
-  return res;
-};
+}
 
 /*
 
