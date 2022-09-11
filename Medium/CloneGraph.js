@@ -38,8 +38,8 @@
 
     Recursive DFS
     
-    Time Complexity: O(v + e)
-    Space Compelxity: O(v)
+    Time Complexity: O(n + e)
+    Space Compelxity: O(n)
 
 */
 
@@ -87,8 +87,57 @@ var cloneGraph = function(node) {
 	
 	Iterative DFS
   
-  	Time: O(v + e)
-	Space: O(v)
+  	Time: O(n + e)
+	Space: O(n)
 
   */
 
+
+
+  /**
+ * // Definition for a Node.
+ * function Node(val, neighbors) {
+ *    this.val = val === undefined ? 0 : val;
+ *    this.neighbors = neighbors === undefined ? [] : neighbors;
+ * };
+ */
+
+/**
+ * @param {Node} node
+ * @return {Node}
+ */
+var cloneGraph = function(node) {
+  
+  if (!node)
+    return null;
+  
+  let copyMap = {};
+  let queue = [ node ];
+  copyMap[node.val] = new Node(node.val);
+  
+  while (queue.length > 0) {
+    let current = queue.shift()
+    
+    for (let neighbor of current.neighbors) {
+      if (neighbor.val in copyMap) {
+        copyMap[current.val].neighbors.push(copyMap[neighbor.val]);
+      }
+      else {
+        copyMap[neighbor.val] = new Node(neighbor.val);
+        copyMap[current.val].neighbors.push(copyMap[neighbor.val]);
+        queue.push(neighbor);
+      }
+    }
+  }
+  
+  return copyMap[node.val];
+};
+
+/*
+
+  BFS
+  
+  Time: O(n + e)
+  Space: O(n)
+
+*/
