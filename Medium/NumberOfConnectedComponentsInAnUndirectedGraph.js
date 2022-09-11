@@ -126,10 +126,12 @@ class UnionFind {
   * The parent map tracks the parent of each node
   * The rank map tracks the size of the tree from that node
   
-  Time: O(e)
+  Time: O(e + α(n))
   Space: O(v)
   
   Note: See Solution for LC 261: Graph Valid Tree for a breakdown on how Union Find works
+
+  α(n) = Amortized constant time (almost constant time)
 
   ---------------------------------------
   
