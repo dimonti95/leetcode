@@ -59,7 +59,7 @@ var lengthOfLongestSubstring = function(s) {
 
 /*
 
-  Optimized Sliding window
+  Optimized Sliding window - using a set requires 2n iterations that can be cut down to n using a map to track indecies
 
   Time: O(n)
   Space: O(min(m,n))
