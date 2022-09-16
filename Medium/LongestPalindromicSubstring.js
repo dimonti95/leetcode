@@ -37,3 +37,34 @@ let expandFromCenter = function(s, left, right) {
     Space: O(1)
 
 */
+
+
+
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var longestPalindrome = function(s) {
+
+  let max = 0;
+  let res = "";
+  for (let i = 0; i < s.length; i++) {
+    let pal1 = expandFromCenter(i, i, s);
+    let pal2 = expandFromCenter(i, i + 1, s);
+    let currentMax = Math.max(pal1.length, pal2.length);
+    if (currentMax > max) {
+      max = currentMax;
+      res = pal1.length > pal2.length ? pal1 : pal2;
+    }
+  }
+  
+  return res;
+};
+
+let expandFromCenter = function(left, right, s) {
+  while (left >= 0 && right < s.length && s.charAt(left) === s.charAt(right)) {
+    left--;
+    right++;
+  }
+  return s.slice(left + 1, right);
+}
