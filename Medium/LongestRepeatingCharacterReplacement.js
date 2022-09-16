@@ -42,3 +42,45 @@ let getCountOfMostFrequentChar = function (map) {
   Where n is the length of the string
 
 */
+
+
+
+/**
+ * @param {string} s
+ * @param {number} k
+ * @return {number}
+ */
+var characterReplacement = function(s, k) {
+    
+  let map = {};
+  let max = 0;
+  let left = 0;
+  let maxFreq = 0;
+
+  for (let right = 0; right < s.length; right++) {
+    map[s.charAt(right)] ? map[s.charAt(right)]++ : map[s.charAt(right)] = 1;
+    maxFreq = Math.max(maxFreq, map[s.charAt(right)]);
+    let count = (right - left + 1) - maxFreq;
+    while (count > k) {
+      map[s.charAt(left)]--;
+      left++;
+      count = (right - left + 1) - maxFreq;
+    }
+    max = Math.max(max, right - left + 1);
+  }
+  
+  return max; 
+  
+};
+
+/*
+
+  Optimized from O(n*26)
+  * When the left pointer gets moved forward the maxFreq doesn't get updated
+  * But checking against the wrong maxFreq doesn't change the max
+  * The max only updates when a new maxFreq is found
+
+  Time: O(n)
+  Space: O(1)
+
+*/
