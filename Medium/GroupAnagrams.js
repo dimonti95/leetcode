@@ -4,29 +4,44 @@
  */
 var groupAnagrams = function(strs) {
     
-  let groupMap = {};
-  for (let i = 0; i < strs.length; i++) {
-    let count = []; // a ... z
-    for (let j = 0; j < strs[i].length; j++) {
-      let c = strs[i][j];
-      let index = c.charCodeAt(0) - 'a'.charCodeAt(0)
-      count[index] === undefined ? count[index] = 1 : count[index] += 1;
+  let countMap = {};
+  for (let str of strs) {
+    let counts = new Array(26).fill(0);
+    for (let c of str) {
+      counts[c.charCodeAt(0) - 'a'.charCodeAt(0)] += 1;
     }
-    groupMap[count] === undefined ? groupMap[count] = [ strs[i] ] : groupMap[count].push(strs[i]);
+    !(counts in countMap) ? countMap[counts] = [ str ] : countMap[counts].push(str);
   }
   
-  let ans = [];
-  for (let key in groupMap)
-    ans.push(groupMap[key]);
-  
-  return ans;
+  let res = [];
+  for (let key in countMap)
+    res.push(countMap[key]);
+
+  return res;
 };
 
 /*
 
-    Time: O(n * s)
-    Space: O(n)
+  Solution 1: 
+  * Sort the strings and build a map
+  * The keys are sorted strings and each sorted string maps to a list of strings with those characters
+  
+  Time: O(nclogc)
+  Space: O(n) or O(nc)
+  
+  Where n is the number of strings and c is the average length of each string
+  * Space is O(nc) because each n string has c characters
+  * The input array is also O(nc) space
+  
+  ----------------------------------------------------------------------------------------------------------------
 
-    where n is the number of strings and s is the average length of each string
+  Solution2:
+  * Rather than sorting just create an 26 element array that tracks the count for each character
+  * Use the count array as a key and map each key to the strings that have those counts
+  
+  Time: O(nc)
+  Space: O(nc)
+  
+  Where n is the number of strings and c is the average length of each string  
 
- */
+*/
