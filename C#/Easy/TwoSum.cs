@@ -6,14 +6,13 @@ public class Solution {
         {
             var num = nums[i];
             var diff = target - num;
+
             if (map.ContainsKey(diff))
             {
                 return [map[diff], i];
             }
-            else
-            {
-                map.Add(num, i);
-            }
+
+            map.Add(num, i);
         }
 
         return null;
