@@ -19,3 +19,15 @@ public class Solution {
         return null;
     }
 }
+
+/*
+
+  Loop over nums and keep a mapping of each number to its index, if the difference exists int he map than return the 
+  index of that number and the current index.
+  
+  Time Complexity: O(n)
+  Space Complexity: O(n)
+  
+  Where n is the size of the nums array
+
+*/
