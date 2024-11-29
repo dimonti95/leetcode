@@ -1,6 +1,6 @@
 public class Solution {
     public int[] TwoSum(int[] nums, int target) {
-        Dictionary<int, int> map = new Dictionary<int, int>();
+        var map = new Dictionary<int, int>();
 
         for (int i = 0; i < nums.Length; i++)
         {
@@ -11,8 +11,10 @@ public class Solution {
             {
                 return [map[diff], i];
             }
-
-            map.Add(num, i);
+            else if (!map.ContainsKey(num))
+            {
+                map.Add(num, i);
+            }
         }
 
         return null;
