@@ -1,6 +1,5 @@
 public class Solution {
     public IList<IList<int>> ThreeSum(int[] nums) {
-        // Sort the array
         Array.Sort(nums);
 
         var res = new List<IList<int>>();
