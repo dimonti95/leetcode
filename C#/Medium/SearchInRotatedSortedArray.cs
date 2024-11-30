@@ -2,10 +2,11 @@ public class Solution {
     public int Search(int[] nums, int target) {
         int left = 0;
         int right = nums.Length - 1;
-        int middle = (int)Math.Floor((double)nums.Length / 2);
 
         while (left <= right)
         {
+            int middle = (int)Math.Floor((double)(right + left) / 2);
+
             if (nums[middle] == target)
             {
                 return middle;
@@ -32,8 +33,6 @@ public class Solution {
                     right = middle - 1;
                 }
             }
-
-            middle = (int)Math.Floor((double)(right + left) / 2);
         }
 
         return -1;
