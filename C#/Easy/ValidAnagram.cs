@@ -1,30 +1,27 @@
 public class Solution {
     public bool IsAnagram(string s, string t) {
-        var sMap = new Dictionary<char, int>();
-        var tMap = new Dictionary<char, int>();
+        var count = new Dictionary<char, int>();
+
+        // confirm both strings are the same length
+        if (s.Length != t.Length) return false;
 
         // create sMap
-        foreach (char c in s)
+        for (int i = 0; i < s.Length; i++)
         {
-            if (sMap.ContainsKey(c)) sMap[c] += 1;
-            else sMap.Add(c, 1);
-        }
+            char sChar = s[i];
+            char tChar = t[i];
 
-        // create tMap
-        foreach (char c in t)
-        {
-            if (tMap.ContainsKey(c)) tMap[c] += 1;
-            else tMap.Add(c, 1);
-        }
+            if (count.ContainsKey(sChar)) count[sChar] += 1;
+            else count.Add(sChar, 1);
 
-        // return false if the number of unique characters isn't equal
-        if (sMap.Keys.Count != tMap.Keys.Count) return false;
+            if (count.ContainsKey(tChar)) count[tChar] -= 1;
+            else count.Add(tChar, -1);
+        }
 
         // check the count of each character
-        foreach (var pair in sMap)
+        foreach (var pair in count)
         {
-            if (!tMap.ContainsKey(pair.Key)) return false;
-            if (sMap[pair.Key] != tMap[pair.Key]) return false;
+            if (count[pair.Key] != 0) return false;
         }
         
         return true;
