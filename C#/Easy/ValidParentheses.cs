@@ -11,9 +11,11 @@ public class Solution {
             else
             {
                 if (stack.Count == 0) return false;
+                
                 char c1 = stack.Pop();
-                bool isInvalid = (c == '}' && c1 != '{') || (c == ']' && c1 != '[') || (c == ')' && c1 != '(');
-                if (isInvalid) return false;
+                if (c == '}' && c1 != '{') return false;
+                if (c == ']' && c1 != '[') return false;
+                if (c == ')' && c1 != '(') return false;
             }
         }
 
