@@ -28,4 +28,9 @@ public class Solution {
   Time Complexity: O(n)
   Space Complexity: O(1)
 
+  Brute force solution would be to build two strings from lower-case alphanumeric characters and compare them
+
+  Time Complexity: O(n)
+  Space Complexity: O(n)
+
 */
