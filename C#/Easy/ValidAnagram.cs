@@ -5,7 +5,7 @@ public class Solution {
         // confirm both strings are the same length
         if (s.Length != t.Length) return false;
 
-        // create sMap
+        // create count map
         for (int i = 0; i < s.Length; i++)
         {
             char sChar = s[i];
@@ -18,7 +18,7 @@ public class Solution {
             else count.Add(tChar, -1);
         }
 
-        // check the count of each character
+        // make sure the count of each character is the same
         foreach (var pair in count)
         {
             if (count[pair.Key] != 0) return false;
