@@ -30,4 +30,8 @@ public class Solution {
     
     Where n is the length of the string
 
+    Key insights: 
+    * Once you validate a opening/closing pair, you can ignore it
+    * You're always comparing with the most recent open bracket
+
 */
