@@ -36,6 +36,8 @@ public class Solution {
     Time: O(n * m)
     Space: O(m)
 
+    ----------------------------------------------------------------------------------------------------------------
+
     Brute force solution:
     1. Loop over the input array
     2. Sort the string
@@ -46,6 +48,8 @@ public class Solution {
     Where n is the length of strs
     And m is the average length of each string
 
+    ----------------------------------------------------------------------------------------------------------------
+
     Key insight: Anagrams must have the same character frequency, so we can map the character to a count.
 
     Optimized solution:
@@ -54,6 +58,9 @@ public class Solution {
 
     Time: O(n * m)
     Space: O(m)
+
+    Where n is the length of strs
+    And m is the average length of each string
 
     C# notes:
     * You can't use a Dictionary as a key for a Dictionary, because it doesn't implement GetHashCode().
