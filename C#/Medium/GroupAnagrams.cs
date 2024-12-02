@@ -34,7 +34,7 @@ public class Solution {
 /*
 
     Time: O(n * m)
-    Space: O(m)
+    Space: O(n * m)
 
     ----------------------------------------------------------------------------------------------------------------
 
@@ -57,7 +57,7 @@ public class Solution {
     2. Use character frequency map as a key to group the anagrams
 
     Time: O(n * m)
-    Space: O(m)
+    Space: O(n * m)
 
     Where n is the length of strs
     And m is the average length of each string
