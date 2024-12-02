@@ -62,6 +62,8 @@ public class Solution {
     Where n is the length of strs
     And m is the average length of each string
 
+    ----------------------------------------------------------------------------------------------------------------
+
     C# notes:
     * You can't use a Dictionary as a key for a Dictionary, because it doesn't implement GetHashCode().
     * You can't use a List or an Array as a key for the Dictionary because they're reference types.
