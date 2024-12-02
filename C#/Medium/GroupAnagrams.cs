@@ -64,6 +64,9 @@ public class Solution {
 
     C# notes:
     * You can't use a Dictionary as a key for a Dictionary, because it doesn't implement GetHashCode().
-    * You can conver the integer array to a string and use that as the Dictionary key.
+    * You can't use a List or an Array as a key for the Dictionary because they're reference types.
+    * This means two Arrays/Lists with the same content (e.g., [1, 1, 1] and [1, 1, 1]) are still distinct objects stored at different memory locations.
+    * Even though two lists might have the same items, they are still considered different objects by C# unless you override the Equals and GetHashCode methods, which is not done automatically for arrays or lists.
+    * This is why the solution converts the integer array to a string and uses that as the Dictionary key.
 
 */
