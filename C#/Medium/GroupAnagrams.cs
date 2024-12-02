@@ -68,5 +68,6 @@ public class Solution {
     * By default, the GetHashCode function for all reference types use the memory address rather than the content.
     * This means you can't use Dictionary, List, or Array as a key for the Dictionary, because they're all reference types.
     * Two Dictionary/Array/List objects with the same content (e.g., [1, 1, 1] and [1, 1, 1]) are still distinct objects stored at different memory locations.
+    * This is why the array needs to be converted to a string to use it as a Dictionary key.
 
 */
