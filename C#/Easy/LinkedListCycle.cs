@@ -50,3 +50,41 @@ public class Solution {
     Space: O(1)
 
 */
+
+
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public bool HasCycle(ListNode head) {
+        if (head == null || head.next == null) return false;
+        return HasCycleRecursive(head.next, head.next.next);
+    }
+
+    private bool HasCycleRecursive(ListNode slow, ListNode fast)
+    {
+        if (slow == null || fast == null || fast.next == null) return false;
+        if (slow == fast) return true;
+        return HasCycleRecursive(slow.next, fast.next.next);
+    }
+}
+
+/*
+
+    Recursive solution
+
+    Time: O(n)
+    Space: O(n)
+
+    Where n is the number of nodes in the list
+
+*/
