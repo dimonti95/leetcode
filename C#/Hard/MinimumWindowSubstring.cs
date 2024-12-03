@@ -2,7 +2,7 @@ public class Solution {
     public string MinWindow(string s, string t) {
         var tCount = new Dictionary<char, int>();
         var sCount = new Dictionary<char, int>();
-        var res = new Tuple<int, int, int>(Int32.MaxValue, 0, -1);
+        var res = new Tuple<int, int, int>(Int32.MaxValue, 0, -1); // min, left, right
         int needCount = 0;
         int haveCount = 0;
 
