@@ -35,7 +35,7 @@ public class Solution {
 
             if (tCount.ContainsKey(c) && sCount[c] == tCount[c]) haveCount += 1;
 
-            // check to see if window is valid
+            // check if window is valid
             while (haveCount == needCount)
             {
                 int windowSize = right - left + 1;
