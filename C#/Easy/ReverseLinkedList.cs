@@ -64,9 +64,9 @@ public class Solution {
         {
             temp = ReverseList(head.next);
             head.next.next = head;
+            head.next = null;
         }
 
-        head.next = null;
         return temp;
     }
 }
