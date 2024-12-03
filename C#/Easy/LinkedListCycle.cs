@@ -42,7 +42,7 @@ public class Solution {
 
     ---------------------------------------------
 
-    Optimized space solution:
+    Optimized space solution (Floyd's cycle finding algorithm):
     * Iterate through the list with a slow and fast pointer
     * If the pointers meet then there's a cycle
 
