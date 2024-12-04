@@ -31,3 +31,19 @@ public class Solution {
         return temp.next;
     }
 }
+
+/*
+
+    Iterative
+     
+    Time: O(n)
+    Space: O(1)
+
+    Where n is the number of nodes in the list
+
+    Algorithm:
+    * Use temp to keep the left pointer n-1 behind the right pointer
+    * Iterate until right is null
+    * Remove the node
+
+*/
