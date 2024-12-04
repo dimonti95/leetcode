@@ -82,7 +82,7 @@ public class Solution {
     Recursive
 
     Time: O(n + m)
-    Space: O(min(n, m))
+    Space: O(n + m) because the function only moves to the next node one recursive iteration at a time
 
     Where n is the number of nodes in list1, and m is the number of nodes in list 2
 
