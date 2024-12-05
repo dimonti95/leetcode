@@ -125,8 +125,8 @@ public class Solution {
   BFS
   
   Time Complexity: O(n)
-  Space Complexity: O(h)
+  Space Complexity: O(w) (worst-case O(n))
   
-  Where n is the number of nodes in the tree and h is the max height
+  Where n is the number of nodes in the tree and w is the width of the tree
 
 */
