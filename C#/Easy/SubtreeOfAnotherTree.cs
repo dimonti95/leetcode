@@ -38,6 +38,12 @@ public class Solution {
 
     Check for if subRoot is a subtree at every node
     
-    Time: O(m * n)
+    Time: O(n * m)
+    Space: O(h)
+
+    Where
+    * n is the number of nodes in the tree
+    * m is the number of nodes in the subtree
+    * h is the height of the tree
 
 */
