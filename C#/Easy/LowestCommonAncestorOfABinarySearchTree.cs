@@ -35,4 +35,6 @@ public class Solution {
 
     Where n is the number of nodes in the BST and h is the height.
 
+    Note: You don't need a null check because the nodes p and q are guaranteed to exist in the BST.
+
 */
