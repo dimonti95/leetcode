@@ -67,6 +67,18 @@ public class TrieNode {
 
 /*
 
-    Time: O(n)
+    Add Word
+    Time: O(w)
+    Space: O(w)
+
+    Where w is the length of the word
+
+
+    Search Word
+    Time: O(w * 26^w)
+    Space: O(1) to search word without dots
+           O(w) to search words with dots to keep the recursion stack
+
+    Where w is the length of the word
 
 */
