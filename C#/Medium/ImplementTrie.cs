@@ -26,8 +26,9 @@ public class Trie {
             }
 
             current = current.Children[c];
-            if (i == word.Length - 1) current.EndOfWord = true;
         }
+
+        current.EndOfWord = true;
     }
     
     public bool Search(string word)
@@ -38,10 +39,9 @@ public class Trie {
             char c = word[i];
             if (!current.Children.ContainsKey(c)) return false;
             current = current.Children[c];
-            if (i == word.Length - 1) return current.EndOfWord;
         }
 
-        return false;
+        return current.EndOfWord;
     }
     
     public bool StartsWith(string prefix)
