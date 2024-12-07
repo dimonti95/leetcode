@@ -20,13 +20,13 @@ public class Trie {
         for (int i = 0; i < word.Length; i++)
         {
             char c = word[i];
-            if (!current.Dict.ContainsKey(c))
+            if (!current.Children.ContainsKey(c))
             {
-                current.Dict.Add(c, new TrieNode());
+                current.Children.Add(c, new TrieNode());
             }
 
-            current = current.Dict[c];
-            if (i == word.Length - 1) current.IsWord = true;
+            current = current.Children[c];
+            if (i == word.Length - 1) current.EndOfWord = true;
         }
     }
     
@@ -36,9 +36,9 @@ public class Trie {
         for (int i = 0; i < word.Length; i++)
         {
             char c = word[i];
-            if (!current.Dict.ContainsKey(c)) return false;
-            current = current.Dict[c];
-            if (i == word.Length - 1) return current.IsWord;
+            if (!current.Children.ContainsKey(c)) return false;
+            current = current.Children[c];
+            if (i == word.Length - 1) return current.EndOfWord;
         }
 
         return false;
@@ -50,8 +50,8 @@ public class Trie {
         for (int i = 0; i < prefix.Length; i++)
         {
             char c = prefix[i];
-            if (!current.Dict.ContainsKey(c)) return false;
-            current = current.Dict[c];
+            if (!current.Children.ContainsKey(c)) return false;
+            current = current.Children[c];
         }
 
         return true;
@@ -60,15 +60,16 @@ public class Trie {
 
 public class TrieNode
 {
-    public bool IsWord;
-    public Dictionary<char, TrieNode> Dict;
+    public bool EndOfWord;
+    public Dictionary<char, TrieNode> Children;
 
-    public TrieNode(bool isWord = false)
+    public TrieNode(bool endOfWord = false)
     {
-        IsWord = isWord;
-        Dict = new Dictionary<char, TrieNode>();
+        EndOfWord = endOfWord;
+        Children = new Dictionary<char, TrieNode>();
     }
 }
+
 
 /*
 
