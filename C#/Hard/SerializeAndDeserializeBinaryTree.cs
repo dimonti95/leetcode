@@ -14,7 +14,7 @@ public class Codec {
     {
         var sb = new StringBuilder();
 
-        void serializeDfs(TreeNode node)
+        void dfs(TreeNode node)
         {
             if (node == null)
             {
@@ -23,12 +23,11 @@ public class Codec {
             } 
             
             sb.Append(node.val + ",");
-            serializeDfs(node.left);
-            serializeDfs(node.right);
+            dfs(node.left);
+            dfs(node.right);
         }
 
-        serializeDfs(root);
-        Console.WriteLine(sb.ToString());
+        dfs(root);
         return sb.ToString();
     }
 
