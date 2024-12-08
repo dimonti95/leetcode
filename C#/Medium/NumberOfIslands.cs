@@ -2,14 +2,13 @@ public class Solution {
     public int NumIslands(char[][] grid)
     {
         int count = 0;
-        var visited = new HashSet<string>();
 
         for (int i = 0; i < grid.Length; i++)
         {
             for (int j = 0; j < grid[i].Length; j++)
             {
                 string key = i + "," + j;
-                if (grid[i][j] == '1' && !visited.Contains(key))
+                if (grid[i][j] == '1')
                 {
                     // run DFS and update visited
                     dfs(i, j);
@@ -23,8 +22,7 @@ public class Solution {
             string key = i + "," + j;
             if (i < 0 || i >= grid.Length || j < 0 || j >= grid[i].Length) return;
             if (grid[i][j] != '1') return;
-            if (visited.Contains(key)) return;
-            else visited.Add(key);
+            grid[i][j] = '0'; // mark cell as visited
 
             dfs(i + 1, j);
             dfs(i - 1, j);
