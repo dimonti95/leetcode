@@ -43,9 +43,7 @@ public class Solution {
             return copy;
         }
 
-        dfs(node);
-
-        return copyMap[node.val];
+        return dfs(node);
     }
 }
 
