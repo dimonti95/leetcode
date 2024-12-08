@@ -37,8 +37,8 @@ public class Solution {
     Optimization 2:
     1. Iterate over the nums array and add each value to a HashSet
     2. At each nums[i], check the HashSet for nums[i] - 1
-    3. If that number existing move on to the next iteration
-    4. If that number doesn't exist, then use the HashSet to find the sequence size by checking nums[i] + 1, nums[i] + 2,... nums[i] + j
+    3. If that number is found, move on to the next value in nums and go back to step 2
+    4. If that number is not found, then use the HashSet to find the sequence size by checking nums[i] + 1, nums[i] + 2,... nums[i] + j
     Time: O(n)
     Space: O(n)
 
