@@ -10,7 +10,7 @@ public class Solution {
                 string key = i + "," + j;
                 if (grid[i][j] == '1')
                 {
-                    // run DFS and update visited
+                    // run DFS and mark visited cells
                     dfs(i, j);
                     count += 1;
                 }
