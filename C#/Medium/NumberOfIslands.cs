@@ -41,6 +41,6 @@ public class Solution {
     * Run DFS on the land, remembering each visited land cell
 
     Time: O(n * m)
-    Space: O(n * m) because worste case is that every cell is land and we're solving the problem recursively (call stack) 
+    Space: O(n * m) because worst case, every cell is land and we're solving the problem recursively (call stack recursion depth) 
 
 */
