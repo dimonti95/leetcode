@@ -43,6 +43,6 @@ public class Solution {
     * Run DFS on the land, remembering each visited land cell
 
     Time: O(n * m)
-    Space: O(n)
+    Space: O(n * m)
 
 */
