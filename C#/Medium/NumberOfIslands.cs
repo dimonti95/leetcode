@@ -36,6 +36,8 @@ public class Solution {
 
 /*
 
+    Recursive DFS
+
     * Loop the grid looking for land cells that aren't already visited
     * Incrememt a count each time unvisted land is found
     * Run DFS on the land, remembering each visited land cell
