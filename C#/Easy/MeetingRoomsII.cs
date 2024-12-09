@@ -16,7 +16,7 @@ public class Solution {
             int start = interval[0];
             int end = interval[1];
             
-            // If the current meeting starts after the first end time, then add the new end time to the queue
+            // If the current meeting starts before the next meeting that will end first, then add the new end time to the queue
             // else replace the lowest priorty end time (the meeting that ends first) with the current end time.
             if (start < pQueue.Peek()) pQueue.Enqueue(end, end);
             else pQueue.DequeueEnqueue(end, end);
