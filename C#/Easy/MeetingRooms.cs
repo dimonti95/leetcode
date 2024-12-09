@@ -52,7 +52,7 @@ public class Solution {
 
 /*
 
-    Optimization
+    Solution 2
     - Sort intervals by start time
     - Compare end time interval[i] with interval[i + 1]
     - If the end time > start time, return false, otherwise return true
