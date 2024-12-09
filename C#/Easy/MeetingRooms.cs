@@ -17,6 +17,8 @@ public class Solution {
 
 /*
 
+    Key insight: The meetings may not be sorted by start time
+
     Example 1
     Input = [[0, 5], [5, 10], [11, 14]]
     Output = true
