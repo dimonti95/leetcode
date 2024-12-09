@@ -37,8 +37,13 @@ public class Solution {
 
 /*
 
-    Recursive DFS - Ensure all nodes are connected and no non-trivial cycles exist in the graph
+    Recursive DFS + Graph Theory
+    
+    A graph is considered a tree if the following conditions are met:
+    1. The graph doesn't contain any non-trivial cycles (a trivial cyle is a cycle between two nodes connected by a single undirected edge)
+    2. All nodes in the graph are connected
 
+    Solution:
     1. Build an adjacency list from the list of edges
     2. Confirm the following...
         1. The graph is connected
