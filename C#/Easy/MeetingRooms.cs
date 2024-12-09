@@ -1,6 +1,41 @@
 public class Solution {
     public bool CanAttendMeetings(int[][] intervals)
     {
+        for (int i = 0; i < intervals.Length; i++)
+        {
+            int[] interval1 = intervals[i];
+            for (int j = i + 1; j < intervals.Length; j++)
+            {
+                int[] interval2 = intervals[j];
+                bool endsBefore = interval1[1] <= interval2[0];
+                bool startsAfter = interval1[0] >= interval2[1];
+                if (!endsBefore && !startsAfter) return false;
+            }
+        }
+
+        return true;
+    }
+}
+
+/*
+
+    Key insights:
+    - The meetings may not be sorted by start time
+    - No two meetings can overlap
+
+    Solution 1
+    - Compare all combination of meetings (MeetingA and MeetingB)
+    - Return false if overlap is found, otherwise return true
+    Time: O(n^2)
+    Space: O(1)
+
+*/
+
+
+
+public class Solution {
+    public bool CanAttendMeetings(int[][] intervals)
+    {
         if (intervals.Length == 0) return true;
 
         Array.Sort(intervals, (a, b) => a[0].CompareTo(b[0]));
@@ -17,26 +52,6 @@ public class Solution {
 
 /*
 
-    Key insight: The meetings may not be sorted by start time
-
-    Example 1
-    Input = [[0, 5], [5, 10], [11, 14]]
-    Output = true
-
-    Example 2
-    Input = [[0, 5], [5, 10], [7, 11]]
-    Output = false (because theres overlap between intervals[1] and intervals[2])
-
-    Example 3
-    Input = []
-    Output = true
-
-    Solution 1
-    - Compare all combination of meetings (MeetingA and MeetingB)
-    - Return false if overlap is found, otherwise return true
-    Time: O(n^2)
-    Space: O(1)
-    
     Optimization
     - Sort intervals by start time
     - Compare end time interval[i] with interval[i + 1]
