@@ -29,11 +29,11 @@ public class Solution {
     Input = []
     Output = true
 
-    Brute force
-    - Compare every combination of intervals
-    - For every interval, one of the following must be true
-        - The start time is greater than or equal to the end time
-        - The end time is less than or equal to the start time
+    Solution 1
+    - Compare all combination of meetings (MeetingA and MeetingB)
+    - Return false if overlap is found, otherwise return true
+    Time: O(n^2)
+    Space: O(1)
     
     Optimization
     - Sort intervals by start time
