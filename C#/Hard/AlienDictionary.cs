@@ -32,6 +32,7 @@ public class Solution {
                 j++;
             }
 
+            // An important edge case
             if (samePrefix && w1.Length > w2.Length) return "";
         }
 
@@ -95,9 +96,9 @@ public class Solution {
         - If a cycle is found, then return an empty string
         - If no cycle is found, return the ordering
     
-    Time: O()
-    Time: O()
+    Time: O(c)
+    Space: O()
 
-    Where
+    Where c is the total number of characters in every word
 
 */
