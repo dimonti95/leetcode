@@ -4,7 +4,7 @@ public class Solution {
         // Sort intervals by start time
         Array.Sort(intervals, (a,b) => a[0].CompareTo(b[0]));
 
-        var pQueue = new PriorityQueue<int, int>();
+        var pQueue = new PriorityQueue<int, int>(); // min-heap
         for (int i = 0; i < intervals.Length; i++)
         {
             int[] interval = intervals[i];
