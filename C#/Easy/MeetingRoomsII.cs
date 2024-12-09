@@ -35,5 +35,3 @@ public class Solution {
     Where n is the number of intervals/meetings in the input array
 
 */
-// If the current meeting starts before the next meeting that will end first, then add the new end time to the queue
-            // else replace the lowest priorty end time (the meeting that ends first) with the current end time.
