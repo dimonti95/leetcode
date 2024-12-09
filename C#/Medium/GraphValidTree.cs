@@ -62,6 +62,8 @@ public class Solution {
 public class Solution {
     public bool ValidTree(int n, int[][] edges)
     {
+        // If the graph has more than n−1 edges, it must contain at least one cycle
+        // If the graph has fewer than n−1 edges, it will be disconnected and not a tree
         if (edges.Length != n - 1) return false;
 
         // Build adjacency list
@@ -91,6 +93,7 @@ public class Solution {
 
         dfs(0);
 
+        // If the graph is connected and contains exactly n−1 edges, it is guaranteed to be a tree
         return visited.Count == n;
     }
 }
