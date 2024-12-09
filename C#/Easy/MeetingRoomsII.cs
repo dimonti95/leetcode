@@ -41,6 +41,7 @@ public class Solution {
 public class Solution {
     public int MinMeetingRooms(int[][] intervals)
     {
+        // Build arrays for start times and end times
         int[] startTimes = new int[intervals.Length];
         int[] endTimes = new int[intervals.Length];
         for (int i = 0; i < intervals.Length; i++)
@@ -66,6 +67,7 @@ public class Solution {
                 endPointer += 1;
             }
 
+            // Increment the count each time a new meeting room is needed
             count += 1;
             startPointer += 1;
         }
