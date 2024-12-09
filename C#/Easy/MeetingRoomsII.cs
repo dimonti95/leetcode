@@ -30,9 +30,9 @@ public class Solution {
 
 /*
 
-    Solution 2
-    1. Sort the input array by start time
-    2. Use a priority queue to keep track of the meeting that ends first
+    Solution 1
+    1. Sort the meeting intervals by start time
+    2. Use a priority queue to keep track of the next meeting that will end first
         - When finding a meeting that starts before the earliest end time, simply that end time to the priorty queue
         - When finding a meeting that starts after the earliest end time, replace the end time with the new end time
     3. Keep a max that tracks the max size that the priority queue grows to
