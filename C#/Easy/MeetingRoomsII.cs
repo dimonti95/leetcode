@@ -35,3 +35,58 @@ public class Solution {
     Where n is the number of intervals/meetings in the input array
 
 */
+
+
+
+public class Solution {
+    public int MinMeetingRooms(int[][] intervals)
+    {
+        int[] startTimes = new int[intervals.Length];
+        int[] endTimes = new int[intervals.Length];
+        for (int i = 0; i < intervals.Length; i++)
+        {
+            int[] interval = intervals[i];
+            int startTime = interval[0];
+            int endTime = interval[1];
+            startTimes[i] = startTime;
+            endTimes[i] = endTime;
+        }
+
+        Array.Sort(startTimes);
+        Array.Sort(endTimes);
+
+        int count = 0;
+        int startPointer = 0;
+        int endPointer = 0;
+        while (startPointer < intervals.Length)
+        {
+            if (startTimes[startPointer] >= endTimes[endPointer])
+            {
+                count -= 1;
+                endPointer += 1;
+            }
+
+            count += 1;
+            startPointer += 1;
+        }
+
+        return count;
+    }
+}
+
+/*
+
+    Solution 2
+    1. Add start times to an array
+    2. Add end times to another array
+    3. Order both arrays
+    4. Two pointers on each array
+        - While starttime[i++] < endtime[j], incremement i and running count
+        - else increment the end time index while startTime[i]  endtime[j]
+
+    Time: O(nlogn)
+    Space: O(n)
+
+    Where n is the number of intervals/meetings in the input array
+
+*/
