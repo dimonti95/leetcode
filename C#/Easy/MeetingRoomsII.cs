@@ -1,30 +1,22 @@
 public class Solution {
     public int MinMeetingRooms(int[][] intervals)
     {
-        // Sort meetings by start time
+        // Sort intervals by start time
         Array.Sort(intervals, (a,b) => a[0].CompareTo(b[0]));
 
-        int max = 1;
         var pQueue = new PriorityQueue<int, int>();
-
-        // Queue up the first end time (value = end time, priority = end time)
-        pQueue.Enqueue(intervals[0][1], intervals[0][1]);
-
-        for (int i = 1; i < intervals.Length; i++)
+        for (int i = 0; i < intervals.Length; i++)
         {
             int[] interval = intervals[i];
             int start = interval[0];
             int end = interval[1];
-            
-            // If the current meeting starts before the next meeting that will end first, then add the new end time to the queue
-            // else replace the lowest priorty end time (the meeting that ends first) with the current end time.
-            if (start < pQueue.Peek()) pQueue.Enqueue(end, end);
-            else pQueue.DequeueEnqueue(end, end);
 
-            max = Math.Max(max, pQueue.Count);
+            // If the current meeting starts after (or at) the next end time, then remove the next meeting that ended
+            if (pQueue.Count > 0 && start >= pQueue.Peek()) pQueue.Dequeue();
+            pQueue.Enqueue(end, end);
         }
 
-        return max;
+        return pQueue.Count;
     }
 }
 
@@ -43,3 +35,5 @@ public class Solution {
     Where n is the number of intervals/meetings in the input array
 
 */
+// If the current meeting starts before the next meeting that will end first, then add the new end time to the queue
+            // else replace the lowest priorty end time (the meeting that ends first) with the current end time.
