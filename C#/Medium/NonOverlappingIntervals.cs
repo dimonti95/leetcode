@@ -14,6 +14,7 @@ public class Solution {
             // check for overlap
             if (end > start)
             {
+                // Set the end time to be the smaller of the two intervals
                 interval1[1] = Math.Min(interval1[1], interval2[1]);
                 interval2[1] = interval1[1];
                 count += 1;
