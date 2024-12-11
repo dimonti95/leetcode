@@ -60,4 +60,8 @@ public class Solution {
     Time: O(m*n)
     Space: O(1)
 
+    Key insight
+    - Row 0 col 0 is a special case because it can only be used to mark row or col as zero (but not both)
+    - This is the reason for the rowZero bool
+
 */
