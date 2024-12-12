@@ -56,4 +56,20 @@ public class Solution {
 
     Where n is the total number of nodes and k is the number of linked lists.
 
+    Brute Force 1
+    1. Put the nodes into an array
+    2. Sort the array
+    3. Create a new list from those nodes
+
+    Time: O(n*logn)
+    Space: O(n)
+
+    Brute Force 2
+    1. Search each k lists for the smallest head node each iteration
+    2. Update pointers on exisitng nodes (in-place)
+    
+    Time: O(n*k)
+    Space: O(1)
+
+
 */
