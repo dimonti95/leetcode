@@ -33,12 +33,23 @@ public class Solution {
 
 /*
 
-    Solution:
+    Brute force solution:
+    1. Create a coup map (value -> count)
+    2. Sort by value (the count)
+    3. Add the largest k values
+    Time: O(nlogn)
+    Space: O(n)
+
+    Where n is the number of integers in the input array nums
+
+    Solution (implemented):
     1. Create a count map (value -> count)
     2. Add k elements to a min heap (prioritized by count <value, count>)
     3. Remove any elements after k so that the heap doesn't grow to be larger than k
     4. Move k remaining elements from the heap (only the largest elements will remain)
     Time: O(nlogk)
     Space: O(n + k)
+
+    Where n is the number of integers in the input array nums
 
 */
