@@ -53,3 +53,51 @@ public class Solution {
     Where n is the number of integers in the input array nums
 
 */
+
+
+
+public class Solution {
+    public int[] TopKFrequent(int[] nums, int k)
+    {
+        // Map integer value to count
+        var count = new Dictionary<int, int>();
+        foreach (int num in nums)
+        {
+            if (!count.ContainsKey(num)) count.Add(num, 0);
+            count[num] += 1;
+        }
+
+        // Init this to a size equal to the input array + 1 since count will never be 0.
+        var buckets = new List<int>[nums.Length + 1];
+        for (int i = 0; i < nums.Length + 1; i++) buckets[i] = new List<int>();
+        foreach (var pair in count) buckets[pair.Value].Add(pair.Key);
+
+        // Take the k largest elements
+        var result = new List<int>();
+        for (int i = buckets.Length - 1; i >= 0; i--)
+        {
+            List<int> vals = buckets[i];
+            foreach (int num in vals)
+            {
+                result.Add(num);
+                k -= 1;
+                if (k == 0) return result.ToArray();
+            }
+        }
+
+        return result.ToArray();
+    }
+}
+
+/*
+
+    Solution 3 (optimal):
+    1. Create a count map (value -> count)
+    2. Run a bucket sort 
+    3. Take the elements with the highest frequency count
+    Time: O(n)
+    Space: O(n)
+
+    Where n is the number of integers in the input array nums
+
+*/
