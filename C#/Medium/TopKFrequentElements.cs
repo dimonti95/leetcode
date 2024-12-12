@@ -80,8 +80,7 @@ public class Solution {
             foreach (int num in vals)
             {
                 result.Add(num);
-                k -= 1;
-                if (k == 0) return result.ToArray();
+                if (result.Count == k) return result.ToArray();
             }
         }
 
