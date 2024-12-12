@@ -12,6 +12,59 @@
 public class Solution {
     public ListNode MergeKLists(ListNode[] lists)
     {
+        var pQueue = new PriorityQueue<ListNode, int>();
+        foreach (ListNode list in lists)
+        {
+            if (list != null) pQueue.Enqueue(list, list.val);
+        }
+
+        ListNode dummy = new ListNode();
+        ListNode current = dummy;
+        while (pQueue.Count > 0)
+        {
+            ListNode next = pQueue.Dequeue();
+            current.next = next;
+            current = current.next;
+
+            if (current.next != null) 
+            {
+                pQueue.Enqueue(current.next, current.next.val);
+            }
+        }
+
+        return dummy.next;
+    }
+
+}
+
+/*
+    
+    Min-heap Solution
+    1. Add the first k head nodes from each list into a Priority Queue
+    2. Dequeue the smallest node from the list and, if the parent node is not null
+    3. Repeast step 2 until the heap is empty
+    
+    Time: O(nlogk)
+    Space: O(k)
+
+*/
+
+
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode MergeKLists(ListNode[] lists)
+    {
         int k = lists.Length;
         while (k > 1)
         {
