@@ -14,6 +14,6 @@ public class Solution
     * Try all possible combinations
 
     Time: O(2^n)
-    Space: O(n)
+    Space: O(n) because of the depth of the call stack (recursion tree)
 
 */
