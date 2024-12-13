@@ -25,3 +25,35 @@ public class Solution
     Space: O(n)
 
 */
+
+
+
+public class Solution2
+{
+    public int Fib(int n)
+    {
+        if (n == 0) return 0;
+
+        int fib1 = 0;
+        int fib2 = 1;
+        int count = 1;
+
+        while (count < n)
+        {
+            int temp = fib1 + fib2;
+            fib1 = fib2;
+            fib2 = temp;
+            count++;
+        }
+
+        return fib2;
+    }
+}
+
+/*
+
+    Bottom-up DP (tabulation)
+    Time: O(n)
+    Space: O(1)
+
+*/
