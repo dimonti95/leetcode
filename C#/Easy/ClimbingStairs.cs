@@ -46,3 +46,33 @@ public class Solution {
     Space: O(n)
 
 */
+
+
+
+public class Solution 
+{
+    public int ClimbStairs(int n)
+    {
+        int step1 = 0;
+        int step2 = 1;
+        int count = 0;
+
+        while (count < n)
+        {
+            int temp = step1 + step2;
+            step1 = step2;
+            step2 = temp;
+            count++;
+        }
+
+        return step2;
+    }
+}
+
+/*
+
+    Bottom-up DP
+    Time: O(n)
+    Space: O(1)
+
+*/
