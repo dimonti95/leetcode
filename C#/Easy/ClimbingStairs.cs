@@ -59,9 +59,9 @@ public class Solution
 
         while (count < n)
         {
-            int temp = step1 + step2;
+            int sum = step1 + step2;
             step1 = step2;
-            step2 = temp;
+            step2 = sum;
             count++;
         }
 
