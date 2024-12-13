@@ -46,7 +46,19 @@ public class MedianFinder {
 
 /*
 
-    Solution 2:
+    Brute force solution:
+    * Insertion sort on each call to AddNum
+    * Find median from the middle of the array/list
+
+    AddNum
+    Time: O(n)
+    Space: O(n)
+
+    FindMedian
+    Time: O(1)
+    Space: O(n)
+
+    Optimized solution:
     * Two Queues
         - One to keep the smaller half of values (Max-heap)
         - One to keep the larger half of values (Min-heap)
