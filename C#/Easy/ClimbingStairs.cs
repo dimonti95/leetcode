@@ -40,7 +40,7 @@ public class Solution {
 
 /*
 
-    Memoized recursion
+    Top-down DP
 
     Time: O(n)
     Space: O(n)
