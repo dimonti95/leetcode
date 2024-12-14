@@ -46,21 +46,21 @@ public class Solution2
 {
     public int UniquePaths(int m, int n)
     {
-        var table = new int[m + 1][];
-        for (int i = 0; i <= m; i++)
+        var table = new int[m][];
+        for (int i = 0; i < m; i++)
         {
-            table[i] = new int[n + 1];
+            table[i] = new int[n];
 
             // Initialize all cells to 1
-            for (int j = 0; j <= n; j++)
+            for (int j = 0; j < n; j++)
             {
                 table[i][j] = 1;
             }
         }
 
-        for (int r = 1; r <= m; r++)
+        for (int r = 1; r < m; r++)
         {
-            for (int c = 1; c <= n; c++)
+            for (int c = 1; c < n; c++)
             {
                 table[r][c] = table[r][c - 1] + table[r - 1][c];
             }
