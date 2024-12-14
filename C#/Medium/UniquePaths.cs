@@ -39,3 +39,49 @@ public class Solution
     Where m is the number of rows and n is the number of columns
 
 */
+
+
+
+public class Solution
+{
+    public int UniquePaths(int m, int n)
+    {
+        var table = new int[m + 1][];
+        for (int i = 0; i <= m; i++)
+        {
+            table[i] = new int[n + 1];
+
+            // Initialize all cells to 1
+            for (int j = 0; j <= n; j++)
+            {
+                table[i][j] = 1;
+            }
+        }
+
+        for (int r = 1; r <= m; r++)
+        {
+            for (int c = 1; c <= n; c++)
+            {
+                table[r][c] = table[r][c - 1] + table[r - 1][c];
+            }
+        } 
+
+        return table[m - 1][n - 1];
+    }
+}
+
+/*
+
+    Bottom-up tabulation
+
+    Example:
+    [1,1,1]
+    [1,2,3]
+    [1,3,6]
+
+    The sum of the top and left cells will give the sum for each cell.
+
+    Time: O(m*n)
+    Space: O(m*n)
+
+*/
