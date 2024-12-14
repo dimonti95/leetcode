@@ -42,7 +42,7 @@ public class Solution
 
 
 
-public class Solution
+public class Solution2
 {
     public int UniquePaths(int m, int n)
     {
