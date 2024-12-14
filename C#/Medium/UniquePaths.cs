@@ -29,4 +29,6 @@ public class Solution
     Time: O(m*n)
     Space: O(m+n) because on each recursive call, either m, or n, gets decremented
 
+    Where m is the number of rows and n is the number of columns
+
 */
