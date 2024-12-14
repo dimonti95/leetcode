@@ -24,6 +24,13 @@ public class Solution
 
 /*
 
+    Brute force solution (recursion without DP/memoization)
+
+    Time: O(2^(m+n))
+    Space: O(m+n)
+
+    -------------------------------------------------------
+
     Top-down memoization
 
     Time: O(m*n)
