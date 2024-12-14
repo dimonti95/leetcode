@@ -58,10 +58,8 @@ public class Solution2
 /*
     
     Bottom-up DP (tabulation)
-    * Create a new array of bools where each value represents whether or not the last index can be reached
-    * The last index will always be true, this is the base case (smallest sub-problem)
-    * Iterate, starting from the back of nums/table 
-    * If n - 1 index can reach the next closest "true index" then it is also true, otherwise false
+    * Iterate, starting from the back of nums, keeping tracking of the last index that can reach the back of the nums array
+    * If n - 1 index can reach the next closest "true index" then updat that index to be the new last index
 
     Time: O(n)
     Space: O(n)
