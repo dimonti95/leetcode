@@ -9,9 +9,9 @@ public class Solution {
             if (num >= nums.Length) return false;
             if (memo.ContainsKey(num)) return memo[num];
 
-            for (int i = 1; i <= nums[num]; i++)
+            for (int jump = 1; jump <= nums[num]; jump++)
             {
-                if(CanJump(num + i))
+                if(CanJump(num + jump))
                 {
                     memo[num] = true;
                     return memo[num];
@@ -25,7 +25,6 @@ public class Solution {
         return CanJump(0);
     }
 }
-
 /*
 
     Top-down DP (memoization)
