@@ -30,7 +30,7 @@ public class Solution
 
     Brute force solution (non-memoized)
 
-    Time: O(2^n)
+    Time: O(2^n) because 2^n-2 = 2^n
     Space: O(n) because this is the max height of the tree (recursion depth)
 
     Top-down DP (memoization)
