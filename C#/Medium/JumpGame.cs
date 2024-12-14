@@ -62,7 +62,7 @@ public class Solution2
     * If n - 1 index can reach the next closest "true index" then updat that index to be the new last index
 
     Time: O(n)
-    Space: O(n)
+    Space: O(1)
 
     Example
 
