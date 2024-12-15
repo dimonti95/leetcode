@@ -34,6 +34,8 @@ public class Solution
     Time: O(N)
     Space: O(N)
 
+    Key insight: A character can either be a single digit decode, or double digit decode
+
 */
 
 
