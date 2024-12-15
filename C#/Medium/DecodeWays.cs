@@ -38,7 +38,7 @@ public class Solution
 
 
 
-public class Solution
+public class Solution2
 {
     public int NumDecodings(string s)
     {
