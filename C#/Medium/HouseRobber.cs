@@ -33,4 +33,8 @@ public class Solution
 
     Check all combinations of houses so that no paths include adjacent "houses".
 
+    ---------------------------------------------------------------------------
+
+    Key insight: There is no "Greedy" alogirthm that works
+
 */
