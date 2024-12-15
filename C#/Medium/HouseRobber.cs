@@ -31,6 +31,6 @@ public class Solution
     Time: O(n)
     Space: O(n/2) = O(n)
 
-    Check all combinations of paths such that no paths include adjacent "houses".
+    Check all combinations of houses so that no paths include adjacent "houses".
 
 */
