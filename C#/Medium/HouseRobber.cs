@@ -38,3 +38,34 @@ public class Solution
     Key insight: There is no "Greedy" alogirthm that works
 
 */
+
+
+
+public class Solution
+{
+    public int Rob(int[] nums)
+    {
+        if (nums.Length == 1) return nums[0];
+
+        int max1 = nums[0];
+        int max2 = nums[1];
+
+        for (int i = 2; i < nums.Length; i++)
+        {
+            int temp = max1;
+            max1 = Math.Max(max1, max2);
+            max2 = Math.Max(max2, temp + nums[i]);
+        }
+
+        return Math.Max(max1, max2);
+    }
+}
+
+/*
+
+    Bottom-up DP (memory optimized)
+    Time: O(n)
+    Space: O(1)
+
+
+*/
