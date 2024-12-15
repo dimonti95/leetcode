@@ -3,7 +3,7 @@ public class Solution
     public int Rob(int[] nums)
     {
         var memo = new int[nums.Length];
-        for (int i = 0; i < memo.Length; i++) memo[i] = -1;
+        Array.Fill(memo, -1);
 
         int RobRecursive(int i, int[] nums)
         {   
