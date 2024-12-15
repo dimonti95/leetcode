@@ -117,3 +117,80 @@ public class Solution2
                        ^   
 
 */
+
+
+
+public class Solution
+{
+    public int NumDecodings(string s)
+    {
+        int count1 = 1;
+        int count2 = 0;
+        if(s[0] != '0') count2 = 1;
+
+        for (int i = 1; i < s.Length; i++)
+        {
+            int temp = 0;
+            if (s[i] != '0')
+            {
+                temp = count2;
+            }
+
+            string twoDigit = s.Substring(i - 1, 2);
+            if (int.Parse(twoDigit) >= 10 && int.Parse(twoDigit) <= 26)
+            {
+                temp += count1;
+            }
+
+            count1 = count2;
+            count2 = temp;
+        }
+
+        return count2;
+    }
+}
+/*
+
+    Bottom-up DP (memory optimization)
+    Time: O(n)
+    Space: O(1)
+
+    Example
+    Input: s="26201"
+    Output: 2
+
+    i = -
+    count1 = 1
+    count2 = 1
+    "26201"
+
+
+    i = 1  ('26')
+    temp = 2
+    count1 = 1
+    count2 = 2
+    "26201"
+      ^
+
+    i = 2  ('62')
+    temp = 2
+    count1 = 2
+    count2 = 2
+    "26201"
+       ^
+
+    i = 3  ('20')
+    temp = 2
+    count1 = 2
+    count2 = 2
+    "26201"
+        ^
+
+    i = 4  ('01')
+    temp = 2
+    count1 = 2
+    count2 = 2
+    "26201"
+         ^
+
+*/
