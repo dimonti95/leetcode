@@ -10,7 +10,6 @@ public class Solution
             if (i >= nums.Length) return 0;
             if (memo[i] > -1) return memo[i];
             if (i == nums.Length - 1) return nums[i];
-            if (i == nums.Length - 2) return nums[i] > nums[i + 1] ? nums[i] : nums[i + 1];
 
             int left = nums[i];
             int right = nums[i + 1];
