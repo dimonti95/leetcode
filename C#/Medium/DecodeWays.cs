@@ -120,7 +120,7 @@ public class Solution2
 
 
 
-public class Solution
+public class Solution3
 {
     public int NumDecodings(string s)
     {
@@ -149,6 +149,7 @@ public class Solution
         return count2;
     }
 }
+
 /*
 
     Bottom-up DP (memory optimization)
