@@ -42,5 +42,44 @@ public class Solution
 
     Where w is the length of wordDict, k is the average length of each word, and s is the length of the input string s.
 
+    ----------------------------------------------------------------------------------------------------
+
+    Example
+    Input: s = "catsandog", wordDict = ["cats","dog","sand","and","cat"]
+    Input: false
+
+    node = 0
+    queue = [3,4]
+    seen = [F,F,F,T,T,F,F,F,F,F]
+    strings found = "cat", "cats"
+    "catsandog"
+     ^ 
+
+    node = 3
+    queue = [4,7]
+    seen = [F,F,F,T,T,F,F,T,F,F]
+    strings found = "sand"
+    "catsandog"
+        ^ 
+
+    node = 4
+    queue = [7]
+    seen = [F,F,F,T,T,F,F,T,F,F]
+    "catsandog"   already found a word that ends at index 6
+         ^ 
+
+    node = 7
+    queue = []
+    seen = [F,F,F,T,T,F,F,T,F,F]
+    "catsandog"
+            ^ 
+
+    ----------------------------------------------------------------------------------------------------
+
+    The following is an example of worst-case time complexity
+    s = "catsandog", wordDict = ["c","ca""cats","cat","catsa","catsan"]
+
+
+
 */
 
