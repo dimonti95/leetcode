@@ -81,3 +81,57 @@ public class Solution
 
 */
 
+
+
+public class Solution2
+{
+    public bool WordBreak(string s, IList<string> wordDict)
+    {
+        var memo = new Dictionary<int, bool>();
+        
+        bool WordBreakRecursive(string s, IList<string> wordDict, int index)
+        {
+            if (index == s.Length) return true;
+            if (memo.ContainsKey(index)) return memo[index];
+
+            foreach (string word in wordDict)
+            {
+                int end = index + word.Length;
+                if (end <= s.Length)
+                {
+                    string substr = s.Substring(index, word.Length);
+                    if (substr == word && WordBreakRecursive(s, wordDict, index + word.Length))
+                    {
+                        memo[index] = true;
+                        return memo[index];
+                    }
+                }
+            }
+
+            memo[index] = false;
+            return memo[index];
+        }
+        
+        return WordBreakRecursive(s, wordDict, 0);
+    }
+}
+
+/*
+
+    Top-down DP (memoization)
+
+    Time: O(s*w*k)
+    - We make s recursive calls (where s is the length of the input string s)
+    - Each recursive call only "calculates" once (because of memoization)
+    - Each calculation takes w*k time
+
+    Space: O(s)
+    - O(s) memory used for memoization (worst case)
+    - The calls stack uses an additional O(n) memory (again, worst case)
+    - O(2s) = O(s)
+
+    Where s is the length of the input string s,
+    w is the length of the input array wordDict,
+    k is the average length of a string in wordDict
+    
+*/
