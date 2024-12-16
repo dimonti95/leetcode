@@ -34,6 +34,7 @@ public class Solution
     
     Time: O(w*k + s^3)
     * s^3 because each iteration of BFS can is O*n^2) time, and BFS itself can be O(n)
+    * w*k because 
 
     Space: O(w + s)
     * w because we can have up to s.Length nodes in the queue
