@@ -66,7 +66,7 @@ public class Solution2
     Space: O(1)
 
     ------------------------------------------------
-
+ 
     Example
     Input = [10,20,5,1,50]
     Output = (20 + 50) = 70
