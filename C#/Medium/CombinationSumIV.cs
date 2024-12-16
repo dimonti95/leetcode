@@ -67,4 +67,6 @@ public class Solution2
 
     Where n is the size of nums and t is the value of target
 
+    Key insight: Think about what the "key" is that needs to be used to look back in the table, and think about what needs to be returned as the values in the table.
+
 */
