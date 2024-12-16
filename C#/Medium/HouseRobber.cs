@@ -45,19 +45,17 @@ public class Solution2
 {
     public int Rob(int[] nums)
     {
-        if (nums.Length == 1) return nums[0];
+        int max1 = 0;
+        int max2 = 0;
 
-        int max1 = nums[0];
-        int max2 = nums[1];
-
-        for (int i = 2; i < nums.Length; i++)
+        for (int i = 0; i < nums.Length; i++)
         {
             int temp = max1;
-            max1 = Math.Max(max1, max2);
-            max2 = Math.Max(max2, temp + nums[i]);
+            max1 = Math.Max(max1, max2 + nums[i]);
+            max2 = temp;
         }
 
-        return Math.Max(max1, max2);
+        return max1;
     }
 }
 
@@ -73,29 +71,34 @@ public class Solution2
     Input = [10,20,5,1,50]
     Output = (20 + 50) = 70
 
-    i = -
+    i = 1
+    [10,20,5,1,50]
+     ^
     max1 = 10
-    max2 = 20
+    max2 = 0
 
     i = 2
     [10,20,5,1,50]
-           ^ 
-    temp = 10
-    max1 = Max(10, 20) = 20
-    max2 = Max(20, 10 + 5) = 20
+        ^ 
+    max1 = 20
+    max2 = 10
 
     i = 3
     [10,20,5,1,50]
-             ^ 
-    temp = 20
-    max1 = Max(20, 20) = 20
-    max2 = Max(20, 20 + 1) = 21
+           ^ 
+    max1 = 20
+    max2 = 20
 
     i = 4
     [10,20,5,1,50]
+             ^ 
+    max1 = 21
+    max2 = 20
+
+    i = 5
+    [10,20,5,1,50]
                ^ 
-    temp = 20
-    max1 = Max(20, 21) = 21
-    max2 = Max(21, 20 + 70) = 70
+    max1 = 70
+    max2 = 21
 
 */
