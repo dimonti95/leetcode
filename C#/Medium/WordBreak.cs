@@ -76,10 +76,8 @@ public class Solution
 
     ----------------------------------------------------------------------------------------------------
 
-    The following is an example of worst-case time complexity
+    An example of worst-case time complexity where a node gets pushed onto the queue for every characters in s
     s = "catsandog", wordDict = ["c","ca""cats","cat","catsa","catsan"]
-
-
 
 */
 
