@@ -35,3 +35,36 @@ public class Solution
     Where t is the value of target n is the size of nums
 
 */
+
+
+
+public class Solution2
+{
+    public int CombinationSum4(int[] nums, int target)
+    {
+        var table = new int[target + 1];
+        table[0] = 1;
+        
+        for (int i = 1; i < table.Length; i++)
+        {
+            foreach (int num in nums)
+            {
+                int diff = i - num;
+                if (diff >= 0) table[i] += table[diff];
+            }
+        }
+        
+        return table[target];
+    }
+}
+
+/*
+
+    Bottom-up DP (tabulation)
+
+    Time: O(t*n)
+    Space: O(t)
+
+    Where n is the size of nums and t is the value of target
+
+*/
