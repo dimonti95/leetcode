@@ -6,19 +6,17 @@ public class Solution
 
         int RobRecursive(int startIndex, int endIndex, int[] nums)
         {
-            if (startIndex + 1 > endIndex) return nums[startIndex];
+            int max1 = 0;
+            int max2 = 0;
 
-            int max1 = nums[startIndex];
-            int max2 = nums[startIndex + 1];
-
-            for (int i = startIndex + 2; i <= endIndex; i++)
+            for (int i = startIndex; i <= endIndex; i++)
             {
                 int temp = max1;
-                max1 = Math.Max(max1, max2);
-                max2 = Math.Max(max2, temp + nums[i]);
+                max1 = Math.Max(max1, max2 + nums[i]);
+                max2 = temp;
             }
 
-            return Math.Max(max1, max2);
+            return max1;
         }
 
         int max1 = RobRecursive(0, nums.Length - 2, nums);
