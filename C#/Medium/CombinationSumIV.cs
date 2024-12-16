@@ -1,0 +1,37 @@
+public class Solution
+{
+    public int CombinationSum4(int[] nums, int target)
+    {
+        var memo = new int[target + 1];
+        Array.Fill(memo, -1);
+
+        int CombinationSum4Recursive(int[] nums, int target)
+        {
+            if (target == 0) return 1;
+            if (target < 0) return 0;
+            if (memo[target] > -1) return memo[target];
+
+            int result = 0;
+            foreach (int num in nums)
+            {
+                result += CombinationSum4Recursive(nums, target - num);
+            }
+
+            memo[target] = result;
+            return memo[target];        
+        }
+
+        return CombinationSum4Recursive(nums, target);
+    }
+}
+
+/*
+
+    Top-down DP (memoization)
+
+    Time: O(t*n)
+    Space: O(t)
+
+    Where t is the value of target n is the size of nums
+
+*/
