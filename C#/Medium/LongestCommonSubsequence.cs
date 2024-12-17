@@ -67,20 +67,20 @@ public class Solution2
             Array.Fill(memo[i], -1);
         }
 
-        int LongestCommonSubsequenceRecursive(int i1, int i2, string t1, string t2)
+        int LongestCommonSubsequenceRecursive(int i1, int i2)
         {
-            if (i1 >= t1.Length || i2 >= t2.Length) return 0;
+            if (i1 >= text1.Length || i2 >= text2.Length) return 0;
             if (memo[i1][i2] > -1) return memo[i1][i2];
 
             int max1 = 0;
-            if (t1[i1] == t2[i2]) max1 = 1 + LongestCommonSubsequenceRecursive(i1 + 1, i2 + 1, t1, t2);
+            if (text1[i1] == text2[i2]) max1 = 1 + LongestCommonSubsequenceRecursive(i1 + 1, i2 + 1);
 
-            int max2 = Math.Max(LongestCommonSubsequenceRecursive(i1 + 1, i2, t1, t2), LongestCommonSubsequenceRecursive(i1, i2 + 1, t1, t2));
+            int max2 = Math.Max(LongestCommonSubsequenceRecursive(i1 + 1, i2), LongestCommonSubsequenceRecursive(i1, i2 + 1));
             memo[i1][i2] = Math.Max(max1, max2);
             return memo[i1][i2];
         }
 
-        return LongestCommonSubsequenceRecursive(0, 0, text1, text2);
+        return LongestCommonSubsequenceRecursive(0, 0);
     }
 }
 
