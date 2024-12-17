@@ -135,3 +135,103 @@ public class Solution2
     k is the average length of a string in wordDict
     
 */
+
+
+
+public class Solution3
+{
+    public bool WordBreak(string s, IList<string> wordDict)
+    {
+        var table = new bool[s.Length];
+        for (int i = 0; i < s.Length; i++)
+        {
+            foreach (string word in wordDict)
+            {
+                if (i < word.Length - 1) continue;
+
+                if (i == word.Length - 1 || table[i - word.Length])
+                {
+                    if (s.Substring(i - word.Length + 1, word.Length) == word)
+                    {
+                        table[i] = true;
+                        break;
+                    }
+                }
+            }
+        }
+
+        return table[s.Length - 1];
+    }
+}
+
+/*
+
+    Bottom-up DP (tabulation)
+
+    Time: O(s*w*k)
+    Space: O(s)
+
+    Where s is the length of the input string s,
+    w is the length of the input array wordDict,
+    k is the average length of a string in wordDict
+
+    --------------------------------------------------------------------
+
+    Walkthrough
+
+    table = [F,F,F,F,F,F,F,F,F]
+             0 1 2 3 4 5 6 7 8
+    
+    "catsandog", wordDict = ["cats","dog","sand","and","cat"]
+
+    i = 0
+    table = [F,F,F,F,F,F,F,F,F,F]
+    "catsandog"
+     ^
+    
+    i = 1
+    table = [F,F,F,F,F,F,F,F,F,F]
+    "catsandog"
+      ^
+    
+    i = 2
+    table = [F,F,T,F,F,F,F,F,F]
+    "catsandog"
+       ^
+    
+    i = 3
+    table = [F,F,T,T,F,F,F,F,F]
+    "catsandog"
+        ^
+    
+    i = 4
+    table = [F,F,T,T,F,F,F,F,F]
+    "catsandog"
+         ^
+
+    i = 5
+    table = [F,F,T,T,F,F,F,F,F]
+    "catsandog"
+          ^
+
+    i = 6
+    table = [F,F,T,T,F,F,T,F,F]
+    "catsandog"
+           ^
+
+    i = 7
+    table = [F,F,T,T,F,F,T,F,F]
+    "catsandog"
+            ^
+
+    i = 8
+    table = [F,F,T,T,F,F,T,F,F]
+    "catsandog"
+             ^
+    "cats" => table[8 - 4] = table[4] = F
+    "dog"  => table[8 - 3] = table[5] = F
+    "sand" => table[8 - 4] = table[4] = F
+    "and"  => table[8 - 3] = table[5] = F
+    "cat"  => table[8 - 3] = table[5] = F
+
+*/
