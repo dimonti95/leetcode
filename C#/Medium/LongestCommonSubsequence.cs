@@ -44,7 +44,11 @@ public class Solution
     Top-down DP (memoization)
 
     Time: O(m*n^2)
+    * The recursion tree accounts for O(m*n)
+    * The additional n is included since we're looping text2 array on each recursive call (worst case)
+
     Space: O(m*n)
+    * The memo accounts for O(m*n) space
 
     Where n is the length of text1, and m is the length of text2.
 
