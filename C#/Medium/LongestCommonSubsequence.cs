@@ -97,7 +97,7 @@ public class Solution2
 
 
 
-public class Solution
+public class Solution3
 {
     public int LongestCommonSubsequence(string text1, string text2)
     {
