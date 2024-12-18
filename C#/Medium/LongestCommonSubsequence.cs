@@ -94,3 +94,43 @@ public class Solution2
     Where n is the length of text1, and m is the length of text2.
 
 */
+
+
+
+public class Solution3
+{
+    public int LongestCommonSubsequence(string text1, string text2)
+    {
+        var table = new int[text1.Length + 1][];
+        for (int i = 0; i < table.Length; i++)
+        {
+            table[i] = new int[text2.Length + 1];
+        }
+
+        for (int c = text2.Length - 1; c >= 0; c--)
+        {
+            for (int r = text1.Length - 1; r >= 0; r--)
+            {
+                if (text1[r] == text2[c])
+                {
+                    table[r][c] = table[r + 1][c + 1] + 1;
+                }
+                else
+                {
+                    table[r][c] = Math.Max(table[r + 1][c], table[r][c + 1]);
+                }
+            }
+        }
+
+        return table[0][0];
+    }
+}
+
+/*
+
+    Bottom-up DP (tabulation)
+
+    Time: O(m*n)
+    Space: O(m*n)
+
+*/
