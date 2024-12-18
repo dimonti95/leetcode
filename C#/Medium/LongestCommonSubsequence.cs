@@ -134,6 +134,8 @@ public class Solution3
     Time: O(m*n)
     Space: O(m*n)
 
+    Where n is the length of text1, and m is the length of text2.
+
     ---------------------------------------------------------
 
     Example
@@ -161,5 +163,70 @@ public class Solution3
     t 2 [1,1,1,1,0]
     x 3 [1,1,1,1,0]
       4 [0,0,0,0,0]
+
+*/
+
+
+
+public class Solution4
+{
+    public int LongestCommonSubsequence(string text1, string text2)
+    {
+        if (text1.Length < text2.Length)
+        {
+            string temp = text2;
+            text2 = text1;
+            text1 = temp;
+        }
+
+        var current = new int[text2.Length + 1]; // current row
+        var previous = new int[text2.Length + 1]; // previous row
+
+        for (int r = 1; r <= text1.Length; r++)
+        {
+            for (int c = 1; c <= text2.Length; c++)
+            {
+                if (text1[r - 1] == text2[c - 1])
+                {
+                    current[c] = previous[c - 1] + 1;
+                }
+                else
+                {
+                    current[c] = Math.Max(current[c - 1], previous[c]);
+                }
+            }
+            previous = current;
+            current = new int[text2.Length + 1];
+        }
+
+        return previous[previous.Length - 1];
+    }
+}
+
+/*
+
+    Bottom-up DP (memory optimized)
+
+    Time: O(m*n)
+    Space: O(min(m,n))
+
+    Where n is the length of text1, and m is the length of text2.
+
+    ---------------------------------------------------------
+
+    Example
+    Input: text1="ccrx", text2="cctx"
+    Output: 3 ("ccx")
+
+           c c r x
+         0 1 2 3 4
+      0 [0,0,0,0,0]
+    c 1 [0,1,1,1,1]
+    c 2 [0,1,2,2,2]
+    t 3 [0,1,2,2,2]
+    x 4 [0,1,2,2,3]
+
+    * The algorithm only uses two rows, the previous and the current
+    * If we generate the rows dynamically then we don't need the entire m*n table
 
 */
