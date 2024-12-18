@@ -52,6 +52,14 @@ public class Solution
 
     Where n is the length of text1, and m is the length of text2.
 
+    ---------------------------------------------------------------------
+
+    Key insight: Visualize the problem by connecting adjacent matching characters with a line. If lines cross, then it's not a valid subsequence.
+
+    abcd
+    |\
+    acbf
+
 */
 
 
