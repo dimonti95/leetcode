@@ -97,7 +97,7 @@ public class Solution2
 
 
 
-public class Solution3
+public class Solution
 {
     public int LongestCommonSubsequence(string text1, string text2)
     {
@@ -107,24 +107,25 @@ public class Solution3
             table[i] = new int[text2.Length + 1];
         }
 
-        for (int c = text2.Length - 1; c >= 0; c--)
+        for (int r = 1; r < table.Length; r++)
         {
-            for (int r = text1.Length - 1; r >= 0; r--)
+            for (int c = 1; c < table[r].Length; c++)
             {
-                if (text1[r] == text2[c])
+                if (text1[r - 1] == text2[c - 1])
                 {
-                    table[r][c] = table[r + 1][c + 1] + 1;
+                    table[r][c] = table[r - 1][c - 1] + 1;
                 }
                 else
                 {
-                    table[r][c] = Math.Max(table[r + 1][c], table[r][c + 1]);
+                    table[r][c] = Math.Max(table[r][c - 1], table[r - 1][c]);
                 }
             }
         }
 
-        return table[0][0];
+        return table[table.Length - 1][table[0].Length - 1];
     }
 }
+
 
 /*
 
@@ -139,6 +140,20 @@ public class Solution3
     Input: text1="ccrx", text2="cctx"
     Output: 3 ("ccx")
 
+           c c r x
+         0 1 2 3 4
+      0 [0,0,0,0,0]
+    c 1 [0,1,1,1,1]
+    c 2 [0,1,2,2,2]
+    t 3 [0,1,2,2,2]
+    x 4 [0,1,2,2,3]
+
+    * Iterate the matrix, comparing every character of each string
+    * If a character match is found, add one to the value in the previous row: table[r - 1][c - 1] + 1
+    * Otherwise, take the max of previous row and previous column:  Math.Max(table[r - 1][c], table[r][c - 1])
+
+    It could also be done in reverse order:
+
          c c r x
          0 1 2 3 4
     c 0 [3,2,1,1,0]
@@ -146,10 +161,5 @@ public class Solution3
     t 2 [1,1,1,1,0]
     x 3 [1,1,1,1,0]
       4 [0,0,0,0,0]
-
-    * Iterate from the back of each string (up each column, starting from the last)
-    * Every time a match is found, check as follows
-        * If match, take table[r + 1][c + 1] + 1
-        * Else Math.Max(table[r + 1][c], table[r][c + 1]);
 
 */
