@@ -133,4 +133,23 @@ public class Solution3
     Time: O(m*n)
     Space: O(m*n)
 
+    ---------------------------------------------------------
+
+    Example
+    Input: text1="ccrx", text2="cctx"
+    Output: 3 ("ccx")
+
+         c c r x
+         0 1 2 3 4
+    c 0 [3,2,1,1,0]
+    c 1 [2,2,1,1,0]
+    t 2 [1,1,1,1,0]
+    x 3 [1,1,1,1,0]
+      4 [0,0,0,0,0]
+
+    * Iterate from the back of each string (up each column, starting from the last)
+    * Every time a match is found, check as follows
+        * If match, take table[r + 1][c + 1] + 1
+        * Else Math.Max(table[r + 1][c], table[r][c + 1]);
+
 */
