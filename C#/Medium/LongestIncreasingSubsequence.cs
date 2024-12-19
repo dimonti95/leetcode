@@ -39,3 +39,46 @@ public class Solution
 
 
 */
+
+
+
+public class Solution2
+{
+    public int LengthOfLIS(int[] nums)
+    {
+        var table = new int[nums.Length];
+        Array.Fill(table, 1);
+
+        for (int i = 1; i < nums.Length; i++)
+        {
+            for (int j = i - 1; j >= 0; j--)
+            {
+                if (nums[i] > nums[j])
+                {
+                    table[i] = Math.Max(table[i], table[j] + 1);   
+                } 
+            }
+        }
+
+        int longest = 1;
+        foreach (int count in table)
+        {
+            longest = Math.Max(longest, count);
+        }
+
+        return longest;
+    }
+}
+
+
+/*
+
+    Bottom-up DP (tabulation)
+
+    Time: O(n^2)
+    Space: O(n)
+
+    Where n is the length of the array nums
+
+
+*/
