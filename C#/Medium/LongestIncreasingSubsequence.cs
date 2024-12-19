@@ -81,3 +81,48 @@ public class Solution2
 
 
 */
+
+
+
+public class Solution3
+{
+    public int LengthOfLIS(int[] nums)
+    {
+        var sub = new List<int>();
+        sub.Add(nums[0]);
+
+        for (int i = 1; i < nums.Length; i++)
+        {
+            if (nums[i] > sub[sub.Count - 1])
+            {
+                sub.Add(nums[i]);
+            }
+            else
+            {
+                for (int j = 0; j < sub.Count; j++)
+                {
+                    if (sub[j] >= nums[i])
+                    {
+                        sub[j] = nums[i];
+                        break;
+                    }
+                }
+            }
+        }
+
+        return sub.Count;
+    }
+}
+
+/*
+
+    Algorithm:
+    * Init a subsequence array with the first value in the array
+    * For each nums[i] where 1 <= i < nums.Length, compare the value to the last value in sub
+    * If nums[i] is larger, add it to the subarray
+    * If nums[i] is smaller, replace it with the first vlaue in sub that's greater than or equal to nums[i]
+
+    Time: O(n^2)
+    Space: O(n)
+
+*/
