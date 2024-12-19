@@ -168,7 +168,7 @@ public class Solution4
             }
             else if (list[middle] > val)
             {
-                right = middle;
+                right = middle; // don't skip middle
             }
             else
             {
