@@ -125,4 +125,6 @@ public class Solution3
     Time: O(n^2)
     Space: O(n)
 
+    Note: The values in sub won't be a valid subsequence but the count will always be right, since we're never shrinking the size of sub
+
 */
