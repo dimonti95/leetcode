@@ -128,3 +128,65 @@ public class Solution3
     Note: The values in sub won't be a valid subsequence but the count will always be right, since we're never shrinking the size of sub
 
 */
+
+
+
+public class Solution4
+{
+    public int LengthOfLIS(int[] nums)
+    {
+        var sub = new List<int>();
+        sub.Add(nums[0]);
+
+        for (int i = 1; i < nums.Length; i++)
+        {
+            if (nums[i] > sub[sub.Count - 1])
+            {
+                sub.Add(nums[i]);
+            }
+            else
+            {
+                int j = BinarySearch(sub, nums[i]);
+                sub[j] = nums[i];
+            }
+        }
+
+        return sub.Count;
+    }
+
+    private int BinarySearch(List<int> sub, int num)
+    {
+        int left = 0;
+        int right = sub.Count - 1;
+
+        while (left < right)
+        {
+            int middle = (right + left) / 2;
+            if (sub[middle] < num)
+            {
+                left = middle + 1;
+            }
+            else if (sub[middle] > num)
+            {
+                right = middle;
+            }
+            else
+            {
+                return middle;
+            }
+        }
+
+        return left;
+    }
+}
+
+/*
+
+    Solution 3 Optimization (binary search)
+
+    Key insight: The sub list is always sorted, so we can run binary search rather than scanning the array.
+
+    Time: O(nlogn)
+    Space: O(n)
+
+*/
