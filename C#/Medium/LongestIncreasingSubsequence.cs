@@ -51,7 +51,7 @@ public class Solution2
 
         for (int i = 1; i < nums.Length; i++)
         {
-            for (int j = i - 1; j >= 0; j--)
+            for (int j = 0; j < i; j++)
             {
                 if (nums[i] > nums[j])
                 {
@@ -69,7 +69,6 @@ public class Solution2
         return longest;
     }
 }
-
 
 /*
 
