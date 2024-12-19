@@ -32,8 +32,10 @@ public class Solution
 
     Top-down DP (memoization)
 
-    Time: O()
-    Space: O()
+    Time: O(n^2)
+    Space: O(n)
+
+    Where n is the length of the array nums
 
 
 */
