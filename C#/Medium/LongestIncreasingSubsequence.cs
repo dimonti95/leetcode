@@ -154,19 +154,19 @@ public class Solution4
         return sub.Count;
     }
 
-    private int BinarySearch(List<int> sub, int num)
+    private int BinarySearch(List<int> list, int val)
     {
         int left = 0;
-        int right = sub.Count - 1;
+        int right = list.Count - 1;
 
         while (left < right)
         {
             int middle = (right + left) / 2;
-            if (sub[middle] < num)
+            if (list[middle] < val)
             {
                 left = middle + 1;
             }
-            else if (sub[middle] > num)
+            else if (list[middle] > val)
             {
                 right = middle;
             }
