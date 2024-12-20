@@ -1,4 +1,4 @@
-public class Solution
+public class Solution1
 {
     public int[] CountBits(int n)
     {
