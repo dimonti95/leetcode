@@ -8,10 +8,12 @@ public class Solution1
         {   
             int x = i;
             int count = 0;
+
+            // This is O(logn) since this number is being divided by 2
             while (x != 0)
             {
                 if ((x & mask) != 0) count++;
-                x >>= 1; // O(logn) since this number is being divided by 2
+                x >>= 1; // this is the divide by 2
             }
 
             result[i] = count;
