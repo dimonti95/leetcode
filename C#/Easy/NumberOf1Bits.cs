@@ -16,6 +16,8 @@ public class Solution
 
 /*
 
+    Solution 1
+
     Iterate through each bit and check for using using the AND and shift bitwise operators.
 
     On each iteration of the for loop, the mask bit is shifted left by one.
