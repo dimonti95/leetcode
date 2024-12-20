@@ -11,7 +11,7 @@ public class Solution
             while (x != 0)
             {
                 if ((x & mask) != 0) count++;
-                x >>= 1;
+                x >>= 1; // O(logn) since this number is being divided by 2
             }
 
             result[i] = count;
@@ -27,7 +27,7 @@ public class Solution
     
     Count the number of bits in each number from 0 to n.
 
-    Time: O(n)
+    Time: O(nlogn)
     Space: O(1)
 
 */
