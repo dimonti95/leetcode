@@ -43,11 +43,13 @@ public class Solution
 
     -------------------------------------------------------------------
 
-    Language specifics
+    C# language specifics
 
     - Every langauge represents negative numbers differently.
     - C# represents numbers as 32 bits (int is an alias for System.Int32).
     - The left most bit (most signifigant bit) is used for the sign, 1 for negative, 0 for posative.
     - The remaining 31 bits are used for the value.
+
+    We don't need to manage negatives seperately because C# manages negative numbers automatically using two's complement.
 
 */
