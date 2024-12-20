@@ -18,7 +18,9 @@ public class Solution
 
     -------------------------------------------------------------------
 
-    Example (assume 8-bit numbers):
+    Example assumes an 8-bit integer
+
+    Example 1 - Two posative integers:
      0001 1100 = 28 = a
      0000 0101 = 5 = b
     +________________
@@ -40,6 +42,33 @@ public class Solution
     a & b << 1   =  0000 0000  = 0
 
     The carry is guaranteed to eventually go to 0 because eventually all 1's carry over.
+
+    -------------------------------------------------------------------
+
+    Example assumes an 8-bit integer
+
+    Example 2 - A posative and negative integer:
+     0001 1100 = 28 = a
+     1111 1011 = -5 = b
+    +________________
+     0001 0111 = 23
+
+    a                =  0001 1100  = 28
+    b                =  1111 1011  = -5
+
+    a = a ^ b        =  1110 0111  = -25
+    b = a & b << 1   =  0011 0000  = 48
+
+    a = a ^ b        =  1101 0111  = -37
+    b = a & b << 1   =  0100 0000  = 64
+
+    a = a ^ b        =  1001 0111  = -105 
+    b = a & b << 1   =  1000 0000  = 128
+
+    a = a ^ b        =  0001 0111  = 23 
+    b = a & b << 1   =  0000 0000  = 0
+
+    Again, the carry eventually goes to 0.
 
     -------------------------------------------------------------------
 
