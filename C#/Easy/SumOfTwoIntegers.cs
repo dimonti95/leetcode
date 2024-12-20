@@ -17,19 +17,26 @@ public class Solution
     Space: O(1) - since we're not using any additional data structures
 
     Example (assume 8-bit numbers):
-     0000 0110 = 6 = a
+     0001 1100 = 28 = a
      0000 0101 = 5 = b
     +________________
-     0000 1011 = 11
+     0010 0001 = 33
    
-    b     = 5
-    carry = 0000 0100
-    a     = 0000 0011
-    b     = 0000 1000
+    a            =  0001 1100  = 28
+    b            =  0000 0101  = 5
 
-    b     = 8
-    carry = 0000 0000
-    a     = 0000 1011
-    b     = 0000 0000
+    a ^ b        =  0001 1001  = 25
+    a & b << 1   =  0000 1000  = 8
+
+    a ^ b        =  0001 0001  = 17
+    a & b << 1   =  0001 0000  = 16
+
+    a ^ b        =  0000 0001  = 1
+    a & b << 1   =  0010 0000  = 32
+
+    a ^ b        =  0010 0001  = 33
+    a & b << 1   =  0000 0000  = 0
+
+    The carry is guaranteed to eventually go to 0 because eventually all 1's carry over.
 
 */
