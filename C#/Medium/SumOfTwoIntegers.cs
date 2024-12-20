@@ -16,6 +16,8 @@ public class Solution
     Time: O(1) - since an integer is 32 bits
     Space: O(1) - since we're not using any additional data structures
 
+    -------------------------------------------------------------------
+
     Example (assume 8-bit numbers):
      0001 1100 = 28 = a
      0000 0101 = 5 = b
@@ -38,5 +40,14 @@ public class Solution
     a & b << 1   =  0000 0000  = 0
 
     The carry is guaranteed to eventually go to 0 because eventually all 1's carry over.
+
+    -------------------------------------------------------------------
+
+    Language specifics
+
+    - Every langauge represents negative numbers differently.
+    - C# represents numbers as 32 bits (int is an alias for System.Int32).
+    - The left most bit (most signifigant bit) is used for the sign, 1 for negative, 0 for posative.
+    - The remaining 31 bits are used for the value.
 
 */
