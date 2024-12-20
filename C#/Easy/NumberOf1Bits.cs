@@ -43,3 +43,32 @@ public class Solution
     Because 5 in binary is 0000 0101.
 
 */
+
+
+
+public class Solution2
+{
+    public int HammingWeight(int n)
+    {
+        int mask = 1;
+        int count = 0;
+        while (n != 0)
+        {
+            if ((n & mask) != 0) count++;
+            n >>= 1;
+        }
+
+        return count;
+    }
+}
+
+/*
+
+    Solution 2
+
+    Rather than shifting the mask bit, shift n right until it reaches 0.
+
+    Time: O(1)
+    Space: O(1)
+
+*/
