@@ -33,3 +33,37 @@ public class Solution1
     Space: O(1)
 
 */
+
+
+
+public class Solution2
+{
+    public int[] CountBits(int n)
+    {
+        var dp = new int[n + 1];
+        dp[0] = 0;
+        
+        int offset = 1;
+        for (int i = 1; i <= n; i++)
+        {
+            if (offset * 2 == i) offset = i;
+            dp[i] = dp[i - offset] + 1;
+        }
+
+        return dp;
+    }
+}
+
+/*
+
+    Solution 2  
+
+    Bottom-up DP (tabulation)
+
+    [n]
+    [0] = 0000 = dp[0] = 0
+    [1] = 0001 = dp[1] = 1
+    [2] = 0010 = dp[2] = 1
+    [3] = 0011 = dp[3] = 2
+
+*/
