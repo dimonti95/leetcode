@@ -6,7 +6,7 @@ public class Solution
         uint rMask = 1U << 31;
         while (n > 0)
         {
-            // check LSB is 1
+            // check if LSB is 1
             if ((n & 1) > 0)
             {
                 result ^= rMask;
