@@ -79,4 +79,6 @@ public class Solution2
     2^3 = 8
     etc
 
+    Between each multiple of 2, the bits follow the same pattern, so the results can re-used.
+
 */
