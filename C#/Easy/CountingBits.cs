@@ -58,7 +58,7 @@ public class Solution2
 
     Solution 2  
 
-    Bottom-up DP (tabulation)
+    Bottom-up DP (tabulation) using the Most Signifigant Bit
 
     Time: O(n)
     Space: O(1)
@@ -83,3 +83,19 @@ public class Solution2
     Between each multiple of 2, the bits follow the same pattern, so the results can re-used.
 
 */
+
+
+
+public class Solution3
+{
+    public int[] CountBits(int n)
+    {
+        var dp = new int[n + 1];
+        for (int i = 1; i <= n; i++)
+        {
+            dp[i] = dp[i & (i - 1)] + 1;
+        }
+
+        return dp;
+    }
+}
