@@ -9,7 +9,8 @@ public class Solution
             // check if LSB is 1
             if ((n & 1) > 0)
             {
-                result ^= rMask;
+                // set the masked bit to 1
+                result |= rMask;
             }
 
             n >>>= 1;
