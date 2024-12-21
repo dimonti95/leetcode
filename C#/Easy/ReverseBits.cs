@@ -27,4 +27,8 @@ public class Solution
     Time: O(1)
     Space: O(1)
 
+    Solution:
+    - Shift n right (using usigned shift operator) each iteration until n is 0
+    - For every 1 bit found, update the corresponding result bit
+
 */
