@@ -85,38 +85,15 @@ public class Solution3
     This works because:
     * XOR of a number with itself is 0: a ^ a = 0
     * XOR of a number with 0 is the number itself: a ^ 0 = a
+    * XOR operations don't rely on ordering
 
-    --------------------------------------------------------------------------------
+    Example 1
+    [0,1,2,3] ^ [1,2,3] = 0
+       X X X     X X X
 
-    It's more obvious why this works with an example where each value in nums[i] = i.
-
-    If you only XOR each index with itself, then they cancel out to 0, resulting in n itself.
-
-    Input: nums = [0,1,2,3] (n = 4)
-
-    missing = 4
-
-    i
-    0: 4 ^ 0 ^ 0    =   0100 ^ (0000 ^ 0000)  =   0100 ^ 0000    = 4
-    1: 4 ^ 1 ^ 1    =   0100 ^ (0001 ^ 0001)  =   0100 ^ 0000    = 4
-    2: 4 ^ 2 ^ 2    =   0100 ^ (0010 ^ 0010)  =   0100 ^ 0000    = 4
-    2: 4 ^ 3 ^ 3    =   0100 ^ (0011 ^ 0011)  =   0100 ^ 0000    = 4
-
-    result = 4
-
-    --------------------------------------------------------------------------------
-
-    Example
-    Input: nums = [1,0,2] (n = 3)
-
-    missing = 3
-
-    i
-    0: 3 ^ 0 ^ 1    =   0011 ^ 0000 ^ 0001  =   0010    = 2
-    1: 2 ^ 1 ^ 0    =   0010 ^ 0001 ^ 0000  =   0010    = 3 
-    2: 3 ^ 2 ^ 2    =   0011 ^ 0010 ^ 0010  =   0001    = 3
-
-    result = 3
+    Example 2
+    [0,1,2,3] ^ [0,3,2] = 1
+     X   X X     X X X
 
 */
 
@@ -141,7 +118,7 @@ public class Solution4
     Solution 4
 
     The "Gauss formula" refers to the math formula used to calculate the sum of a sequence of consecutive positive integers: n(n + 1)/2
-    
+
     [1]         = 1(1 + 1) / 2 = 1
     [1,2]       = 2(2 + 1) / 2 = 3
     [1,2,3]     = 3(3 + 1) / 2 = 6
