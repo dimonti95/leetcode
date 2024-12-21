@@ -46,7 +46,7 @@ public class Solution2
         int offset = 1;
         for (int i = 1; i <= n; i++)
         {
-            if (offset * 2 == i) offset = i;
+            if (offset * 2 == i) offset = i; // check for multiple of 2 (2,4,8,16,etc)
             dp[i] = dp[i - offset] + 1;
         }
 
@@ -77,6 +77,7 @@ public class Solution2
     2^1 = 2
     2^2 = 4
     2^3 = 8
+    2^4 = 16
     etc
 
     Between each multiple of 2, the bits follow the same pattern, so the results can re-used.
