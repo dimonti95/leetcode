@@ -65,13 +65,13 @@ public class Solution2
 
     [n]
     [1] = 0001 = dp[1 - 1] + 1 = 1
-    [2] = 0010 = dp[2 - 2] + 1 = 1   offset = 2
+    [2] = 0010 = dp[2 - 2] + 1 = 1   offset = 2 (2^1)
     [3] = 0011 = dp[3 - 2] + 1 = 2
-    [4] = 0100 = dp[4 - 4] + 1 = 1   offset = 4
+    [4] = 0100 = dp[4 - 4] + 1 = 1   offset = 4 (2^2)
     [5] = 0101 = dp[5 - 4] + 1 = 2
     [6] = 0110 = dp[6 - 4] + 1 = 2
     [7] = 0111 = dp[7 - 4] + 1 = 3
-    [8] = 1000 = dp[8 - 8] + 1 = 1   offset = 8
+    [8] = 1000 = dp[8 - 8] + 1 = 1   offset = 8 (2^3)
     
     This works because the only bit that changes is the most signifigant bit (every multiple of 2):
     2^1 = 2
