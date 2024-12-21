@@ -63,6 +63,46 @@ public class Solution3
 {
     public int MissingNumber(int[] nums)
     {
+        int missing = nums.Length;
+        for (int i = 0; i < nums.Length; i++)
+        {
+            missing = missing ^ i ^ nums[i];
+        }
+
+        return missing;
+    }
+}
+
+/*
+
+    Solution 3
+
+    Bit manipulation - XOR
+
+    Time: O(n) assuming XOR is a constant time operation
+    Space: O(1)
+
+    --------------------------------------------------------------------------------
+
+    Example: nums = [1,0,2] (n = 3)
+
+    missing = 3
+
+    i
+    0: 3 ^ 0 ^ 1    =   0011 ^ 0000 ^ 0001  =   0010    = 2
+    1: 2 ^ 1 ^ 0    =   0010 ^ 0001 ^ 0000  =   0010    = 3 
+    2: 3 ^ 2 ^ 2    =   0011 ^ 0010 ^ 0010  =   0001    = 3
+
+    result = 3
+
+*/
+
+
+
+public class Solution4
+{
+    public int MissingNumber(int[] nums)
+    {
         int expectedSum = 0;
         for (int i = 0; i <= nums.Length; i++) expectedSum += i;
 
@@ -75,7 +115,7 @@ public class Solution3
 
 /*
 
-    Solution 3
+    Solution 4
 
     Sum up all the numbers to and compare it with an expected sum.
 
