@@ -26,3 +26,33 @@ public class Solution
     Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
 
 */
+
+
+
+public class Solution2
+{
+    public int MissingNumber(int[] nums)
+    {
+        var set = new HashSet<int>();
+        foreach (int num in nums) set.Add(num);
+
+        for (int i = 0; i <= nums.Length; i++)
+        {
+            if (!set.Contains(i)) return i;
+        }
+
+        return -1;
+    }
+}
+
+/*
+
+    Solution 2
+
+    Use a set
+
+    Time: O(n)
+    Space: O(n)
+
+
+*/
