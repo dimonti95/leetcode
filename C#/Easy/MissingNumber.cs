@@ -63,7 +63,7 @@ public class Solution3
 {
     public int MissingNumber(int[] nums)
     {
-        int missing = nums.Length;
+        int missing = nums.Length; // missing = n
         for (int i = 0; i < nums.Length; i++)
         {
             missing = missing ^ i ^ nums[i];
@@ -82,9 +82,32 @@ public class Solution3
     Time: O(n) assuming XOR is a constant time operation
     Space: O(1)
 
+    This works because:
+    * XOR of a number with itself is 0: a ^ a = 0
+    * XOR of a number with 0 is the number itself: a ^ 0 = a
+
     --------------------------------------------------------------------------------
 
-    Example: nums = [1,0,2] (n = 3)
+    It's more obvious why this works with an example where each value in nums[i] = i.
+
+    If you only XOR each index with itself, then they cancel out to 0, resulting in n itself.
+
+    Input: nums = [0,1,2,3] (n = 4)
+
+    missing = 4
+
+    i
+    0: 4 ^ 0 ^ 0    =   0100 ^ (0000 ^ 0000)  =   0100 ^ 0000    = 4
+    1: 4 ^ 1 ^ 1    =   0100 ^ (0001 ^ 0001)  =   0100 ^ 0000    = 4
+    2: 4 ^ 2 ^ 2    =   0100 ^ (0010 ^ 0010)  =   0100 ^ 0000    = 4
+    2: 4 ^ 3 ^ 3    =   0100 ^ (0011 ^ 0011)  =   0100 ^ 0000    = 4
+
+    result = 4
+
+    --------------------------------------------------------------------------------
+
+    Example
+    Input: nums = [1,0,2] (n = 3)
 
     missing = 3
 
