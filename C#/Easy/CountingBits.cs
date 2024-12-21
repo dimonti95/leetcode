@@ -132,7 +132,7 @@ public class Solution3
 
 
 
-public class Solution3
+public class Solution4
 {
     public int[] CountBits(int n)
     {
@@ -145,3 +145,16 @@ public class Solution3
         return dp;
     }
 }
+
+/*
+
+    Solution 4
+
+    Bottom-up DP (tabulation) using the previous bits
+
+    Time: O(n)
+    Space: O(1)
+
+    This works because, the binary representation of each 0 to n value, is the same as the previous + 1 (if you only add 1 on top of the number of "overlapping" bits).
+
+*/
