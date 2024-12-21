@@ -126,8 +126,8 @@ public class Solution4
 {
     public int MissingNumber(int[] nums)
     {
-        int expectedSum = 0;
-        for (int i = 0; i <= nums.Length; i++) expectedSum += i;
+        int n = nums.Length;
+        int expectedSum = n*(n + 1)/2; // Gauss' Formula
 
         int sum = 0;
         foreach (int num in nums) sum += num;
@@ -140,7 +140,12 @@ public class Solution4
 
     Solution 4
 
-    Sum up all the numbers to and compare it with an expected sum.
+    The "Gauss formula" refers to the math formula used to calculate the sum of a sequence of consecutive positive integers: n(n + 1)/2
+    
+    [1]         = 1(1 + 1) / 2 = 1
+    [1,2]       = 2(2 + 1) / 2 = 3
+    [1,2,3]     = 3(3 + 1) / 2 = 6
+    [1,2,3,4]   = 4(4 + 1) / 2 = 10
 
     Time: O(n)
     Space: O(1)
