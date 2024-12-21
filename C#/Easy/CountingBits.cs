@@ -122,7 +122,11 @@ public class Solution3
     [7] = 0111 =    dp[7] = dp[3] + 1   = 3     - LSB changed
     [8] = 1000 =    dp[8] = dp[4] + 0   = 1
     
-    This works in a similar way as solution 2, except instead of checking the MSB we check the LSB.
+    This works in a similar way as solution 2, except instead of checking the MSB we check the LSB:
+    
+    Every other value, either:
+    - The LSB gets set to 1
+    - The LSB gets set to 0 (and shifted over to 2)
 
 */
 
