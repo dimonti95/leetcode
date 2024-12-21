@@ -72,6 +72,11 @@ public class Solution2
     [6] = 0110 = dp[6 - 4] + 1 = 2
     [7] = 0111 = dp[7 - 4] + 1 = 3
     [8] = 1000 = dp[8 - 8] + 1 = 1   offset = 8
-    ...
+    
+    This works because the only bit that changes is the most signifigant bit (every multiple of 2):
+    2^1 = 2
+    2^2 = 4
+    2^3 = 8
+    etc
 
 */
