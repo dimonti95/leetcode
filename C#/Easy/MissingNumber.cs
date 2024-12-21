@@ -56,3 +56,30 @@ public class Solution2
 
 
 */
+
+
+
+public class Solution3
+{
+    public int MissingNumber(int[] nums)
+    {
+        int expectedSum = 0;
+        for (int i = 0; i <= nums.Length; i++) expectedSum += i;
+
+        int sum = 0;
+        foreach (int num in nums) sum += num;
+
+        return expectedSum - sum;
+    }
+}
+
+/*
+
+    Solution 3
+
+    Sum up all the numbers to and compare it with an expected sum.
+
+    Time: O(n)
+    Space: O(1)
+
+*/
