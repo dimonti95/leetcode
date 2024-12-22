@@ -79,6 +79,6 @@ public class Solution2
     a stream, this would be an impactful optimization compared to Solution 1.
 
     Time: O(1)
-    Space: O(1)
+    Space: O(1) because the memoization cache will grow (at most) to hold 256 bytes
 
 */
