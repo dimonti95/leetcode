@@ -75,6 +75,9 @@ public class Solution2
     - Swap bytes instead of bits
     - Cache the value of each reversed byte using memoization
 
+    This doesn't save much time since the input is a fixed size (uint is a 32-bit integer), but if you were dealing with
+    a stream, this would be an impactful optimization compared to Solution 1.
+
     Time: O(1)
     Space: O(1)
 
