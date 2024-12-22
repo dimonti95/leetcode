@@ -58,7 +58,11 @@ public class Solution2
     private uint ReverseByte(uint b, Dictionary<uint, uint> memo)
     {
         if (memo.ContainsKey(b)) return memo[b];
+
+        // An algorithm described as "reverse the bits in a byte with 3 operations"
+        // From Bit Twiddling Hacks by Sean Eron Anderson
         memo[b] = (uint)((b * 0x0202020202 & 0x010884422010) % 1023);
+        
         return memo[b];
     }
 }
