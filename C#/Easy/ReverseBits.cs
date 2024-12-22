@@ -23,6 +23,8 @@ public class Solution
 
 /*
 
+    Solution 1
+
     Compare each bit
 
     Time: O(1)
