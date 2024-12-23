@@ -26,4 +26,6 @@ public class Solution
     Time Complexity: O(n)
     Space Complexity: O(1)
 
+    Key insight: Moving the pointer at the larger value will always decrease the area (container size).
+
 */
