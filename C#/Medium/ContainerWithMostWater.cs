@@ -1,25 +1,20 @@
-public class Solution {
-    public int MaxArea(int[] height) {
+public class Solution
+{
+    public int MaxArea(int[] height)
+    {
+        int max = 0;
         int left = 0;
         int right = height.Length - 1;
-        int max = 0;
-
         while (left < right)
         {
-            int minHeight = Math.Min(height[left], height[right]);
-            int distance = right - left;
-            max = Math.Max(max, minHeight * distance);
+            int w = right - left;
+            int h = Math.Min(height[left], height[right]);
+            max = Math.Max(max, w * h);
 
-            if (height[left] < height[right])
-            {
-                left++;
-            }
-            else
-            {
-                right--;
-            }
+            if (height[left] < height[right]) left++;
+            else right--;
         }
-        
+
         return max;
     }
 }
