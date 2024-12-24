@@ -1,5 +1,7 @@
-public class Solution {
-    public int MaxProduct(int[] nums) {
+public class Solution
+{
+    public int MaxProduct(int[] nums)
+    {
         int currentMin = 1;
         int currentMax = 1;
         int max = nums[0];
