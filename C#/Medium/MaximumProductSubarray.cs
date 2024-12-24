@@ -31,10 +31,11 @@ public class Solution
 
     i: [currMin, currMax]
     
-
     Time Complexity: O(n)
     Space Complexity: O(1)
     
     Where n is the length of nums
+
+    Key insight: Zeros and negative numbers can cause an algorithm to lose the max product
 
 */
