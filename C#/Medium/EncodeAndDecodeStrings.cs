@@ -67,6 +67,10 @@ public class Codec {
     Space: O(m) because we're adding additional space for each delimeter
 
     Where n is the total number of characters and m is the total number of strings.
+
+    This works the same way as C# escape sequences like "\n", which allow you to represent special characters that cannot be
+    directly typed into a string, such as tab, newline, or quotation marks. If you want the character sequence "\n" (backslash followed by the letter n)
+    to appear as part of the string literally, without it being interpreted as a newline character, you need to escape the backslash.
     
 */
 
