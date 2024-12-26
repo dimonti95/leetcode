@@ -3,6 +3,81 @@ public class Codec {
     // Encodes a list of strings to a single string.
     public string encode(IList<string> strs)
     {
+        var sb = new StringBuilder();
+        foreach (string str in strs)
+        {
+            sb.Append(str.Replace("/", "//") + "/*");
+        }
+
+        return sb.ToString();
+    }
+
+    // Decodes a single string to a list of strings.
+    public IList<string> decode(string s)
+    {
+        var strs = new List<string>();
+        var sb = new StringBuilder();
+
+        int i = 0;
+        while (i < s.Length)
+        {
+            if (i + 1 < s.Length && s[i] == '/' && s[i + 1] == '*')
+            {
+                strs.Add(sb.ToString());
+                sb.Clear();
+                i += 1;
+            }
+            else if (i + 1 < s.Length && s[i] == '/' && s[i + 1] == '/')
+            {
+                sb.Append(s[i]);
+                i += 1;
+            }
+            else
+            {
+                sb.Append(s[i]);
+            }
+            i += 1;
+        }
+
+        return strs;
+    }
+}
+
+/*
+
+    Note: The input strings will only consist of ASCII characters.
+
+    Brute force approach:
+    1. Choose a non-ASCII character to use as a delimeter
+    2. Encode the strings into a single string, delimeted by that non-ASCII character
+    Time: O(n)
+    Space: O(m)
+
+    Where n is the total number of characters and m is the total number of strings.
+
+    ----------------------------------------------------------------------------------------
+
+    Follow up: Could you write a generalized algorithm to work on any possible set of characters?
+
+    Solution (optimization 1):
+    1. Use some sequence of characters as a delimieter, like "/*" (this is called an escape sequence)
+    2. If the escape sequence ("/*") appears anywhere in the input strings, escape it using a designated escape character, such as "/"
+        - Any string that includes "/*" is updated to include "//*" to indicate that the "/* is not a delimeter
+    Time: O(n)
+    Space: O(m) because we're adding additional space for each delimeter
+
+    Where n is the total number of characters and m is the total number of strings.
+    
+*/
+
+
+
+public class Codec2
+{
+
+    // Encodes a list of strings to a single string.
+    public string encode(IList<string> strs)
+    {
         var sb = new StringBuilder();   
         foreach (string s in strs)
         {
@@ -35,25 +110,7 @@ public class Codec {
 
 /*
 
-    The input strings will only consist of ASCII characters.
-
-    Brute force approach:
-    1. Choose a non-ASCII character to use as a delimeter
-    2. Encode the strings into a single string, delimeted by that non-ASCII character
-    Time: O(n)
-    Space: O(m)
-
-    Where n is the total number of characters and m is the total number of strings.
-
-    Optimization 1:
-    1. Use some uncommon sequence of characters as a delimieter, like "*x"
-    2. If that sequence of characters appears anywhere in the input strings, escape them using some escape character, like "#"
-        - Any string that includes "*x" is updated to include "#*x" to indicate it's not a delimeter
-        - Any string that already includes "#*x" isn't affected
-    Time: O(n)
-    Space: O(m)
-
-    Where n is the total number of characters and m is the total number of strings.
+    Note: The input strings will only consist of ASCII characters.
 
     Optimization 2:
     1. Use a Chunked transfer encoding
