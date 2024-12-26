@@ -1,5 +1,7 @@
-public class Solution {
-    public int LengthOfLongestSubstring(string s) {
+public class Solution
+{
+    public int LengthOfLongestSubstring(string s)
+    {
         var unique = new HashSet<char>();
         int max = 0;
         int left = 0;
