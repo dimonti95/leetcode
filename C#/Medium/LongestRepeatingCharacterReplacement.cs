@@ -1,5 +1,7 @@
-public class Solution {
-    public int CharacterReplacement(string s, int k) {
+public class Solution
+{
+    public int CharacterReplacement(string s, int k)
+    {
         var charFrequency = new Dictionary<char, int>();
         int left = 0;
         int max = 0;
@@ -52,54 +54,46 @@ public class Solution {
 
 
 
-public class Solution {
-    public int CharacterReplacement(string s, int k) {
-        var charFrequency = new Dictionary<char, int>();
-        int left = 0;
+public class Solution2
+{
+    public int CharacterReplacement(string s, int k)
+    {
+        var count = new Dictionary<char, int>(); // char, count
+        int longest = 0;
         int max = 0;
-        for (int right = 0; right < s.Length; right++)
+        for (int right = 0, left = 0; right < s.Length; right++)
         {
             char c = s[right];
-            if (charFrequency.ContainsKey(c)) charFrequency[c] += 1;
-            else charFrequency.Add(c, 1);
+            int len = right - left + 1;
 
-            int maxFreq = GetMostFrequentChar(charFrequency);
-            int count = right - left + 1 - maxFreq;
+            if (!count.ContainsKey(c)) count.Add(c, 0);
+            count[c] += 1;
 
-            // check if the max character replacements were exceeded
-            if (count > k)
+            max = Math.Max(max, count[c]);
+            if (len - max > k)
             {
-                charFrequency[s[left]] -= 1;
+                count[s[left]] -= 1;
                 left += 1;
-                count = right - left + 1 - maxFreq;
             }
 
-            max = Math.Max(max, right - left + 1);
+            longest = right - left + 1;
         }
 
-        return max;
-    }
-
-    private int GetMostFrequentChar(Dictionary<char, int> charFrequency)
-    {
-        int max = 0;
-
-        foreach (var pair in charFrequency)
-        {
-            max = Math.Max(max, charFrequency[pair.Key]);
-        }
-
-        return max;
+        return longest; 
     }
 }
 
 /*
-
-  Optimized from O(n*26)
  
-  Small optimization to avoid re-calculating the max freqency more often than is needed
+  Small optimization to avoid re-calculating the max freqency more often than is needed.
 
   Time: O(n)
   Space: O(1)
+
+  ------------------------------------------------------------------------------------
+
+  Optimized from O(n*26)
+
+  Key insight: It's not necessary to check the character count map for the most frequent character.
 
 */
