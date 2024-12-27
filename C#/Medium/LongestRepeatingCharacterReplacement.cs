@@ -43,12 +43,21 @@ public class Solution
 
 /*
 
-  Two pointers, sliding window, track (count of most frequent character - size of window)
+    Brute force solution
+    1. Generate all possible substrings
+    2. Create a count map for each substring
+    3. If len - maxCharCount is less than or equal to k, then it's a valid substring
+    Time: O(n^3)
+    Space: O(1) because there are at most 26 unique characters
 
-  Time Complexity: O(n)
-  Space Complexity: O(1) (at most 26 characters get mapped)
+    ------------------------------------------------------------------------------------
 
-  Where n is the length of the string
+    Two pointers, sliding window, track (count of most frequent character - size of window)
+
+    Time Complexity: O(26n) = O(n)
+    Space Complexity: O(1) because at most 26 characters get mapped
+
+    Where n is the length of the string
 
 */
 
