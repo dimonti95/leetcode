@@ -94,6 +94,9 @@ public class Solution2
 
   Optimized from O(n*26)
 
-  Key insight: It's not necessary to check the character count map for the most frequent character.
+  Key insights: It's not necessary to check the character count map for the most frequent character.
+
+  This works because the only way for the window size to grow past the max (longest) is for the max
+  character count for a given character to grow to be larger than the last max.
 
 */
