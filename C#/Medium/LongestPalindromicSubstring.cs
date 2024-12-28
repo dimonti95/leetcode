@@ -48,6 +48,8 @@ public class Solution
     Time: O(n^2)
     Space: O(1)
 
-    Key insight: Consider odd and even length substrings by expanding from one and two middle characters.
+    Key insights:
+    - Consider odd and even length substrings by expanding from one and two middle characters.
+    - The worst case scenario (for the runtime of this algorithm) is when every character in the string is the same.
 
 */
