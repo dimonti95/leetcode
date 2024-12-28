@@ -1,24 +1,22 @@
-public class Solution {
-    public int CountSubstrings(string s) {
+public class Solution
+{
+    public int CountSubstrings(String s)
+    {
         int count = 0;
-
         for (int i = 0; i < s.Length; i++)
         {
-            count += GetPalindromeCountFromCenter(s, i, i);
-            count += GetPalindromeCountFromCenter(s, i, i + 1);
+            count += ExpandFromCenter(i, i, s) + ExpandFromCenter(i, i + 1, s);
         }
 
         return count;
     }
 
-    private int GetPalindromeCountFromCenter(string s, int left, int right)
+    private int ExpandFromCenter(int left, int right, string s)
     {
         int count = 0;
-        
-        while (left >= 0 && right < s.Length)
+        while (left >= 0 && right < s.Length && s[left] == s[right])
         {
-            if (s[left] == s[right]) count++;
-            else break;
+            count++;
             left--;
             right++;
         }
