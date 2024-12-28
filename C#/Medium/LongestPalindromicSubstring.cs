@@ -32,10 +32,22 @@ public class Solution
 }
 
 /*
+
+    Brute force
+    - Generate all possible substrings
+    - Check if each substring is a valid palindrome using two pointers (start from the start and end of each substring)
+    - Store the max substring in memory
+    Time: O(n^3)
+    Space: O(1)
+
+    ----------------------------------------------------------------------------------------------------
     
-    Expand from the center of each index, the center could be between two letters.
+    Optimization
+    - Expand from the center of each index, the center could be between two letters.
     
     Time: O(n^2)
     Space: O(1)
+
+    Key insight: Consider odd and even length substrings by expanding from one and two middle characters.
 
 */
