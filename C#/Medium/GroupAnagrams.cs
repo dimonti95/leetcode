@@ -1,6 +1,7 @@
-public class Solution {
-    public IList<IList<string>> GroupAnagrams(string[] strs) {
-        var res = new List<IList<string>>();
+public class Solution
+{
+    public IList<IList<string>> GroupAnagrams(string[] strs)
+    {
         var countMap = new Dictionary<string, List<string>>();
         
         // map character counts to List of anagrams
@@ -21,13 +22,7 @@ public class Solution {
                 countMap[key] = new List<string> { str };
         }
 
-        // loop over each count array and add the anagram group to the final list
-        foreach (var pair in countMap)
-        {
-            res.Add(countMap[pair.Key]);
-        }
-
-        return res;
+        return new List<IList<string>>(countMap.Values);
     }
 }
 
