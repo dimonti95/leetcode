@@ -1,33 +1,33 @@
-public class Solution {
-    public string LongestPalindrome(string s) {
-        
-        int left = 0;
-        int right = 0;
+public class Solution
+{
+    public string LongestPalindrome(string s)
+    {
+        int max = 0;
+        int start = 0;
         for (int i = 0; i < s.Length; i++)
         {
-            int len1 = GetMaxPalindromeLengthFromCenter(s, i, i);
-            int len2 = GetMaxPalindromeLengthFromCenter(s, i, i + 1);
-            int len = Math.Max(len1, len2);
-            int currentMax = right - left;
-            if (len > currentMax)
+            int len1 = ExpandFromCenter(i, i, s);
+            int len2 = ExpandFromCenter(i, i + 1, s);
+            int currentMax = Math.Max(len1, len2);
+            if (currentMax > max)
             {
-                left = i - (len - 1) / 2;
-                right = i + len / 2;
+                start = i - (currentMax - 1) / 2;
+                max = currentMax;
             }
         }
-        
-        return s.Substring(left, right - left + 1);
+
+        return s.Substring(start, max);
     }
 
-    private int GetMaxPalindromeLengthFromCenter(string s, int left, int right)
+    private int ExpandFromCenter(int i, int j, string s)
     {
-        while (left >= 0 && right < s.Length && s[left] == s[right])
+        while (i >= 0 && j < s.Length && s[i] == s[j])
         {
-            left--;
-            right++;
+            i--;
+            j++;
         }
 
-        return right - left - 1;
+        return j - i - 1;
     }
 }
 
