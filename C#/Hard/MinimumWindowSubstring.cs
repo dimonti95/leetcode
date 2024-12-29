@@ -1,37 +1,26 @@
-public class Solution {
-    public string MinWindow(string s, string t) {
+public class Solution
+{
+    public string MinWindow(string s, string t)
+    {
         var tCount = new Dictionary<char, int>();
         var sCount = new Dictionary<char, int>();
         var res = new Tuple<int, int, int>(Int32.MaxValue, 0, -1); // min, left, right
-        int needCount = 0;
-        int haveCount = 0;
 
         // Create character freq map for t
         foreach (char c in t)
         {
-            if (tCount.ContainsKey(c))
-            {
-                tCount[c] += 1;
-            }
-            else
-            {
-                tCount.Add(c, 1);
-                needCount += 1;
-            }
+            if (!tCount.ContainsKey(c)) tCount.Add(c, 0);
+            tCount[c] += 1;
         }
 
+        int needCount = tCount.Keys.Count;
+        int haveCount = 0;
         int left = 0;
         for (int right = 0; right < s.Length; right++)
         {
             char c = s[right];
-            if (sCount.ContainsKey(c))
-            {
-                sCount[c] += 1;
-            } 
-            else
-            {
-                sCount.Add(c, 1);
-            } 
+            if (!sCount.ContainsKey(c)) sCount.Add(c, 0);
+            sCount[c] += 1; 
 
             if (tCount.ContainsKey(c) && sCount[c] == tCount[c]) haveCount += 1;
 
