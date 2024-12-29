@@ -53,10 +53,28 @@ public class Solution
     Time: O(s + t)
     Space: O(1) since the total number of unique characters never exceeds 52 (26 uppercase & 26 lowercase)
 
+    Where s is the length of the input string s and t is the length of the input string t.
+
     Key insight/optimization: It's not necessary to check the count of every character on each iteration, instead just track the following:
-    needCount = the number of unique characters in t (the characters that are required for the window to be valid)
-    haveCount = the number of unique characters in the current window at the target frequency
+    * needCount = the number of unique characters in t (the characters that are required for the window to be valid)
+    * haveCount = the number of unique characters in the current window at the target frequency
 
     --------------------------------------------------------------------------------------------------------
+
+    Additional optimization: Create a filtered version of string s.
+    
+    The bottleneck of the algorithm is the sliding window portion that runs in O(2s) where s is the length of the input string s.
+    In the worste case, both pointers iterate the full length of s.
+
+    We can optmize this by creating a filtered version of s. For example,
+    
+    Input: s="faswzbebwf", t="asbb"
+    Output: "aswzbeb"
+
+    The only information we need on s is the position of the characters from t.
+
+    filtered s = [(a,1), (s,2), (b,5), (b,7)]
+
+    Where (a,1) means that the character 'a' is at index 1.
 
 */
