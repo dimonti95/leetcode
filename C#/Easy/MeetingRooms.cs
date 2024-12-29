@@ -1,4 +1,5 @@
-public class Solution {
+public class Solution
+{
     public bool CanAttendMeetings(int[][] intervals)
     {
         for (int i = 0; i < intervals.Length; i++)
@@ -33,11 +34,10 @@ public class Solution {
 
 
 
-public class Solution {
+public class Solution2
+{
     public bool CanAttendMeetings(int[][] intervals)
     {
-        if (intervals.Length == 0) return true;
-
         Array.Sort(intervals, (a, b) => a[0].CompareTo(b[0]));
         for (int i = 1; i < intervals.Length; i++)
         {
