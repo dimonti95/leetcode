@@ -53,8 +53,10 @@ public class Solution
     Time: O(s + t)
     Space: O(1) since the total number of unique characters never exceeds 52 (26 uppercase & 26 lowercase)
 
-    Optimization:
-    needCount = the number of unique characters in t
+    Key insight/optimization: It's not necessary to check the count of every character on each iteration, instead just track the following:
+    needCount = the number of unique characters in t (the characters that are required for the window to be valid)
     haveCount = the number of unique characters in the current window at the target frequency
+
+    --------------------------------------------------------------------------------------------------------
 
 */
