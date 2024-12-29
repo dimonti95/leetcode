@@ -1,4 +1,5 @@
-public class Solution {
+public class Solution
+{
     public int MinMeetingRooms(int[][] intervals)
     {
         // Sort intervals by start time
@@ -38,7 +39,8 @@ public class Solution {
 
 
 
-public class Solution {
+public class Solution
+{
     public int MinMeetingRooms(int[][] intervals)
     {
         // Build arrays for start times and end times
