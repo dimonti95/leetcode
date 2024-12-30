@@ -85,3 +85,43 @@ public class Solution2
     Space: O(logn) or O(n) (depending on the sorting algorithm)
 
 */
+
+
+
+public class Solution3
+{
+    public int EraseOverlapIntervals(int[][] intervals)
+    {
+        int count = 0;
+        
+        // Sort by start time
+        Array.Sort(intervals, (a,b) => a[0].CompareTo(b[0]));
+
+        int lastEnd = Int32.MinValue;
+        for (int i = 0; i < intervals.Length; i++)
+        {
+            int[] interval = intervals[i];
+
+            // Check for overlap
+            if (interval[0] >= lastEnd)
+            {
+                // no overlap
+                lastEnd = interval[1];
+            }
+            else
+            {
+                // overlap
+                lastEnd = Math.Min(lastEnd, interval[1]);
+                count++;
+            }
+        }
+
+        return count;
+    }
+}
+
+/*
+
+    Solution 3: Same as solution 2 but sorted by start time.
+
+*/
