@@ -75,7 +75,7 @@ public class Solution2
 
 /*
 
-    Solution 2
+    Solution 2: Greedy
 
     This is a better way to implement Solution 1
     
