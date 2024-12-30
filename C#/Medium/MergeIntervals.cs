@@ -30,12 +30,27 @@ public class Solution
 
 /*
 
-    Solution:
+    Brute force solution (not implemented here)
+    1. Create an adjacency list for an undirected graph
+        - Nodes represent intervals
+        - Edges represent overlap between two nodes
+    2. Traverse the graph and merge intervals that are connected
+
+    Time: O(n^2)
+    Space: O(n^2) because in the worst-case every interval overlaps
+
+    Where n is the number of intervals in the input array.
+
+    ------------------------------------------------
+
+    Optimal Solution:
     1. Sort the input array
     2. Iterate over the input (intervals)
     3. Find and combine overlapping intervals
 
     Time: O(nlogn)
     Space: O(log) or O(n) (depending on the sorting algorithm)
+
+    Where n is the number of intervals in the input array.
 
 */
