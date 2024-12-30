@@ -1,28 +1,26 @@
-public class Solution {
+public class Solution
+{
     public int[][] Merge(int[][] intervals)
     {
-        // Sort by start value
+        var result = new List<int[]>();
+
+        // Sort by start time
         Array.Sort(intervals, (a,b) => a[0].CompareTo(b[0]));
 
-        var result = new List<int[]>();
-        result.Add(new int[] { intervals[0][0], intervals[0][1] });
-
+        result.Add(intervals[0]);
         for (int i = 1; i < intervals.Length; i++)
         {
             int[] interval1 = result[result.Count - 1];
             int[] interval2 = intervals[i];
-            int endTime = interval1[1];
-            int startTime = interval2[0];
 
-            // check for overlap
-            if (endTime >= startTime)
+            // Check for overlap
+            if (interval1[1] >= interval2[0])
             {
-                // Combine the two overlapping intervals
-                result[result.Count - 1] = new int[] { interval1[0], Math.Max(interval1[1], interval2[1]) };
+                interval1[1] = Math.Max(interval1[1], interval2[1]);
             }
             else
             {
-                result.Add(new int[] { interval2[0], interval2[1] });
+                result.Add(interval2);
             }
         }
 
