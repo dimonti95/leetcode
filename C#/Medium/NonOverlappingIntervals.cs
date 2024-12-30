@@ -39,3 +39,49 @@ public class Solution
     Space: O(logn) or O(n) (depending on the sorting algorithm)
 
 */
+
+
+
+public class Solution2
+{
+    public int EraseOverlapIntervals(int[][] intervals)
+    {
+        int count = 0;
+        
+        // Sort by end time
+        Array.Sort(intervals, (a,b) => a[1].CompareTo(b[1]));
+
+        int lastEnd = Int32.MinValue;
+        for (int i = 0; i < intervals.Length; i++)
+        {
+            int[] interval = intervals[i];
+
+            // Check for overlap
+            if (interval[0] >= lastEnd)
+            {
+                // no overlap
+                lastEnd = interval[1];
+            }
+            else
+            {
+                // overlap
+                count++;
+            }
+        }
+
+        return count;
+    }
+}
+
+/*
+
+    Solution 2
+
+    This is a better way to implement Solution 1
+    
+    The key insight is the same in that the focus is on keeping intervals that have the earliest end time.
+
+    Time: O(nlogn)
+    Space: O(logn) or O(n) (depending on the sorting algorithm)
+
+*/
