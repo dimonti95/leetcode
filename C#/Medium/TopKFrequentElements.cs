@@ -75,7 +75,7 @@ public class Solution2
         }
 
         for (int i = 0; i < nums.Length + 1; i++) buckets[i] = new List<int>();
-        foreach (var pair in count) buckets[pair.Value].Add(pair.Key);
+        foreach (KeyValuePair<int, int> pair in count) buckets[pair.Value].Add(pair.Key);
 
         // Take the k largest elements
         for (int i = buckets.Length - 1; i >= 0; i--)
