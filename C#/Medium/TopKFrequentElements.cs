@@ -14,7 +14,7 @@ public class Solution
         }
         
         // Add k elements to the heap (don't want it growing larger than k)
-        foreach (var pair in frequency)
+        foreach (KeyValuePair<int, int> pair in frequency)
         {
             int num = pair.Key;
             int freq = pair.Value;
