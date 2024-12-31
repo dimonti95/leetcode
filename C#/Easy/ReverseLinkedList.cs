@@ -9,8 +9,10 @@
  *     }
  * }
  */
-public class Solution {
-    public ListNode ReverseList(ListNode head) {
+public class Solution
+{
+    public ListNode ReverseList(ListNode head)
+    {
         
         if (head == null) return null;
 
@@ -53,8 +55,10 @@ public class Solution {
  *     }
  * }
  */
-public class Solution {
-    public ListNode ReverseList(ListNode head) {
+public class Solution2
+{
+    public ListNode ReverseList(ListNode head)
+    {
         
         if (head == null) return null;
 
