@@ -63,21 +63,21 @@ public class Solution2
 {
     public int[] TopKFrequent(int[] nums, int k)
     {
-        // Map integer value to count
         var count = new Dictionary<int, int>();
+        var buckets = new List<int>[nums.Length + 1]; // n + 1 since count can be n
+        var result = new List<int>();
+
+        // Map integer value to count
         foreach (int num in nums)
         {
             if (!count.ContainsKey(num)) count.Add(num, 0);
             count[num] += 1;
         }
 
-        // Init this to a size equal to the input array + 1 since count will never be 0.
-        var buckets = new List<int>[nums.Length + 1];
         for (int i = 0; i < nums.Length + 1; i++) buckets[i] = new List<int>();
         foreach (var pair in count) buckets[pair.Value].Add(pair.Key);
 
         // Take the k largest elements
-        var result = new List<int>();
         for (int i = buckets.Length - 1; i >= 0; i--)
         {
             List<int> vals = buckets[i];
