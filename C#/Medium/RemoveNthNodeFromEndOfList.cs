@@ -9,8 +9,10 @@
  *     }
  * }
  */
-public class Solution {
-    public ListNode RemoveNthFromEnd(ListNode head, int n) {
+public class Solution
+{
+    public ListNode RemoveNthFromEnd(ListNode head, int n)
+    {
         ListNode temp = new ListNode(0, head);
         ListNode left = temp;
         ListNode right = head;
