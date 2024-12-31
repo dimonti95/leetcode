@@ -9,8 +9,10 @@
  *     }
  * }
  */
-public class Solution {
-    public void ReorderList(ListNode head) {
+public class Solution
+{
+    public void ReorderList(ListNode head)
+    {
         ListNode left = new ListNode(0, head);
         ListNode right = left;
         while (right != null && right.next != null)
