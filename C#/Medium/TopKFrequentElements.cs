@@ -1,4 +1,5 @@
-public class Solution {
+public class Solution
+{
     public int[] TopKFrequent(int[] nums, int k)
     {
         var frequency = new Dictionary<int, int>();
@@ -33,7 +34,7 @@ public class Solution {
 
 /*
 
-    Brute force solution:
+    Brute force solution (not implemented here):
     1. Create a coup map (value -> count)
     2. Sort by value (the count)
     3. Add the largest k values
@@ -41,6 +42,8 @@ public class Solution {
     Space: O(n)
 
     Where n is the number of integers in the input array nums
+
+    ----------------------------------------------------------------------
 
     Solution (implemented):
     1. Create a count map (value -> count)
@@ -56,7 +59,8 @@ public class Solution {
 
 
 
-public class Solution {
+public class Solution2
+{
     public int[] TopKFrequent(int[] nums, int k)
     {
         // Map integer value to count
