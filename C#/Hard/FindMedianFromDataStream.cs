@@ -142,6 +142,16 @@ public class MedianFinder
     The FindMedian algorithm would iterate through each index, staying at each index for the number of iterations equal to the value at the index.
     So for example, it would need to stay at 1 - 4 for 1 iteration each, then 3 iterations for 5 (in this example it would never get to 5 since the median is at index 3).
 
+    AddNum:
+    Time: O(1)
+    Space: O(1) - because the size of the array of buckets would never grow past 100
+
+    FindMedian:
+    Time: O(1) - because O(100) = O(1)
+    Space: O(1)
+
+    The FindMedian time is constant because you can skip past buckets (depending on the count) as long as they fall before the middle index (median).
+
     ---------------------------------
 
     Q: If 99% of all integer numbers from the stream are in the range [0, 100], how would you optimize your solution?
