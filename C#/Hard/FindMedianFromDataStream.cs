@@ -141,11 +141,7 @@ public class MedianFinder
 
     If the total number of values in the stream is even, the we just take the two middle numbers rather than one.
 
-    The FindMedian algorithm would iterate through each index, staying at each index for the number of iterations equal to the value at the index.
-    So for example, it would need to stay at 1 - 4 for 1 iteration each, then 3 iterations for 5 (in this example it would never get to 5 since the median is at index 3).
-
-    It wouldn't actually be necessary to iterate number of times equal to the value at each index (which would take O(n/2) = O(n) time), instead we can just skip past
-    buckets that don't contain the median.
+    To find the median, we can simply walk through the count array to find the middle element(s) by counting occurrences.
 
     AddNum:
     Time: O(1)
