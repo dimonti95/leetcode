@@ -103,4 +103,38 @@ public class MedianFinder
 
     Note: A heap is only one way (there are other ways) to implement a Priority Queue.
 
+    --------------------------------------------------------------------------------
+
+    Follow-up Questions
+    - What if the data is very very large. How would you handle it?
+    - If all integer numbers from the stream are in the range [0, 100], how would you optimize your solution?
+    - If 99% of all integer numbers from the stream are in the range [0, 100], how would you optimize your solution?
+
+    ---------------------------------
+
+    Q: What if the data is very very large. How would you handle it?
+    
+    If we're dealing with a massive stream of numbers, we have to assume we can't keep all of the numbers in memory.
+    
+    So we'll have to consider memory contraints and streaming techniques. The current approach is efficient in terms 
+    of time complexity, but the total memeory usage is O(n) where n is the number of elements in the data stream. So,
+    for large data, we might hit memory limits.
+
+    Sampling: If an exact median is not strictly necessary and an approximation of the median is acceptable, we could maintain
+    a smaller sample of the stream and calculate the median from that. This would reduce memory usage.
+
+    Disk storage: Store some of the data on disk, using external storage or a distributed computing system to store the numbers
+
+    ---------------------------------
+
+    Q: If all integer numbers from the stream are in the range [0, 100], how would you optimize your solution?
+
+    ...
+
+    ---------------------------------
+
+    Q: If 99% of all integer numbers from the stream are in the range [0, 100], how would you optimize your solution?
+
+    ...
+
 */
