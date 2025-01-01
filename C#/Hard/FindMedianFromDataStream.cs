@@ -51,7 +51,21 @@ public class MedianFinder
 
 /*
 
-    Brute force solution:
+    Brute force solution (not implemented here):
+    * Add all numbers to an array
+    * Sort the array on calls to FindMedian
+    
+    AddNum
+    Time: O(1)
+    Space: O(n)
+
+    FindMedian
+    Time: O(nlogn)
+    Space: O(n)
+    
+    --------------------------------------------------------------------------------
+
+    Insertion Sort solution (not implemented here):
     * Use an array to store the numbers
     * Insertion sort the new number on each call to AddNum
     * Find median from the middle of the array/list
@@ -63,6 +77,8 @@ public class MedianFinder
     FindMedian
     Time: O(1)
     Space: O(n)
+
+    --------------------------------------------------------------------------------
 
     Optimized solution:
     * Two Queues
