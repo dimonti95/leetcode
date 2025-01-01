@@ -1,4 +1,5 @@
-public class MedianFinder {
+public class MedianFinder
+{
 
     private PriorityQueue<int, int> low;
     private PriorityQueue<int, int> high;
@@ -47,7 +48,8 @@ public class MedianFinder {
 /*
 
     Brute force solution:
-    * Insertion sort on each call to AddNum
+    * Use an array to store the numbers
+    * Insertion sort the new number on each call to AddNum
     * Find median from the middle of the array/list
 
     AddNum
