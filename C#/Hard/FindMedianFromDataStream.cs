@@ -33,7 +33,11 @@ public class MedianFinder
     
     public double FindMedian()
     {
+        // The count of the high heap will never be larger than low because of the check in AddNum,
+        // so I only need to check if the count of low is smaller here, otherwise both heaps will always be the same size.
         if (low.Count > high.Count) return low.Peek();
+
+        // Need to cast to a double here because of the way C# handles integer division (it discards any fractional part).
         else return (double)(low.Peek() + high.Peek()) / 2;
     }
 }
