@@ -104,15 +104,16 @@ public class MedianFinder
     Note: A heap is only one way (there are other ways) to implement a Priority Queue.
 
     --------------------------------------------------------------------------------
+    --------------------------------------------------------------------------------
+    ------------------------------Follow-up Questions-------------------------------
+    --------------------------------------------------------------------------------
+    --------------------------------------------------------------------------------
 
-    Follow-up Questions
     - What if the data is very very large. How would you handle it?
     - If all integer numbers from the stream are in the range [0, 100], how would you optimize your solution?
     - If 99% of all integer numbers from the stream are in the range [0, 100], how would you optimize your solution?
 
-    ---------------------------------
-
-    Q: What if the data is very very large. How would you handle it?
+    --------------------------------- Q: What if the data is very very large. How would you handle it?
     
     If we're dealing with a massive stream of numbers, we have to assume we can't keep all of the numbers in memory.
     
@@ -125,9 +126,7 @@ public class MedianFinder
 
     Disk storage: Store some of the data on disk, using external storage or a distributed computing system to store the numbers
 
-    ---------------------------------
-
-    Q: If all integer numbers from the stream are in the range [0, 100], how would you optimize your solution?
+    --------------------------------- Q: If all integer numbers from the stream are in the range [0, 100], how would you optimize your solution?
 
     Counting (Bucket Sort)
 
@@ -151,9 +150,7 @@ public class MedianFinder
     Time: O(1) - because O(100) = O(1)
     Space: O(1)
 
-    ---------------------------------
-
-    Q: If 99% of all integer numbers from the stream are in the range [0, 100], how would you optimize your solution?
+    --------------------------------- Q: If 99% of all integer numbers from the stream are in the range [0, 100], how would you optimize your solution?
 
     ...
 
