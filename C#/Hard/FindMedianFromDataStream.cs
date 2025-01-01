@@ -78,7 +78,7 @@ public class MedianFinder
     * Find median from the middle of the array/list
 
     AddNum
-    Time: O(n)
+    Time: O(n) - because in the worst case, all of the elements in the array need to be shifted
     Space: O(n)
 
     FindMedian
