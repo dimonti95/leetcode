@@ -67,6 +67,8 @@ public class MedianFinder
     if Count is less than capacity it's an O(1) operation. If Count already equals Capacity, the capacity of the List
     is increased by automatically reallocating the internal array, and the existing elements are copied to the new array before
     the new element is added. This is an O(n) operation.
+
+    Source: The complexities of List operations documented on MSDN.
     
     --------------------------------------------------------------------------------
 
