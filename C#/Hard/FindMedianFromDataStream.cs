@@ -54,7 +54,7 @@ public class MedianFinder
     Brute force solution (not implemented here):
     * Add all numbers to an array
     * Sort the array on calls to FindMedian
-    
+
     AddNum
     Time: O(1)
     Space: O(n)
@@ -81,7 +81,7 @@ public class MedianFinder
     --------------------------------------------------------------------------------
 
     Optimized solution:
-    * Two Queues
+    * Two heaps
         - One to keep the smaller half of values (Max-heap)
         - One to keep the larger half of values (Min-heap)
     * Keep both heaps the same size (or at least within 1)
