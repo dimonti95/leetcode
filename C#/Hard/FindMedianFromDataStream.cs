@@ -151,8 +151,6 @@ public class MedianFinder
     Time: O(1) - because O(100) = O(1)
     Space: O(1)
 
-    The FindMedian time is constant because you can skip past buckets (depending on the count) as long as they fall before the middle index (median).
-
     ---------------------------------
 
     Q: If 99% of all integer numbers from the stream are in the range [0, 100], how would you optimize your solution?
