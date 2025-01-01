@@ -94,4 +94,6 @@ public class MedianFinder
     Time: O(1)
     Space: O(n)
 
+    Note: A heap is only one way (there are other ways) to implement a Priority Queue.
+
 */
