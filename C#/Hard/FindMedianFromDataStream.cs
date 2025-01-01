@@ -152,6 +152,9 @@ public class MedianFinder
 
     --------------------------------- Q: If 99% of all integer numbers from the stream are in the range [0, 100], how would you optimize your solution?
 
-    ...
+    It would depend on the input. There are the 99%, and there is the 1% (the outliers). If, out of every 100 numbers, 1 of them will be an outlier,
+    then the outlier values can simply be counted since the median will always fall in the 99%. This means we could just use the same bucket sort approach as above.
+
+    If all of the outlier values could come in first, then ...
 
 */
