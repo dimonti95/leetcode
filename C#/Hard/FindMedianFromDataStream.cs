@@ -134,7 +134,7 @@ public class MedianFinder
     Since the numbers are constrained to a small range, we could count the occurrences of each integer and maintain a count array for all 
     integers in that range.
 
-    For example, if the stream of number (calls to AddNum) was the following: [1,2,3,4,5,5,5]
+    For example, if the stream of numbers (calls to AddNum) was the following: [1,2,3,4,5,5,5]
 
     Since the total number of values is 7, there is a single middle numbers (4 in this example). The "buckets" would be [0,1,1,1,1,3]
                                                                                                                          0 1 2 3 4 5
