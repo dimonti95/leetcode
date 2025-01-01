@@ -56,12 +56,17 @@ public class MedianFinder
     * Sort the array on calls to FindMedian
 
     AddNum
-    Time: O(1)
+    Time: O(1) - in most cases (see explanation below)
     Space: O(n)
 
     FindMedian
     Time: O(nlogn)
     Space: O(n)
+
+    Note: This solution would require a re-sizeable array/container (a List in C#). For the AddNum function,
+    if Count is less than capacity it's an O(1) operation. If Count already equals Capacity, the capacity of the List
+    is increased by automatically reallocating the internal array, and the existing elements are copied to the new array before
+    the new element is added. This is an O(n) operation.
     
     --------------------------------------------------------------------------------
 
