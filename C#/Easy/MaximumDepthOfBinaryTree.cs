@@ -33,6 +33,12 @@ public class Solution
   
   Where n is the number of nodes in the tree and h is the max height
 
+  ------------------------------------------------------------------------
+
+  This is not the optimal approach for two reasons:
+  1. Space complexity as a result of the call stack
+  2. Call stack overhead could lead to stack overflow for a big enough tree
+
 */
 
 
