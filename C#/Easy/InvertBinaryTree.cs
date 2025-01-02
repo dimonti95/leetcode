@@ -17,12 +17,9 @@ public class Solution
     {
         if (root == null) return null;
 
-        InvertTree(root.left);
-        InvertTree(root.right);
-
-        TreeNode temp = root.left;
-        root.left = root.right;
-        root.right = temp;
+        TreeNode temp = root.right;
+        root.right = InvertTree(root.left);
+        root.left = InvertTree(temp);
 
         return root;
     }
