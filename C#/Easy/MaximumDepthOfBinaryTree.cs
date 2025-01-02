@@ -56,24 +56,23 @@ public class Solution
  *     }
  * }
  */
-public class Solution
+public class Solution2
 {
     public int MaxDepth(TreeNode root)
-    {    
-        Stack<Tuple<TreeNode, int>> stack = new Stack<Tuple<TreeNode, int>>();
-        if (root != null) stack.Push(new Tuple<TreeNode, int>(root, 1));
-        Tuple<TreeNode, int> current = null;
+    {
         int max = 0;
+        var stack = new Stack<(TreeNode, int)>(); // The (TreeNode, int) syntax is a value tuple
+        if (root != null) stack.Push((root, 1));
 
         while (stack.Count > 0)
         {
-            current = stack.Pop();
+            (TreeNode, int) current = stack.Pop();
             max = Math.Max(max, current.Item2);
 
             if (current.Item1.left != null)
-                stack.Push(new Tuple<TreeNode, int>(current.Item1.left, current.Item2 + 1));
+                stack.Push((current.Item1.left, current.Item2 + 1));
             if (current.Item1.right != null)
-                stack.Push(new Tuple<TreeNode, int>(current.Item1.right, current.Item2 + 1));
+                stack.Push((current.Item1.right, current.Item2 + 1));
         }
 
         return max;
@@ -106,25 +105,23 @@ public class Solution
  *     }
  * }
  */
-public class Solution
+public class Solution3
 {
     public int MaxDepth(TreeNode root)
     {
-        
-        Queue<Tuple<TreeNode, int>> queue = new Queue<Tuple<TreeNode, int>>();
-        if (root != null) queue.Enqueue(new Tuple<TreeNode, int>(root, 1));
-        Tuple<TreeNode, int> current = null;
         int max = 0;
+        var queue = new Queue<(TreeNode, int)>(); // The (TreeNode, int) syntax is a value tuple
+        if (root != null) queue.Enqueue((root, 1));
 
         while (queue.Count > 0)
         {
-            current = queue.Dequeue();
+            (TreeNode, int) current = queue.Dequeue();
             max = Math.Max(max, current.Item2);
 
             if (current.Item1.left != null)
-                queue.Enqueue(new Tuple<TreeNode, int>(current.Item1.left, current.Item2 + 1));
+                queue.Enqueue((current.Item1.left, current.Item2 + 1));
             if (current.Item1.right != null)
-                queue.Enqueue(new Tuple<TreeNode, int>(current.Item1.right, current.Item2 + 1));
+                queue.Enqueue((current.Item1.right, current.Item2 + 1));
         }
 
         return max;
