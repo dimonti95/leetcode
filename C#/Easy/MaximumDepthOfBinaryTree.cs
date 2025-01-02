@@ -31,7 +31,7 @@ public class Solution
   Time Complexity: O(n)
   Space Complexity: O(h)
   
-  Where n is the number of nodes in the tree and h is the max height
+  Where n is the number of nodes in the tree and h is the max height (note that in the worste case, h will be equal to n)
 
   ------------------------------------------------------------------------
 
