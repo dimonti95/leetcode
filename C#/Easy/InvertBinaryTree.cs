@@ -51,7 +51,7 @@ public class Solution
  *     }
  * }
  */
-public class Solution
+public class Solution2
 {
     public TreeNode InvertTree(TreeNode root)
     {
