@@ -56,9 +56,10 @@ public class Solution
  *     }
  * }
  */
-public class Solution {
-    public int MaxDepth(TreeNode root) {
-        
+public class Solution
+{
+    public int MaxDepth(TreeNode root)
+    {    
         Stack<Tuple<TreeNode, int>> stack = new Stack<Tuple<TreeNode, int>>();
         if (root != null) stack.Push(new Tuple<TreeNode, int>(root, 1));
         Tuple<TreeNode, int> current = null;
@@ -105,8 +106,10 @@ public class Solution {
  *     }
  * }
  */
-public class Solution {
-    public int MaxDepth(TreeNode root) {
+public class Solution
+{
+    public int MaxDepth(TreeNode root)
+    {
         
         Queue<Tuple<TreeNode, int>> queue = new Queue<Tuple<TreeNode, int>>();
         if (root != null) queue.Enqueue(new Tuple<TreeNode, int>(root, 1));
