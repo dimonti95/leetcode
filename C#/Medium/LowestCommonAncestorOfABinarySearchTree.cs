@@ -8,8 +8,10 @@
  * }
  */
 
-public class Solution {
-    public TreeNode LowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+public class Solution
+{
+    public TreeNode LowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q)
+    {
         
         if (p.val < root.val && q.val < root.val)
         {
