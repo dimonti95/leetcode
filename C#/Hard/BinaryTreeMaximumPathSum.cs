@@ -11,7 +11,8 @@
  *     }
  * }
  */
-public class Solution {
+public class Solution
+{
     public int MaxPathSum(TreeNode root)
     {
         int res = root.val;
