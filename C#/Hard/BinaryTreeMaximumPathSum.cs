@@ -39,7 +39,7 @@ public class Solution
 
 /*
 
-    DFS traversal checking for current max of split at each node
+    Post-order DFS traversal checking for current max of split at each node
 
     The base case is the leaf nodes
 
