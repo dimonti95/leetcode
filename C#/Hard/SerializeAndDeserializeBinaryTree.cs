@@ -66,7 +66,7 @@ public class Codec
     Serialize:
     - Traverse the tree using DFS
     - Capture the structure of the tree by creating a pre-order traversal string
-    - The pre-order traversal string needs to include null nodes, otherwise it doesn't capture the structure of the tree
+    - The pre-order traversal string needs to include null nodes, otherwise it doesn't capture the structure of the tree (key insight)
 
     Serialize
     Time: O(n)
