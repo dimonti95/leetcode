@@ -82,4 +82,14 @@ public class Codec
 
     This problem can be solved with DFS or BFS. Using DFS, it can be solved using a pre-order, in-order, or post-order traversal.
 
+    Given the following tree:
+
+           Node1
+          /    \
+        Node2  Node5
+        /   \
+    Node3  Node4
+
+    The serialization string would be [1,2,3,N,N,4,N,N,5,N,N]
+
 */
