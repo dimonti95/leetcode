@@ -78,4 +78,8 @@ public class Codec
 
     Where n is the number of nodes in the tree
 
+    ------------------------------------------------------------------------------------------------
+
+    This problem can be solved with DFS or BFS. Using DFS, it can be solved using a pre-order, in-order, or post-order traversal.
+
 */
