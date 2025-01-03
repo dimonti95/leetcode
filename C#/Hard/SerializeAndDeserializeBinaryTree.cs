@@ -90,6 +90,6 @@ public class Codec
         /   \
     Node3  Node4
 
-    The serialization string would be [1,2,3,N,N,4,N,N,5,N,N]
+    Using pre-order DFS traversal, the serialization string would be [1,2,3,N,N,4,N,N,5,N,N]
 
 */
