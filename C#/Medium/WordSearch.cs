@@ -68,4 +68,14 @@ public class Solution
     by the number of cells rather than the lenght of the word. So, a more accurate way to state the runtime would be
     O(n * 3^min(L,n)). This could be easily avoided by adding a check to see if L > n, and if it is, returning false.
 
+    -----------------------------------------------------------------
+
+    Follow-up question: Could you use search pruning to make your solution faster with a larger board?
+
+    Search pruning (in the context of backtracking algorithms) refers to the process of eliminating (or "pruning")
+    certain branches of the search tree early, because they cannot lead to a valid or optimal solution.
+
+    ..
+
+
 */
