@@ -4,23 +4,21 @@ public class Solution
     {
         int nRows = board.Length;
         int nCols = board[0].Length;
-        var path = new HashSet<string>();
 
         bool dfs(int r, int c, int i)
         {
             if (i == word.Length) return true;
-
-            string key = r + "," + c;
-            if (r < 0 || c < 0 || r >= nRows || c >= nCols || i >= word.Length || board[r][c] != word[i] || path.Contains(key)) return false;
+            if (r < 0 || c < 0 || r >= nRows || c >= nCols || i >= word.Length || board[r][c] != word[i] || board[r][c] == '#') return false;
             
-            path.Add(key);
+            char temp = board[r][c];
+            board[r][c] = '#';
 
             if (dfs(r + 1, c, i + 1) ||
             dfs(r - 1, c, i + 1) ||
             dfs(r, c + 1, i + 1) ||
             dfs(r, c - 1, i + 1)) return true;
 
-            path.Remove(key);
+            board[r][c] = temp;
             return false;
         }
 
