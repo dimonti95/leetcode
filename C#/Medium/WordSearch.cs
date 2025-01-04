@@ -8,7 +8,7 @@ public class Solution
         bool dfs(int r, int c, int i)
         {
             if (i == word.Length) return true;
-            if (r < 0 || c < 0 || r >= nRows || c >= nCols || i >= word.Length || board[r][c] != word[i] || board[r][c] == '#') return false;
+            if (r < 0 || c < 0 || r >= nRows || c >= nCols || board[r][c] != word[i] || board[r][c] == '#') return false;
             
             // Rather than using a set, mark the current path in-place
             char temp = board[r][c];
