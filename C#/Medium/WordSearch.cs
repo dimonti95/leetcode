@@ -74,7 +74,12 @@ public class Solution
     Search pruning (in the context of backtracking algorithms) refers to the process of eliminating (or "pruning")
     certain branches of the search tree early, because they cannot lead to a valid or optimal solution.
 
-    ..
+    1. Create a character frequency map for the letters in the board, and another one for the letters in the word.
+        - E.g. if the word has 3 'a' characters, but the board only as 2, then it's impossible for find the word.
+        - In this scenario, we could just return false immediately, without searching the board.
+        - Another scenario to check for is if any characters in word are completely missing from the board
 
+    2. Store the coordinates of each cell that has the first character (in word)
+        - Only run the algorithm startin from those cells (rather than trying from every cell in the board)
 
 */
