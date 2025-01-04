@@ -1,4 +1,5 @@
-public class Solution {
+public class Solution
+{
     public bool Exist(char[][] board, string word)
     {
         int nRows = board.Length;
@@ -39,9 +40,32 @@ public class Solution {
 
     Backtracking
 
-    Time: O(n^L)
+    Time: O(n * 3^L)
     Space: O(L)
 
-    Where n is the number of cells and L is the length of the word
+    Where n is the number of cells and L is the length of the word.
+
+    -----------------------------------------------------------------
+
+    Time complexity analysis
+
+    In the worst-case, the input would look something like this:
+
+    word = "aab"
+    board = ['a','a''a','a']
+            ['a','a''a','a']
+            ['a','a''a','a']
+            ['a','a''a','a']    
+        
+    We have to visit every cell once, and at each cell we make 4 checks for the next character O(4n) = O(n).
+
+    After those 4 checks, we're running a backtracking algorithm on a 3-nary tree (since we can't traverse
+    back to the previous cell). This gives an additional O(3^L-1) = O(3^L)
+
+    So, in total, the runtime is O(n * 3^L)
+
+    If the length of the word is greater than the total number of cells then the algorithms runtime is bounded
+    by the number of cells rather than the lenght of the word. So, a more accurate way to state the runtime would be
+    O(n * 3^min(L,n)). This could be easily avoided by adding a check to see if L > n, and if it is, returning false.
 
 */
