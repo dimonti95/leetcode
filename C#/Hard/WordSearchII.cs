@@ -81,7 +81,7 @@ public class Trie
 /*
 
     Time: O(n * 4 * 3^L - 1)
-    Space: O(m) where m is 
+    Space: O(m) where m is the total number of words in the input array words (because in the worst case there are no prefixes)
 
     Where n is the number of cells and L is the length of the longest word
 
