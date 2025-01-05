@@ -47,6 +47,15 @@ public class Solution {
 
     Where n is the number of nodes in the tree and h is the height of the tree
 
+    ----------------------------------------------------------------------------
+
+    Follow-up question: If the BST is modified often (i.e., we can do insert and delete operations) and you need to find the kth smallest frequently, how would you optimize?
+
+    A1: Add the K smallest element in the BST to a max heap. Each time a new node is added to the tree, add and remove the element to the 
+    heap to keep the kth smallest element at the top of the heap.
+
+    A2: ...
+
 */
 
 
