@@ -94,4 +94,15 @@ public class Trie
     a prefix. The test cases for this problem are probably biased towards this case rather than being a long list of
     random words. This might be something worth clarifiying in an interview.
 
+    ------------------------------------------------------------------------
+
+    In terms of big O, I think the runtime of Word Search and Word Search II are actually the same (ignoring multiplicative constants), which is O(n * 3^L-2).
+
+    The only difference is that:
+    * For Word Search, L is defined as the length of the input string (word)
+    * For Word Search II, L is defined as the length of the longest string in the input array (words)
+
+    This is a good example of how two functions that have the same runtime in terms of big O could actually have very different 
+    runtime outside of the worst case. 
+
 */
