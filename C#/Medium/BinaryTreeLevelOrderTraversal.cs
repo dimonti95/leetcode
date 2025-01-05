@@ -37,7 +37,7 @@ public class Solution
     Recursive DFS
 
     Time: O(n)
-    Space: O(h)
+    Space: O(h) - assuming the output array doesn't count as extra space
 
 */
 
