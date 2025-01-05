@@ -83,7 +83,7 @@ public class Trie
     Time: O(n * 4 * 3^L-1)
     Space: O(m) where m is the total number of words in the input array words (because in the worst case there are no prefixes)
 
-    Where n is the number of cells and L is the length of the longest word
+    Where n is the number of cells and L is the length of the longest word in the input array words
 
     You could argue that the time complexity is actually O(n * 4 * 3^L-2), because the algorithm check 4 cells for the 
     second character (in the worst case) and then the 3rd character on will require 3 checks.
