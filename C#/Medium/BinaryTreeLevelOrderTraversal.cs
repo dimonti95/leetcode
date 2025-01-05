@@ -11,7 +11,8 @@
  *     }
  * }
  */
-public class Solution {
+public class Solution
+{
     public IList<IList<int>> LevelOrder(TreeNode root)
     {
         if (root == null) return new List<IList<int>>();
