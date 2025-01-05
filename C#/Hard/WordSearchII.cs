@@ -80,9 +80,18 @@ public class Trie
 
 /*
 
-    Time: O(n * 4 * 3^L - 1)
+    Time: O(n * 4 * 3^L-1)
     Space: O(m) where m is the total number of words in the input array words (because in the worst case there are no prefixes)
 
     Where n is the number of cells and L is the length of the longest word
+
+    You could probably argue that the time complexity is actually O(n * 4 * 3^L-2), because the algorithm check 4 cells for the 
+    second character (in the worst case) and then the 3rd character on will require 3 checks.
+
+    ------------------------------------------------------------------------
+
+    Note: You could argue that the Trie approach only makes sense if many of the words in the input array (word) share
+    a prefix. The test cases for this problem are probably biased towards this case rather than being a long list of
+    random words. This might be something worth clarifiying in an interview.
 
 */
