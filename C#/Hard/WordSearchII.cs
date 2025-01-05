@@ -85,7 +85,7 @@ public class Trie
 
     Where n is the number of cells and L is the length of the longest word
 
-    You could probably argue that the time complexity is actually O(n * 4 * 3^L-2), because the algorithm check 4 cells for the 
+    You could argue that the time complexity is actually O(n * 4 * 3^L-2), because the algorithm check 4 cells for the 
     second character (in the worst case) and then the 3rd character on will require 3 checks.
 
     ------------------------------------------------------------------------
