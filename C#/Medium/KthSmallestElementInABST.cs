@@ -51,9 +51,11 @@ public class Solution {
 
     Follow-up question: If the BST is modified often (i.e., we can do insert and delete operations) and you need to find the kth smallest frequently, how would you optimize?
 
-    Time of insertion into a BST: O(logn) if it's balanced, O(n) if it's skewed
-    Time of deletion from a BST: O(logn) if it's balanced, O(n) if it's skewed
-    Time of search for the kth smallest element in a BST: O(n)
+    Time of insertion into a BST: O(h) because it would be O(logn) if it's balanced, O(n) if it's skewed
+    Time of deletion from a BST: O(h) because it would be O(logn) if it's balanced, O(n) if it's skewed
+    Time of search for the kth smallest element in a BST: O(h + k)
+
+    So it would take O(2h + k) time for an insert or delete and a search to find the kth smallest element.
 
     A1: Add the K smallest element in the BST to a max heap. Each time a new node is added to the tree, check if it's smaller than the node at the
     top of the heap, if it is, then add it to the heap and remove to keep the heap of size k. This only works if K is constant.
