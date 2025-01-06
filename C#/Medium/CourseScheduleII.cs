@@ -52,5 +52,9 @@ public class Solution
     Space: O(v + e)
 
     Where v is the number of nodes (courses), and e is the number of edges (prerequisites)
+
+    ---------------------------------------------------------------------------------
+
+    Note: This problem is just an easier version of 269. Alien Dictionary (which also requires topological sort).
     
 */
