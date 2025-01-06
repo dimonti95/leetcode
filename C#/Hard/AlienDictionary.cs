@@ -70,9 +70,9 @@ public class Solution
 
 /*
 
-    The first step to solving this problem is understanding lexographical ordering.
+    Background
 
-    English letters have the following lexigraphical ordering "abcd..."
+    The first step to solving this problem is understanding lexographical ordering. English letters have the following lexigraphical ordering "abcd..."
 
     s2 is lexigraphically smaller than s1
     string s1 = "abc"
@@ -85,6 +85,10 @@ public class Solution
     s2 is lexigraphically smaller than s1
     string s1 = "ab"
     string s2 = "aaa"
+
+    Note: The letters within a single word within the input array don't provide any information on the lexographical ordering.
+
+    ----------------------------------------------------------------------------
 
     Solution:
     1. Derive the dependency relationship between letters
@@ -99,5 +103,7 @@ public class Solution
     Space: O(1)
 
     Where c is the total number of characters in each word added together
+
+
 
 */
