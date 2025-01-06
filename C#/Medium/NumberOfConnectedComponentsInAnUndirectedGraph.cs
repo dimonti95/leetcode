@@ -1,8 +1,11 @@
-public class Solution {
-    public int CountComponents(int n, int[][] edges) {
-        
-        // build the adj list
+public class Solution
+{
+    public int CountComponents(int n, int[][] edges)
+    {
         var adjList = new Dictionary<int, List<int>>();
+        var visited = new HashSet<int>();
+
+        // Build an adj list
         for (int i = 0; i < n; i++) adjList.Add(i, new List<int>());
         foreach (int[] edge in edges)
         {
@@ -12,7 +15,6 @@ public class Solution {
             adjList[n2].Add(n1);
         }
 
-        var visited = new HashSet<int>();
         void dfs(int node)
         {
             if (visited.Contains(node)) return;
