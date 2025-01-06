@@ -30,6 +30,10 @@ public class Solution
     Time: O(m * n)
     Space: O(m * n)
 
-    Where m is the number of rows and n is the number of columns
+    Where m is the number of rows and n is the number of columns of the image
+
+    ---------------------------------------------------------------
+
+    Note: An important edge case to consider is when image[sr][sc] == color (it can lead to stack overflow).
 
 */
