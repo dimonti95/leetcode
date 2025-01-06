@@ -102,10 +102,16 @@ public class Solution
         - If no cycle is found, return the ordering
     
     Time: O(c)
-    Space: O(1)
+    Space: O(1) - because we'll have no more than 26 unique characters
 
     Where c is the total number of characters in each word added together
 
+    ----------------------------------------------------------------------------
 
+    Follow-up quesiton: What would the space compelxity be if there was no upper bound on the total number of unique characters in the alien dictionary?
+
+    O(U + min(U^2, N))
+
+    Where U is the number of unique characters (the number of nodes), and N is the total number of words.
 
 */
