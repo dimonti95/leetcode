@@ -1,5 +1,7 @@
-public class Solution {
-    public int LongestConsecutive(int[] nums) {
+public class Solution
+{
+    public int LongestConsecutive(int[] nums)
+    {
         var set = new HashSet<int>(nums);
 
         int max = 0;
