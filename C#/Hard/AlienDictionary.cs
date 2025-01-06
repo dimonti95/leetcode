@@ -1,4 +1,5 @@
-public class Solution {
+public class Solution
+{
     public string AlienOrder(string[] words)
     {
         var result = new List<char>();
