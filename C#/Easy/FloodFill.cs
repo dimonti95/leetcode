@@ -4,12 +4,12 @@ public class Solution
     {
         int nRows = image.Length;
         int nCols = image[0].Length;
-        int newColor = image[sr][sc];
+        int oldColor = image[sr][sc];
 
         void dfs(int r, int c)
         {
             if (r < 0 || c < 0 || r >= nRows || c >= nCols) return;
-            if (image[r][c] != newColor || image[r][c] == color) return;
+            if (image[r][c] != oldColor || image[r][c] == color) return;
 
             image[r][c] = color;
             dfs(r + 1, c);
