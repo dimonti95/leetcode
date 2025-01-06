@@ -69,6 +69,8 @@ public class Solution {
 
 /*
 
+    The first step to solving this problem is understanding lexographical ordering.
+
     English letters have the following lexigraphical ordering "abcd..."
 
     s2 is lexigraphically smaller than s1
@@ -85,7 +87,7 @@ public class Solution {
 
     Solution:
     1. Derive the dependency relationship between letters
-    2. Build a graph from those dependency relationships
+    2. Build a directed graph from those dependency relationships
         - letters as nodes
         - relationships as edges
     3. Run a topological sort on the graph to derive a valid ordering (there may be more than one)
@@ -93,8 +95,8 @@ public class Solution {
         - If no cycle is found, return the ordering
     
     Time: O(c)
-    Space: O()
+    Space: O(1)
 
-    Where c is the total number of characters in every word
+    Where c is the total number of characters in each word added together
 
 */
