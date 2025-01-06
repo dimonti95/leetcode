@@ -86,7 +86,9 @@ public class Solution
     string s1 = "ab"
     string s2 = "aaa"
 
-    Note: The letters within a single word within the input array don't provide any information on the lexographical ordering.
+    Key insights:
+    1. The letters within a single word within the input array don't provide any information on the lexographical ordering.
+    2. The output needs to contain every unique character contained in the input list of words.
 
     ----------------------------------------------------------------------------
 
