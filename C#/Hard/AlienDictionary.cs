@@ -1,8 +1,11 @@
 public class Solution {
     public string AlienOrder(string[] words)
     {
-        // Init the graph for each unique character
+        var result = new List<char>();
         var adjList = new Dictionary<char, List<char>>();
+        var visited = new Dictionary<char, bool>(); // true=in current path, false=processed
+
+        // Init the graph for each unique character
         for (int i = 0; i < words.Length; i++)
         {
             foreach (char c in words[i])
@@ -16,58 +19,51 @@ public class Solution {
         {
             string w1 = words[i - 1];
             string w2 = words[i];
-            int j = 0;
             int len = Math.Min(w1.Length, w2.Length);
             bool samePrefix = true;
-            while (j < len)
+            for (int j = 0; j < len; j++)
             {
                 char c1 = w1[j];
                 char c2 = w2[j];
                 if (c1 != c2)
-                {
+                {    
+                    if (!adjList.ContainsKey(c1)) adjList.Add(c1, new List<char>());
                     adjList[c1].Add(c2);
                     samePrefix = false;
                     break;
                 }
-                j++;
             }
 
-            // An important edge case
+            // An important edge case - if the prefixes are the same, the smaller word should ALWAYS come first.
+            // If the smaller of two matching prefixes doesnt come first, then the order is invalid.
             if (samePrefix && w1.Length > w2.Length) return "";
         }
 
         // Run topological sort and check for cycles
-        var res = new List<char>();
-        var visited = new Dictionary<char, bool>(); // false=visited, true=in current path
         bool dfs(char c)
         {
             if (visited.ContainsKey(c)) return visited[c];
-            
-            if (!visited.ContainsKey(c)) visited.Add(c, true);
-            else visited[c] = true;
+            visited.Add(c, true);
 
             foreach (char neighbor in adjList[c])
             {
                 if (dfs(neighbor)) return true;
             }
 
+            result.Add(c);
             visited[c] = false;
-            res.Add(c);
             return false;
         }
 
         // Run topolocal sort on each unvisited piece/subgraph checking for cycles
         foreach (var pair in adjList)
         {
-            if (!visited.ContainsKey(pair.Key))
-            {
-                if (dfs(pair.Key)) return "";
-            }
+            if (dfs(pair.Key)) return "";
         }
 
         // Reverse the output string
-        res.Reverse();
-        return new string(res.ToArray());
+        result.Reverse();
+        return new string(result.ToArray());
     }
 }
 
