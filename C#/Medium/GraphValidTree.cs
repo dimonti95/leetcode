@@ -1,9 +1,12 @@
-public class Solution {
+public class Solution
+{
     public bool ValidTree(int n, int[][] edges)
     {
+        var adjList = new List<List<int>>();
+        var visited = new HashSet<int>();
+
         // Build and adjacency list
-        var adjList = new Dictionary<int, List<int>>();
-        for (int i = 0; i < n; i++) adjList.Add(i, new List<int>());
+        for (int i = 0; i < n; i++) adjList.Add(new List<int>());
         foreach (int[] edge in edges)
         {
             int n1 = edge[0];
@@ -14,7 +17,6 @@ public class Solution {
             adjList[n2].Add(n1);
         }
 
-        var visited = new HashSet<int>();
         bool dfs(int node, int parent)
         {
             if (visited.Contains(node)) return false;
@@ -59,16 +61,19 @@ public class Solution {
 
 
 
-public class Solution {
+public class Solution2
+{
     public bool ValidTree(int n, int[][] edges)
     {
         // If the graph has more than n−1 edges, it must contain at least one cycle
         // If the graph has fewer than n−1 edges, it will be disconnected and not a tree
         if (edges.Length != n - 1) return false;
 
+        var visited = new HashSet<int>();
+        var adjList = new List<List<int>>();
+
         // Build adjacency list
-        var adjList = new Dictionary<int, List<int>>();
-        for (int i = 0; i < n; i++) adjList.Add(i, new List<int>());
+        for (int i = 0; i < n; i++) adjList.Add(new List<int>());
         foreach (int[] edge in edges)
         {
             int n1 = edge[0];
@@ -79,7 +84,6 @@ public class Solution {
             adjList[n2].Add(n1);
         }
 
-        var visited = new HashSet<int>();
         void dfs(int node)
         {
             if (visited.Contains(node)) return;
