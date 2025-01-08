@@ -1,4 +1,5 @@
-public class Solution {
+public class Solution
+{
     public void SetZeroes(int[][] matrix)
     {
         int nRows = matrix.Length;
