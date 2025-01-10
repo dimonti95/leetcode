@@ -126,3 +126,59 @@ public class Solution2
     Where n is the number of nodes
 
 */
+
+
+
+public class Solution3
+{
+    public bool ValidTree(int n, int[][] edges)
+    {
+        if (edges.Length != n - 1) return false;
+
+        var unionFind = new UnionFind(n);
+        foreach (int[] edge in edges)
+        {
+            int n1 = edge[0];
+            int n2 = edge[1];
+            if (!unionFind.Union(n1, n2)) return false;
+        }
+
+        return true;
+    }
+}
+
+public class UnionFind
+{
+    int[] parent;
+
+    public UnionFind(int n)
+    {
+        parent = new int[n];
+        for (int i = 0; i < n; i++) parent[i] = i;
+    }
+
+    public int Find(int n)
+    {
+        while (parent[n] != n)
+            n = parent[n];
+        return n;
+    }
+
+    public bool Union(int n1, int n2)
+    {
+        int rootOne = Find(n1);
+        int rootTwo = Find(n2);
+        if (rootOne == rootTwo) return false;
+        parent[rootOne] = rootTwo;
+        return true;
+    }
+}
+
+/*
+    
+    Union find (without union find optimizations)
+
+    Time: O(e*v)
+    Space: O(n)
+
+*/
