@@ -286,9 +286,6 @@ public class UnionFind
 
     Time explained:
     * If the number of edges is not n - 1 the function returns, so e == n - 1
-    * α(n) = amortized linear time
-    * 
-
-
-
+    * α(n) = inverse ackermann function, which in-practice is effectively O(1) (proving this is complicated and won't come up in an interview)
+    
 */  
