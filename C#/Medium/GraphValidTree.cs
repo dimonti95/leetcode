@@ -204,7 +204,7 @@ public class UnionFind
 
 
 
-public class Solution
+public class Solution4
 {
     public bool ValidTree(int n, int[][] edges)
     {
@@ -287,5 +287,5 @@ public class UnionFind
     Time explained:
     * If the number of edges is not n - 1 the function returns, so e == n - 1
     * α(n) = inverse ackermann function, which in-practice is effectively O(1) (proving this is complicated and won't come up in an interview)
-    
+
 */  
