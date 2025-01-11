@@ -178,7 +178,117 @@ public class UnionFind
     
     Union find (without union find optimizations)
 
-    Time: O(e*v)
+    Time: O(n^2) - because the function returns when e != n - 1, so e == n - 1
     Space: O(n)
 
+    ---------------------------------------------------
+
+    The parent array is initialized so that every node is a parent of itself.
+
+    Example: n=5, edges=[[0,1],[0,2],[0,3],[1,4]]
+
+    [0,1,2,3,4]
+     0 1 2 3 4
+
+    union(0,1)
+    parent=[0,0,2,3,4]
+            0 1 2 3 4
+    
+    union(0,2)
+    parent=[0,0,0,3,4]
+            0 1 2 3 4
+    
+    ... etc
+
 */
+
+
+
+public class Solution
+{
+    public bool ValidTree(int n, int[][] edges)
+    {
+        if (edges.Length != n - 1) return false;
+
+        var unionFind = new UnionFind(n);
+        foreach (int[] edge in edges)
+        {
+            int n1 = edge[0];
+            int n2 = edge[1];
+            if (!unionFind.Union(n1, n2)) return false;
+        }
+
+        return true;
+    }
+}
+
+public class UnionFind
+{
+    int[] parent;
+    int[] size;
+
+    public UnionFind(int n)
+    {
+        parent = new int[n];
+        size = new int[n];
+        for (int i = 0; i < n; i++)
+        {
+            parent[i] = i;
+            size[i] = 1;
+        }
+    }
+
+    public int Find(int n)
+    {
+        int root = n;
+        while (parent[root] != root)
+            root = parent[root];
+
+        while (parent[n] != n)
+        {
+            int temp = parent[n];
+            parent[n] = root;
+            n = temp;
+        }
+            
+        return root;
+    }
+
+    public bool Union(int n1, int n2)
+    {
+        int rootOne = Find(n1);
+        int rootTwo = Find(n2);
+        if (rootOne == rootTwo) return false;
+
+        if (size[rootOne] < size[rootTwo])
+        {
+            parent[rootOne] = rootTwo;
+            size[rootTwo] += size[rootOne];
+        }
+        else
+        {
+            parent[rootTwo] = rootOne;
+            size[rootOne] += size[rootTwo];
+        }
+        
+        return true;
+    }
+}
+
+/*
+    
+    Union find
+
+    Time: O(n*α(n))
+    Space: O(n)
+
+    Where e is the number of edges and n is the number of nodes.
+
+    Time explained:
+    * If the number of edges is not n - 1 the function returns, so e == n - 1
+    * α(n) = amortized linear time
+    * 
+
+
+
+*/  
