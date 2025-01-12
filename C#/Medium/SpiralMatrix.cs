@@ -1,4 +1,5 @@
-public class Solution {
+public class Solution
+{
     public IList<int> SpiralOrder(int[][] matrix)
     {
         int nRows = matrix.Length;
