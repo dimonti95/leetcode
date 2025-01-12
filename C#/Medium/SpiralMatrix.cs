@@ -53,7 +53,10 @@ public class Solution
 
 /*
 
-    Keep pointers at the bounds of the matrix
+    Solution:
+    * Keep pointers at the bounds of the matrix
+    * Change directions once a boundary is reached
+    * Move the boundaries towards the center of the matrix after each row/col is traversed
 
     Time: O(m*n)
     Space: O(1)
