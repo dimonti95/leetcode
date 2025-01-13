@@ -131,4 +131,19 @@ public class Solution {
     [2,5]
     [3,6]
 
+    Using an n * n example you get:
+
+    [1,2,3]
+    [4,5,6]
+    [7,8,9]
+
+    =
+
+    [1,4,7]
+    [2,5,8]
+    [3,6,9]
+
+    And from there it's obvious that you just need to swap the two columns. But this won't be enough for a bigger n * n matrix,
+    which will have more columns that need to be swapped. And that's how you can derive the rotate operation.
+
 */
