@@ -32,12 +32,13 @@ public class Solution {
 
 
 
-public class Solution {
+public class Solution2
+{
     public void Rotate(int[][] matrix)
     {
-        Transpose(matrix);
-        Reflect(matrix);
-
+        int n = matrix.Length;
+        Transpose(matrix, n);
+        Reflect(matrix, n);
     }
 
     /// <summary>
@@ -57,9 +58,9 @@ public class Solution {
     ///
     /// </summary>
     /// <param name="matrix">The matrix to be transposed.</param>
-    private void Transpose(int[][] matrix)
+    /// <param name="n">The number of rows/cols.</param>
+    private void Transpose(int[][] matrix, int n)
     {
-        int n = matrix.Length;
         for (int i = 0; i < n; i++)
         {
             for (int j = i; j < n; j++)
@@ -85,9 +86,9 @@ public class Solution {
     ///
     /// </summary>
     /// <param name="matrix">The matrix to be transposed.</param>
-    private void Reflect(int[][] matrix)
+    /// <param name="n">The number of rows/cols.</param>
+    private void Reflect(int[][] matrix, int n)
     {
-        int n = matrix.Length;
         for (int i = 0; i < n; i++)
         {
             for (int j = 0; j < n/2; j++)
@@ -101,6 +102,8 @@ public class Solution {
 }
 
 /*
+
+    Solution 2
 
     Transpose + Reflect
     
