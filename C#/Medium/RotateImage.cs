@@ -109,4 +109,26 @@ public class Solution {
 
     Where m is the number of cells in the matrix
 
+
+    ---------------------------------------------------
+
+    A good starting point is to think through common matrix operations.
+
+    Two of the most common/simple matrix operations are:
+    * Row swap = swap two rows in the matrix
+    * Col swap = swap two columns in the matrix
+
+    After giving it some thought, it's obvious that there is no way to solve this using those two operations alone, that's where transpose comes in.
+
+    Example transpose:
+
+    [1,2,3]
+    [4,5,6]
+
+    =
+
+    [1,4]
+    [2,5]
+    [3,6]
+
 */
