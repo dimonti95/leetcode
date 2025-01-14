@@ -72,3 +72,35 @@ public class Solution2
     Space: O(1)
 
 */
+
+
+
+public class Solution3
+{
+    public int HammingWeight(int n)
+    {
+        int count = 0;
+        while (n > 0)
+        {
+            count++;
+            n &= (n - 1);
+        }
+
+        return count;
+    }
+}
+
+/*
+
+    Solution 3
+
+    Flip the LSB on each iteration.
+
+    0011 0100 = n
+    0011 0011 = n - 1
+    ------------------ &
+    0011 0000
+
+    Notice that each iteration, only the LSB is removed.
+
+*/
