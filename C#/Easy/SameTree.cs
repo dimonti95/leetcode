@@ -11,8 +11,10 @@
  *     }
  * }
  */
-public class Solution {
-    public bool IsSameTree(TreeNode p, TreeNode q) {
+public class Solution
+{
+    public bool IsSameTree(TreeNode p, TreeNode q)
+    {
         
         if (p == null && q == null) return true;
         if (p == null && q != null) return false;
@@ -53,8 +55,10 @@ public class Solution {
  *     }
  * }
  */
-public class Solution {
-    public bool IsSameTree(TreeNode p, TreeNode q) {
+public class Solution
+{
+    public bool IsSameTree(TreeNode p, TreeNode q)
+    {
         
         if (p == null && q == null) return true;
         if (p == null || q == null) return false;

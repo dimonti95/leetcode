@@ -1,5 +1,7 @@
-public class Solution {
-    public bool IsAnagram(string s, string t) {
+public class Solution
+{
+    public bool IsAnagram(string s, string t)
+    {
         var count = new Dictionary<char, int>();
 
         // confirm both strings are the same length

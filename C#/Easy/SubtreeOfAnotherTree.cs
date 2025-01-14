@@ -11,7 +11,8 @@
  *     }
  * }
  */
-public class Solution {
+public class Solution
+{
     public bool IsSubtree(TreeNode root, TreeNode subRoot)
     {
         if (root == null) return false;

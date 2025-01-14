@@ -1,5 +1,7 @@
-public class Solution {
-    public bool IsPalindrome(string s) {
+public class Solution
+{
+    public bool IsPalindrome(string s)
+    {
         int left = 0;
         int right = s.Length - 1;
 

@@ -9,8 +9,10 @@
  *     }
  * }
  */
-public class Solution {
-    public bool HasCycle(ListNode head) {
+public class Solution
+{
+    public bool HasCycle(ListNode head)
+    {
         
         ListNode slow = head;
         ListNode fast = head;
@@ -64,8 +66,10 @@ public class Solution {
  *     }
  * }
  */
-public class Solution {
-    public bool HasCycle(ListNode head) {
+public class Solution
+{
+    public bool HasCycle(ListNode head)
+    {
         if (head == null || head.next == null) return false;
         return HasCycleRecursive(head.next, head.next.next);
     }
