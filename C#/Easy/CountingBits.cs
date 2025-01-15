@@ -11,7 +11,6 @@ public class Solution1
         return result;
     }
 
-    // This can be said to be O(logn) since this number is being divided by 2
     private int Count(int n)
     {
         int result = 0;
@@ -31,7 +30,7 @@ public class Solution1
     
     Count the number of bits in each number from 0 to n.
 
-    Time: O(nlogn)
+    Time: O(n) - in practice it's worse, since there's a multipliciative constant
     Space: O(1)
 
     Note: The number of iterations of the inner while loop will never exceed 32 (int is a 32-bit number in C#).
