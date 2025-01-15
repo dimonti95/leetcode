@@ -35,8 +35,6 @@ public class Solution1
 
     Note: The number of iterations of the inner while loop will never exceed 32 (int is a 32-bit number in C#).
 
-    But, expressed in terms of n, it runs in O(logn) time.
-
 */
 
 
