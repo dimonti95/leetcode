@@ -160,4 +160,12 @@ public class Solution4
 
     This works because, the binary representation of each 0 to n value, is the same as the previous + 1 (if you only add 1 on top of the number of "overlapping" bits).
 
+    Example: n = 43
+
+    0010 1011 = 43  (0010 1011 & 0010 1010 = 42)
+    0010 1010 = 42  (0010 1010 & 0010 1001 = 40)
+    0010 1000 = 40  (0010 1000 & 0010 0111 = 32)
+    0010 0000 = 32  (0010 0000 & 0001 1111 = 0)
+    0000 0000 = 0
+
 */
