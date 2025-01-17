@@ -33,7 +33,7 @@ public class Solution : VersionControl
 
     ---------------------------------------------------
 
-    Note: 1 <= n <= 2^31 - 1
+    Key insight: 1 <= n <= 2^31 - 1
 
     This means that finding the middle value by doing (left + right) / 2 can lead to overflow.
 
