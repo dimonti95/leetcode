@@ -43,4 +43,9 @@ public class Solution : VersionControl
 
     Overflow happens when the result of an arithmetic operation exceeds the range that can be represented by the data type being used.
 
+    An example of overflow:
+    int left = Integer.MAX_VALUE - 1;
+    int right = Integer.MAX_VALUE;
+    int mid = (left + right) / 2; // Overflow happens here
+
 */
