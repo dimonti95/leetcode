@@ -2,6 +2,33 @@ public class Solution
 {
     public int GetSum(int a, int b)
     {
+        if (b == 0) return a;
+        return GetSum(a ^ b, (a & b) << 1);
+    }
+}
+
+/*
+
+    Recursion
+
+    Time: O(1) - since the integer is 32-bits
+    Space: O(1) - since the integer is 32-bits
+
+    --------------------------------------------------
+
+    This solution takes advantage of the fact that the problem can be broken down into sub-problems:
+    * The base-case is when b is 0, in which case the answer will always be the value of a
+    * The value of b will always go to zero, once there's no longer a carry bit
+    * This works for both positive and negative numbers because C# represents negative numbers with two's complement
+
+*/
+
+
+
+public class Solution2
+{
+    public int GetSum(int a, int b)
+    {
         while (b != 0)
         {
             int carry = a & b;  // Calculate carry (AND)
@@ -13,6 +40,8 @@ public class Solution
 }
 
 /*
+
+    Iterative
 
     Time: O(1) - since an integer is 32 bits
     Space: O(1) - since we're not using any additional data structures
