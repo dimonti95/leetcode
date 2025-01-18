@@ -2,7 +2,8 @@ public class Solution
 {
     public int GetSum(int a, int b)
     {
-        while (b != 0) {
+        while (b != 0)
+        {
             int carry = a & b;  // Calculate carry (AND)
             a = a ^ b;          // Sum without carry (XOR)
             b = carry << 1;     // Shift carry left by 1
