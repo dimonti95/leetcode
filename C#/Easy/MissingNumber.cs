@@ -160,3 +160,26 @@ public class Solution4
     Space: O(1)
 
 */
+
+
+
+public class Solution5
+{
+    public int MissingNumber(int[] nums)
+    {
+        int n = nums.Length;
+        int result = 0;
+        for (int i = 1; i <= n; i++)
+        {
+            result += i - nums[i - 1];
+        }
+
+        return result;
+    }
+}
+
+/*
+
+    Another way of implementing solution 4.
+
+*/
