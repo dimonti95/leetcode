@@ -180,6 +180,6 @@ public class Solution5
 
 /*
 
-    Another way of implementing solution 4.
+    Another way of implementing solution 4 (i.e. taking advantage of the fact that expectedSum - sum gives the missing number).
 
 */
