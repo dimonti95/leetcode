@@ -31,10 +31,12 @@ public class Solution2
     {
         while (b != 0)
         {
-            int carry = a & b;  // Calculate carry (AND)
-            a = a ^ b;          // Sum without carry (XOR)
-            b = carry << 1;     // Shift carry left by 1
+            int answer = a ^ b;
+            int carry = (a & b) << 1;
+            a = answer;
+            b = carry;
         }
+
         return a;
     }
 }
