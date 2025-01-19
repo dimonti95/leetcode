@@ -36,6 +36,11 @@ public class Solution
 
     Explanation
 
-    Easily keep track of the carry bit by incrementing it (from zero) for each 1 bit found.
+    The most obvious solution would be to convert the numbers to integers, add them, then convert back to a string. But,
+    the input string can be as long as 10^4, which is much bigger than the number of bits in an integer (32), or long (64).
+
+    This leaves two options:
+    1. Use BigInteger rather than other integral types (byte, int, long, etc).
+    2. Do the math without converting the input strings to an integral type (implemented above).
 
 */
