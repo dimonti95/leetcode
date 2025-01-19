@@ -42,4 +42,10 @@ public class Solution
     Time: O(n)
     Space: O(n) - because in the worst-case the tree is skewed (so the height of the tree would be n)
 
+    ----------------------------------------------------------------
+
+    Follow-up question: Can you print the path of the diameter?
+    * Rather than returning the max depth of each subtree, return the nodes in each subtree
+    * Leaf nodes return an array with a single node (itself)
+
 */
