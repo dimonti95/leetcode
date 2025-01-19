@@ -32,4 +32,10 @@ public class Solution
 
     Where n is the length of a and m is the length of b
 
+    ------------------------------------------------------------------------
+
+    Explanation
+
+    Easily keep track of the carry bit by incrementing it (from zero) for each 1 bit found.
+
 */
