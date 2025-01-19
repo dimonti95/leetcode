@@ -36,3 +36,45 @@ public class Solution
 
 */
 
+
+
+public class Solution2
+{
+    public int MajorityElement(int[] nums)
+    {
+        int current = 0;
+        int count = 0;
+        foreach (int num in nums)
+        {
+            if (count == 0)
+            {
+                current = num;
+            }
+
+            count += (num == current) ? 1 : -1;
+        }
+
+        return current;
+    }
+}
+
+/*
+
+    Boyer-Moore Voting Algorithm
+
+    Time: O(n)
+    Space: O(1)
+
+    -------------------------------------------------
+
+    Example: [2,2,1,1,1,2,2]
+
+    0: 2    count = 1, current = 2
+    1: 2    count = 2, current = 2
+    2: 1    count = 1, current = 2
+    3: 1    count = 0, current = 2
+    4: 1    count = 1, current = 1
+    5: 2    count = 0, current = 1
+    6: 2    count = 1, current = 2
+    
+*/
