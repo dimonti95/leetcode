@@ -35,3 +35,4 @@ public class Solution
     For each number in nums, count the occurrence of each bit, if it's greater than n/2, then it should be set in the result.
 
 */
+
