@@ -59,7 +59,7 @@ public class Solution
     }
 }
 
-public class Cell
+public struct Cell
 {
     public int Row;
     public int Col;
