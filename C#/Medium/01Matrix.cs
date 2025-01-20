@@ -91,4 +91,10 @@ public struct Cell
 
     Where m is the number of row and n is the number of cells
 
+    --------------------------------------------------------------------------------
+
+    Key insights:
+    1. Starting from 1 will only find the shortest distance for that one, but starting from zero can find the shortest distance for many 1's
+    2. Starting from all 0's at the same time, this way we only need to vist each cell once
+
 */
