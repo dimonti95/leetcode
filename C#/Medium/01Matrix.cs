@@ -124,7 +124,7 @@ public class Solution2
             {
                 if (dp[r][c] == 0) continue;
 
-                int min = nRows * nCols;
+                int min = nRows + nCols;
                 if (r > 0) min = Math.Min(min, dp[r - 1][c]);
                 if (c > 0) min = Math.Min(min, dp[r][c - 1]);
                 
@@ -138,7 +138,7 @@ public class Solution2
             {
                 if (dp[r][c] == 0) continue;
 
-                int min = nRows * nCols;
+                int min = nRows + nCols;
                 if (r < nRows - 1) min = Math.Min(min, dp[r + 1][c]);
                 if (c < nCols - 1) min = Math.Min(min, dp[r][c + 1]);
                 
@@ -148,7 +148,6 @@ public class Solution2
         
         return dp;
     }  
-
 }
 
 /*
@@ -157,5 +156,14 @@ public class Solution2
 
     Time: O(m * n)
     Space: O(m * n)
+
+    ------------------------------------------------------
+
+    Explanation
+
+    At any given cell at some row r and some column c, the minimum distance to the nearest zero is 
+    min(dp[r + 1][c], dp[r - 1][c], dp[r][c + 1], dp[r][c - 1]).
+
+    The issue is that those neighboring cells may not have been calculated yet.
 
 */
