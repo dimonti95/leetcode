@@ -164,6 +164,10 @@ public class Solution2
     At any given cell at some row r and some column c, the minimum distance to the nearest zero is 
     min(dp[r + 1][c], dp[r - 1][c], dp[r][c + 1], dp[r][c - 1]).
 
-    The issue is that those neighboring cells may not have been calculated yet.
+    The issue is that those neighboring cells may not have been calculated yet. For this reason, there needs to be two passes:
+    1. One to calculate the min distance from moving right & down in the matrix -> min(dp[])
+    2. One to calculate the min distance from moving left & up in the matrix
+
+
 
 */
