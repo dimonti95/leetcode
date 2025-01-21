@@ -98,3 +98,64 @@ public struct Cell
     2. Starting from all 0's at the same time, this way we only need to vist each cell once
 
 */
+
+
+
+public class Solution2
+{
+    public int[][] UpdateMatrix(int[][] mat)
+    {
+        int nRows = mat.Length;
+        int nCols = mat[0].Length;
+        var dp = new int[nRows][];
+        for (int i = 0; i < nRows; i++) dp[i] = new int[nCols];
+
+        for (int r = 0; r < nRows; r++)
+        {
+            for (int c = 0; c < nCols; c++)
+            {
+                dp[r][c] = mat[r][c];
+            }
+        }
+
+        for (int r = 0; r < nRows; r++)
+        {
+            for (int c = 0; c < nCols; c++)
+            {
+                if (dp[r][c] == 0) continue;
+
+                int min = nRows * nCols;
+                if (r > 0) min = Math.Min(min, dp[r - 1][c]);
+                if (c > 0) min = Math.Min(min, dp[r][c - 1]);
+                
+                dp[r][c] = min + 1;
+            }
+        }
+
+        for (int r = nRows - 1; r >= 0; r--)
+        {
+            for (int c = nCols - 1; c >= 0; c--)
+            {
+                if (dp[r][c] == 0) continue;
+
+                int min = nRows * nCols;
+                if (r < nRows - 1) min = Math.Min(min, dp[r + 1][c]);
+                if (c < nCols - 1) min = Math.Min(min, dp[r][c + 1]);
+                
+                dp[r][c] = Math.Min(dp[r][c], min + 1);
+            }
+        }
+        
+        return dp;
+    }  
+
+}
+
+/*
+
+    Bottom-up DP
+
+    Time: O(m * n)
+    Space: O(m * n)
+
+*/
