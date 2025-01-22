@@ -2,30 +2,33 @@ public class Solution
 {
     public bool CanJump(int[] nums)
     {
-        var memo = new Dictionary<int, bool>();
-
-        bool CanJump(int num)
+        var memo = new bool?[nums.Length + 1];
+        bool dp(int[] nums, int index)
         {
-            if (num == nums.Length - 1) return true;
-            if (num >= nums.Length) return false;
-            if (memo.ContainsKey(num)) return memo[num];
+            if (index == nums.Length - 1) return true;
+            if (memo[index] != null) return memo[index].Value;
 
-            for (int jump = 1; jump <= nums[num]; jump++)
+            // It's unecessary to jump past the last index, so make sure the 
+            // max jump does not extend past the last index of nums
+            int maxJump = Math.Min(nums[index] + 1, nums.Length - index);
+
+            for (int jump = 1; jump < maxJump; jump++)
             {
-                if(CanJump(num + jump))
+                if (dp(nums, index + jump))
                 {
-                    memo[num] = true;
-                    return memo[num];
+                    memo[index] = true;
+                    return memo[index].Value;
                 }
             }
 
-            memo[num] = false;
-            return memo[num];
+            memo[index] = false;
+            return memo[index].Value;
         }
 
-        return CanJump(0);
+        return dp(nums, 0);
     }
 }
+
 /*
 
     Brute force solution (non-memoized)
