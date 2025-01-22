@@ -8,7 +8,7 @@ public class Solution
             if (index == nums.Length - 1) return true;
             if (memo[index] != null) return memo[index].Value;
 
-            // It's unecessary to jump past the last index
+            // Optimization: It's unecessary to jump past the last index
             int maxJump = Math.Min(nums[index] + 1, nums.Length - index);
 
             for (int jump = 1; jump < maxJump; jump++)
