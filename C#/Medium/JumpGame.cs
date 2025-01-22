@@ -58,8 +58,7 @@ public class Solution2
 
         for (int i = nums.Length - 2; i >= 0; i--)
         {
-            int distance = last - i;
-            if (nums[i] >= distance) last = i;
+            if (i + nums[i] >= last) last = i;
         }
 
         return last == 0;
