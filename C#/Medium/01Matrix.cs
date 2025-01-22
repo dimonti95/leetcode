@@ -165,9 +165,21 @@ public class Solution2
     min(dp[r + 1][c], dp[r - 1][c], dp[r][c + 1], dp[r][c - 1]).
 
     The issue is that those neighboring cells may not have been calculated yet. For this reason, there needs to be two passes:
-    1. One to calculate the min distance from moving right & down in the matrix -> min(dp[])
-    2. One to calculate the min distance from moving left & up in the matrix
+    1. One to calculate the min distance from moving right & down in the matrix: min(dp[r - 1][c], dp[r][c - 1]) + 1
+    2. One to calculate the min distance from moving left & up in the matrix: min(dp[r + 1][c], dp[r][c + 1]) + 1
 
+    The proof...
 
+    Assume a 2x2 matrix:  [a,b]
+                          [c,d]
+
+    Starting from cell a, there are two possibilties when calculating the min distance when moving right & down:
+    1. a is 0
+    1. a is 1
+
+    If a is 0, then the value for the min distance for the entire matrix can be calculated on the first pass.
+
+    If a is 1, then it must be the case that b, c, or d are 0, because the problem description says that there must be at least one zero. This means
+    that we know the min distance for d, and using the min-distance for d, we can calculate the min distance for b and c, (and then eventually a) on the second pass.
 
 */
