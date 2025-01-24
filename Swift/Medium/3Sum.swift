@@ -57,7 +57,7 @@ class Solution2 {
         var result: Set<[Int]> = []
         
         for i in 0..<nums.count {
-            let target = nums[i] * -1
+            let target = -nums[i]
             var seen: Set<Int> = []
             for z in i + 1..<nums.count {
                 let diff = target - nums[z]
