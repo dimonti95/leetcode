@@ -33,6 +33,10 @@ class Solution {
 
 /*
 
+    Solution:
+    * Sort the input array
+    * Run a two-pointer find for two numbers that make the sum 0
+
     Time: O(n^2)
     Space: O(n) or O(logn) depending on the sorting algorithm
 
