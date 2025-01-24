@@ -49,3 +49,42 @@ class Solution {
     required by the sorting algorithm - which is either O(logn) or O(n) depending on the implementation.
 
 */
+
+
+
+class Solution2 {
+    func threeSum(_ nums: [Int]) -> [[Int]] {
+        var result: Set<[Int]> = []
+        
+        for i in 0..<nums.count {
+            let target = nums[i] * -1
+            var seen: Set<Int> = []
+            for z in i + 1..<nums.count {
+                let diff = target - nums[z]
+                if seen.contains(diff) {
+                    var sum: [Int] = [nums[i], nums[z], diff]
+                    sum.sort()
+                    result.insert(sum)
+                }
+                seen.insert(nums[z])
+            }
+        }
+        
+        return Array(result)
+    }
+}
+
+/*
+
+    Follow-up question: What if you cannot sort the input array?
+
+    Solution:
+    * Use a set to avoid adding duplicate triplets
+    * Use another set to check if the target exists (Two Sum)
+
+    Time: O(n^2)
+    Space: O(n)
+
+    Note: Solution 1 is optimial, this is just a solution for the follow-up question
+
+*/
