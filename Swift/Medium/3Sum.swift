@@ -57,6 +57,8 @@ class Solution2 {
         var result: Set<[Int]> = []
         
         for i in 0..<nums.count {
+            if i > 0 && nums[i] == nums[i - 1] { continue } // optimization for inputs with many duplicates (not needed to pass test cases)
+
             let target = -nums[i]
             var seen: Set<Int> = []
             for z in i + 1..<nums.count {
