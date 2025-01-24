@@ -40,6 +40,12 @@ class Solution {
     Time: O(n^2)
     Space: O(n) or O(logn) depending on the sorting algorithm
 
-    Note: Ignoring the output array for the purpose of complexity analysis
+    --------------------------------------------------------------------
+
+    Space complexity explained
+
+    The array cannot be sorted in place. This is because Swift function parameters are immutable by default.
+    Because of this, this function uses O(n) space, but in most languages it would only use the amount of space
+    required by the sorting algorithm - which is either O(logn) or O(n) depending on the implementation.
 
 */
