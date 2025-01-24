@@ -1,7 +1,7 @@
 class Solution {
     func threeSum(_ nums: [Int]) -> [[Int]] {
         var result: [[Int]] = []
-        let nums = nums.sorted()
+        let nums = nums.sorted() // because Swift parameters are constants by default
 
         for i in 0..<nums.count {
             var left = i + 1
