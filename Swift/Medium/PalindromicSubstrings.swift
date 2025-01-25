@@ -27,7 +27,7 @@ class Solution {
 /*
 
     Brute force
-    Time: O(n)
+    Time: O(n^2)
     Space: O(n) - because the string needs to be converted to an array
 
 */
