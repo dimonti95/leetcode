@@ -50,6 +50,9 @@ class Codec {
     Time: O(n)
     Space: O(n)
 
+    decode
+    Time: O(n)
+    Space: O(1) assuming the output array does not count as extra space
 
     Where n is the total number of characters across all strings
 
