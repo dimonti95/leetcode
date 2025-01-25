@@ -72,6 +72,6 @@ class Codec {
     * "O(1) if the collection conforms to RandomAccessCollection; otherwise, O(k), where k is the absolute value of the offset."
     * "RandomAccessCollection is a Swift protocol that indicates the collection supports efficient random-access index traversal"
     
-    Note: The String type does not currently conform to RandomAccessCollection
+    Note: The String type does not currently conform to RandomAccessCollection, but Array does.
 
 */
