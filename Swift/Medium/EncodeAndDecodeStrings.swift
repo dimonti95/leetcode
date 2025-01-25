@@ -16,7 +16,6 @@ class Codec {
     // s.startIndex is an O(1) operation
     // s.endIndex is an O(1) operation
     // Range operations like s[currentIndex...] are an O(1) operation
-    // 
     func decode(_ s: String) -> [String] {
         var result = [String]()
         var currentIndex = s.startIndex
