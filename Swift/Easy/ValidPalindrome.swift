@@ -10,7 +10,7 @@ class Solution {
             right -= 1
         }
 
-        return true;
+        return true
     }
 }
 
