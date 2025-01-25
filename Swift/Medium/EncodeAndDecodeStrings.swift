@@ -11,19 +11,34 @@ class Codec {
 
         return result
     }
-    
+
+    // Notes:
+    // s.startIndex is an O(1) operation
+    // s.endIndex is an O(1) operation
+    // Range operations like s[currentIndex...] are an O(1) operation
+    // 
     func decode(_ s: String) -> [String] {
         var result = [String]()
-        var i = s.startIndex // O(1)
-        let count = s.endIndex // O(1)
-        while i < count {
-            if let j = s[i...].firstIndex(of: "#") { // O(k) - where k is the length of the substring
-                let len = Int(s[i..<j])! // O(k) - where k is the length of the substring
-                let j = s.index(j, offsetBy: 1) // O(1) - since the offset is 1
-                let endIndex = s.index(j, offsetBy: len) // O(k) - where k is the length of the offset
-                result.append(String(s[j..<endIndex])) // O(k) - where k is the length of the substring
-                i = s.index(j, offsetBy: len) // O(k) - where k is the length of the offset
+        var currentIndex = s.startIndex
+        while currentIndex < s.endIndex {
+            guard let hashIndex = s[currentIndex...].firstIndex(of: "#") else { // O(k) - where k is the length of the substring
+                break // No more data to decode
             }
+        
+            // Extract the length of the next string
+            // O(k) - where k is the length of the substring
+            let length = Int(s[currentIndex..<hashIndex])!
+        
+            // Move to the start of the actual string
+            let stringStartIndex = s.index(after: hashIndex) // O(k) - where k is the length of the offset
+            let stringEndIndex = s.index(stringStartIndex, offsetBy: length) // O(k) - where k is the length of the substring
+        
+            // Append the decoded string
+             // O(k) - where k is the length of the substring
+            result.append(String(s[stringStartIndex..<stringEndIndex]))
+        
+            // Move the current index to the next segment
+            currentIndex = stringEndIndex
         }
 
         return result
