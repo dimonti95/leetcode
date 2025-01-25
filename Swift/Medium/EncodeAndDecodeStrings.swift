@@ -57,15 +57,21 @@ class Codec {
 
     Runtime analysis:
 
-    Using startIndex and endIndex
+    Using startIndex and endIndex - from the Swift docs on Collection protocol:
     * "Types that conform to Collection are expected to provide the startIndex and endIndex properties and subscript access to elements as O(1) operations."
     * "Types that are not able to guarantee this performance must document the departure, because many collection operations depend on O(1) subscripting performance for their own performance guarantees."
 
-    In Swift, String conforms to the collection protocol.
+    In Swift, String conforms to the Collection protocol.
 
     Using substring and firstIndex
     * s[i...] is an O(1) operation because the substring is not copied
     * .firstIndex(of: "#") is an O(k) operation where k is the size of the substring (s.count - i), this will be O(n) in the worst case
     * This is because the string needs to be iterated over to find the index of "#"
+
+    Using .index() - from the Swift docs on the Collection protocol:
+    * "O(1) if the collection conforms to RandomAccessCollection; otherwise, O(k), where k is the absolute value of the offset."
+    * "RandomAccessCollection is a Swift protocol that indicates the collection supports efficient random-access index traversal"
+    
+    Note: The String type does not currently conform to RandomAccessCollection
 
 */
