@@ -51,7 +51,7 @@ class Solution {
 
 
 
-class Solution {
+class Solution2 {
     func validTree(_ n: Int, _ edges: [[Int]]) -> Bool {
         if edges.count != n - 1 { return false }
         
