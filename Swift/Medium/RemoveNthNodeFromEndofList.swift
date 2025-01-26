@@ -14,7 +14,7 @@ class Solution {
         var temp: ListNode? = ListNode(0, head)
         var current = temp
         while current != nil && n > 0 {
-            current = current?.next
+            current = current?.next // optional chaining
             n -= 1
         }
 
