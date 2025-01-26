@@ -48,3 +48,50 @@ class Solution {
     Space: O(v + e)
 
 */
+
+
+
+class Solution {
+    func validTree(_ n: Int, _ edges: [[Int]]) -> Bool {
+        if edges.count != n - 1 { return false }
+        
+        var adjList = [Int: [Int]]()
+        for edge in edges {
+            let n1 = edge[0]
+            let n2 = edge[1]
+            adjList[n1, default: []].append(n2)
+            adjList[n2, default: []].append(n1)
+        }
+
+        var visited = Set<Int>()
+        func dfs(_ node: Int) {
+            if visited.contains(node) { return }
+            visited.insert(node)
+
+            if let neighbors = adjList[node] {
+                for neighbor in neighbors {
+                    dfs(neighbor)
+                }
+            }
+        }
+
+        dfs(0)
+        return visited.count == n
+    }
+}
+
+/*
+
+    A graph is a valid tree if
+    1. It does not contain cycles
+    2. It is connected
+    3. It has exactly n - 1 edges
+
+    --------------------------------------------------------------------------------------
+
+    Solution 2: Use properties 2 and 3 to determine whether the tree is a graph using DFS
+    
+    Time: O(v + e)
+    Space: O(v + e)
+
+*/
