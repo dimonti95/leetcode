@@ -14,8 +14,8 @@ class Solution {
         var current = pointer
         var list1 = list1
         var list2 = list2
-        while list1 != nil && list2 != nil {
-            if list1!.val < list2!.val {
+        while let l1 = list1, let l2 = list2 {
+            if l1.val < l2.val {
                 current?.next = list1
                 list1 = list1?.next
             }
