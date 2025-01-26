@@ -34,9 +34,9 @@ class Solution {
 
 /*
 
-    Time: O(n)
+    Time: O(n + m)
     Space: O(1)
 
-    Where n is the total number of nodes across each list
+    Where n is the number of nodes in list1 and m is the number of nodes in list2
 
 */
