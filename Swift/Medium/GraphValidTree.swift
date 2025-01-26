@@ -95,3 +95,56 @@ class Solution2 {
     Space: O(v + e)
 
 */
+
+
+
+class Solution {
+    func validTree(_ n: Int, _ edges: [[Int]]) -> Bool {
+        if edges.count != n - 1 { return false }
+        
+        var unionFind = UnionFind(n: n)
+        for edge in edges {
+            let n1 = edge[0]
+            let n2 = edge[1]
+            if unionFind.union(n1, n2) { return false }
+        }
+
+        return true
+    }
+}
+
+class UnionFind {
+
+    var parent: [Int]
+
+    init(n: Int) {
+        self.parent = Array(0..<n)
+    }
+
+    func find(_ n: Int) -> Int {
+        var n = n
+        while n != parent[n] {
+            n = parent[n]
+        }
+
+        return n
+    }
+
+    func union(_ n1: Int, _ n2: Int) -> Bool {
+        var parent1 = find(n1)
+        var parent2 = find(n2)
+
+        if parent1 == parent2 { return true }
+        parent[parent1] = parent2
+
+        return false
+    }   
+}
+
+/*
+
+    Solution 3: Use properties 2 and 3, check property 2 using union find rather than graph traversal
+
+    Note: This is Union Find without the Path Compression optimization
+
+*/
