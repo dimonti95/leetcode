@@ -30,4 +30,10 @@ class Solution {
     
     Where s is the length of the input array and t is the average length of each string
 
+    ---------------------------------------------------------------------------------
+
+    There's two main ways to create the groupings:
+    1. Map each sorted string to a group (the big O is O(s*tlogt))
+    2. Map each count to a group (the big O is O(s*t))
+
 */
