@@ -7,18 +7,18 @@ class Solution {
         let nCols = image[0].count
         let oldColor = image[sr][sc]
 
-        func fill(_ row: Int, _ col: Int, _ color: Int) {
+        func performFloodFill(_ row: Int, _ col: Int) {
             if (row < 0 || col < 0 || row >= nRows || col >= nCols) { return }
             if (image[row][col] != oldColor) { return }
             
             image[row][col] = color
-            fill(row + 1, col, color)
-            fill(row - 1, col, color)
-            fill(row, col + 1, color)
-            fill(row, col - 1, color)
+            performFloodFill(row + 1, col)
+            performFloodFill(row - 1, col)
+            performFloodFill(row, col + 1)
+            performFloodFill(row, col - 1)
         }
 
-        fill(sr, sc, color)
+        performFloodFill(sr, sc)
         return image
     }
 }
