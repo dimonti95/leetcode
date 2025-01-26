@@ -14,9 +14,7 @@ class Solution {
         }
 
         for (key, val) in groups {
-            if let value = groups[key] {
-                result.append(value)   
-            }
+            result.append(val)
         }
 
         return result
