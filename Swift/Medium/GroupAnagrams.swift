@@ -1,6 +1,6 @@
 class Solution {
     func groupAnagrams(_ strs: [String]) -> [[String]] {
-        var groups = [Array<Int>: [String]]()
+        var groups = [[Int]: [String]]()
         var result = [[String]]()
 
         for str in strs {
