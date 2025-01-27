@@ -68,5 +68,6 @@ class Solution {
     * It's not possible to get the distance between two String.Index values in O(1) time
     * This is the reason for tracking the int of the index separate from the String.Index
     * Another option would be to convert s into a [String], but this would cost O(s) space
+    * There is a s.distance(from: left, to: right) method, but it runs in O(n) time
 
 */
