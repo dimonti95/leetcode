@@ -215,4 +215,9 @@ class UnionFind {
 
     Optimized Union find (path compression + size tracking)
 
+    Time: O(n*α(n))
+    Space: O(n)
+
+    Note: In practice, α(n) is effectively O(1), although in theory is can grow larger
+
 */
