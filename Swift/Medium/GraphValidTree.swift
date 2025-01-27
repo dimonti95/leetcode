@@ -98,7 +98,7 @@ class Solution2 {
 
 
 
-class Solution {
+class Solution3 {
     func validTree(_ n: Int, _ edges: [[Int]]) -> Bool {
         if edges.count != n - 1 { return false }
         
@@ -146,5 +146,73 @@ class UnionFind {
     Solution 3: Use properties 2 and 3, check property 2 using union find rather than graph traversal
 
     Note: This is Union Find without the Path Compression optimization
+
+*/
+
+
+
+class Solution4 {
+    func validTree(_ n: Int, _ edges: [[Int]]) -> Bool {
+        if edges.count != n - 1 { return false }
+        
+        var unionFind = UnionFind(n: n)
+        for edge in edges {
+            let n1 = edge[0]
+            let n2 = edge[1]
+            if unionFind.union(n1, n2) { return false }
+        }
+
+        return true
+    }
+}
+
+class UnionFind {
+
+    var parent: [Int]
+    var size: [Int]
+
+    init(n: Int) {
+        self.parent = Array(0..<n)
+        self.size = Array(repeating: 1, count: n)
+    }
+
+    func find(_ n: Int) -> Int {
+        var root = n
+        while root != parent[root] {
+            root = parent[root]
+        }
+
+        var n = n
+        while n != parent[n] {
+            let temp = parent[n]
+            parent[n] = root
+            n = temp
+        }
+
+        return n
+    }
+
+    func union(_ n1: Int, _ n2: Int) -> Bool {
+        var parent1 = find(n1)
+        var parent2 = find(n2)
+
+        if parent1 == parent2 { return true }
+
+        if size[parent1] < size[parent2] {
+            parent[parent1] = parent2
+            size[parent2] += size[parent1]
+        }
+        else {
+            parent[parent2] = parent1
+            size[parent1] += size[parent2]
+        }
+
+        return false
+    }   
+}
+
+/*
+
+    Optimized Union find (path compression + size tracking)
 
 */
